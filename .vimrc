@@ -1,73 +1,170 @@
+"{Environment
+  "Identify platform {
+  silent function! OSX()
+    return has('macunix')
+  endfunction
+  silent function! LINUX()
+    return has('unix') || !has('mauix') && !has('win32unix')
+  endfunction
+  silent function! WINDOWS()
+    return (has('win32') || has('win64'))
+  endfunction
+  "}
+"}
+
 "{vundle setup
   set nocompatible
   filetype off
   set rtp+=~/.vim/bundle/Vundle.vim
   "vim-go | go settings `go get -u github.com/golang/lint`
-  set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+  "set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
   call vundle#begin()
   "{plugins
     Plugin 'gmarik/Vundle.vim'
     Plugin 'FelikZ/ctrlp-py-matcher'
     Plugin 'Raimondi/delimitMate'
-    Plugin 'Shougo/neocomplete.vim'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'Shougo/vimproc.vim'
-    Plugin 'Shougo/deoplete.nvim'
     Plugin 'Valloric/MatchTagAlways'
-    Plugin 'Xuyuanp/nerdtree-git-plugin'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'bling/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'bufexplorer.zip'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'dhruvasagar/vim-vinegar'
     Plugin 'docunext/closetag.vim'
     Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'einars/js-beautify'
     Plugin 'godlygeek/tabular'
-    Plugin 'groenewege/vim-less'
-    Plugin 'itchyny/calendar.vim'
     Plugin 'jaxbot/semantic-highlight.vim'
-    Plugin 'jaxbot/syntastic-react'
     Plugin 'kshenoy/vim-signature'
-    Plugin 'juneedahamed/svnj.vim'
     Plugin 'maksimr/vim-jsbeautify'
-    Plugin 'marijnh/tern_for_vim'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'mattn/emmet-vim'
     Plugin 'mhinz/vim-startify'
-    Plugin 'michalliu/jsruntime.vim'
-    Plugin 'michalliu/sourcebeautify.vim'
-    Plugin 'mileszs/ack.vim'
     Plugin 'moll/vim-node'
     Plugin 'mxw/vim-jsx'
     Plugin 'noscripter/tabman.vim'
-    Plugin 'othree/javascript-libraries-syntax.vim'
-    Plugin 'rking/ag.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'scrooloose/syntastic'
-    Plugin 'myint/syntastic-extras'
-    Plugin 'sheerun/vim-polyglot'
     Plugin 'tomtom/tcomment_vim'
-    Plugin 'tpope/vim-endwise'
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
-    Plugin 'vim-scripts/matchit.zip'
-    Plugin 'NLKNguyen/papercolor-theme'
-    Plugin 'fatih/vim-go'
     Plugin 'Yggdroot/indentLine'
-    Plugin 'Shougo/vimshell.vim'
-    Plugin 'xolox/vim-shell'
-    Plugin 'xolox/vim-easytags'
-    Plugin 'xolox/vim-misc'
-    Plugin 'vim-scripts/Conque-Shell'
-    Plugin 'edkolev/promptline.vim'
-    Plugin 'sjl/clam.vim'
-    Plugin 'ervandew/screen'
-    Plugin 'idbrii/AsyncCommand'
-    Plugin 'sjl/gundo.vim'
-    Plugin 'mattn/webapi-vim'
+    Plugin 'NLKNguyen/papercolor-theme'
+    Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'mileszs/ack.vim'
+    Plugin 'rking/ag.vim'
+    Plugin 'bufexplorer.zip'
+    Plugin 'itchyny/calendar.vim'
+    Plugin 'ryanss/vim-hackernews'
+    """"""""""""""""""""""""
+    "Plugin 'tmhedberg/SimpylFold' " TODO
+    "Plugin 'vim-scripts/indentpython.vim' " TODO
+    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'juvenn/mustache.vim'
+    Plugin 'nono/vim-handlebars'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'klen/python-mode'
+    Plugin 'vim-scripts/taglist.vim'
+    Plugin 'vim-scripts/winmanager'
+    "Plugin 'nvie/vim-flake8'
+    "Plugin 'jistr/vim-nerdtree-tabs'
+    Plugin 'OmniCppComplete'
+    "Plugin 'ghewgill/vim-scmdiff'
+    Plugin 'marijnh/tern_for_vim'
+    "Plugin 'dyng/ctrlsf.vim'
+    Plugin 'tpope/vim-dispatch'
+    "Plugin 'wincent/ferret'
+    "Plugin 'Shougo/vimproc.vim'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'vim-ruby/vim-ruby'
+    Plugin 'vim-scripts/mark'
+    Plugin 'vim-scripts/matchit.zip'
+    Plugin 'vim-scripts/Align'
+    Plugin 'vim-scripts/greplace.vim'
+    Plugin 'vim-scripts/a.vim'
+    Plugin 'pyflakes/pyflakes'
+    Plugin 'fs111/pydoc.vim'
+    Plugin 'tpope/vim-endwise'
+    Plugin 'tpope/vim-ragtag'
+    "Plugin 'SyntaxComplete'
+    Plugin 'othree/javascript-libraries-syntax.vim'
+    "Plugin 'othree/vim-autocomplpop'
+    "Plugin 'einars/js-beautify'
+    "Plugin 'jaxbot/syntastic-react'
+    "Plugin 'Auto-Pairs'
+    "Plugin 'python-imports.vim'
+    "Plugin 'CaptureClipboard'
+    "Plugin 'ctrlp-modified.vim'
+    "Plugin 'last_edit_marker.vim'
+    "Plugin 'synmark.vim'
+    "Plugin 'SQLComplete.vim'
+    "Plugin 'haya14busa/incsearch.vim'
+    "Plugin 'thinca/vim-quickrun'
+    "Plugin 'kien/rainbow_parentheses.vim'
+    Plugin 'evanmiller/nginx-vim-syntax'
+    "Plugin 'szw/vim-ctrlspace'
+    "Plugin 'kana/vim-textobj-line'
+    "Plugin 'kana/vim-textobj-user'
+    "Plugin 'kana/vim-textobj-entire'
+    "Plugin 'kana/vim-textobj-indent'
+    "Plugin 'jslint.vim'
+    "Plugin 'jsbeautify'
+    "Plugin 'django_templates.vim'
+    "Plugin 'Django-Projects'
+    "Plugin 'wincent/terminus'
+    "Plugin 'rstacruz/sparkup'
+    "Plugin 'wincent/command-t'
+    "Plugin 'surround.vim'
+    "Plugin 'L9'
+    "Plugin 'FuzzyFinder'
+    Plugin 'vim-voom/VOoM'
+    Plugin 'vim-voom/VOoM_extras'
+    Plugin 'justinj/vim-react-snippets'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'garbas/vim-snipmate'
+    "Plugin 'msanders/snipmate.vim'
+    Plugin 'slim-template/vim-slim'
+    "Plugin 'FredKSchott/CoVim'
+    Plugin 'myint/syntastic-extras'
+    "Plugin 'kballard/vim-swift'
+    "Plugin 'jparise/vim-graphql'
+    Plugin 'fatih/vim-go'
+    "Plugin 'michalliu/jsruntime.vim'
+    "Plugin 'michalliu/sourcebeautify.vim'
     Plugin 'pangloss/vim-javascript'
+    "Plugin 'xolox/vim-misc'
+    "Plugin 'tommcdo/vim-exchange'
+    "Plugin 'vim-scripts/ReplaceWithRegister'
+    "Plugin 'christoomey/vim-sort-motion'
+    "Plugin 'christoomey/vim-titlecase'
+    Plugin 'juneedahamed/svnj.vim'
+    "Plugin 'Shougo/deoplete.nvim'
+    Plugin 'vim-scripts/Conque-Shell'
+    Plugin 'FencView.vim'
+    Plugin 'adah1972/tellenc'
+    Plugin 'vim-scripts/VisIncr'
+    Plugin 'vimwiki'
+    "Plugin 'Xuyuanp/nerdtree-git-plugin'
+    Plugin 'groenewege/vim-less'
+    "Plugin 'sheerun/vim-polyglot'
+    "Plugin 'Shougo/vimshell.vim'
+    "Plugin 'xolox/vim-shell'
+    "Plugin 'xolox/vim-easytags'
+    "Plugin 'edkolev/promptline.vim'
+    "Plugin 'sjl/clam.vim'
+    Plugin 'sjl/gundo.vim'
+    "Plugin 'mbbill/undotree'
+    "Plugin 'spf13/vim-autoclose'
+    "Plugin 'spf13/PIV'
+    Plugin 'spf13/snipmate-snippets'
+    "Plugin 'vim-scripts/ZoomWin'
+    "Plugin 'elzr/vim-json'
+    "Plugin 'jeetsukumaran/vim-buffergator'
+    "Plugin 'skalnik/vim-vroom'
+    "Plugin 'mattn/webapi-vim'
+    "Plugin 'ervandew/screen'
+    "Plugin 'idbrii/AsyncCommand'
     "Plugin 'airblade/vim-rooter'
     "Plugin 'sidorares/node-vim-debugger'
     "Plugin 'ryanoasis/vim-devicons'
@@ -77,15 +174,16 @@
     "Plugin 'claco/jasmine.vim'
     "Plugin 'Shougo/vimfiler.vim'
     "Plugin 'rdnetto/YCM-Generator'
+    "Plugin 'Shougo/neocomplete.vim'
     "Plugin 'Shougo/neocomplcache.vim'
     "Plugin 'othree/yajs.vim'
     "Plugin 'othree/es.next.syntax.vim'
     "Plugin 'hail2u/vim-css3-syntax'
     "Plugin 'cakebaker/scss-syntax.vim'
-    "Plugin 'honza/vim-snippets'
-    "Plugin 'Shougo/neosnippet-snippets'
-    "Plugin 'Shougo/neosnippet.vim'
-    "Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'Shougo/neosnippet-snippets'
+    Plugin 'Shougo/neosnippet.vim'
     "Plugin 'zenorocha/dracula-theme'
     "Plugin 'jdkanani/vim-material-theme'
     "Plugin 'kristijanhusak/vim-hybrid-material'
@@ -94,17 +192,24 @@
     "Plugin 'terryma/vim-multiple-cursors'
     "Plugin 'Chun-Yang/vim-action-ag'
     "Plugin 'tpope/vim-haml'
+    Plugin 'tpope/vim-bundler'
+    Plugin 'tpope/vim-commentary'
+    Plugin 'tpope/vim-cucumber'
     "Plugin 'gregsexton/gitv'
-    "Plugin 'Lokaltog/vim-easymotion'
+    "Plugin 'Lokaltog/vim-easymotion' "Note: this is deprecated
+    "Plugin 'easymotion/vim-easymotion'
     "Plugin 'justinmk/vim-dirvish'
-    "Plugin 'ddollar/nerdcommenter'
+    Plugin 'ddollar/nerdcommenter'
     "Plugin 'AndrewRadev/splitjoin.vim'
-    "Plugin 'davidhalter/jedi-vim'
+    Plugin 'davidhalter/jedi-vim'
     "Plugin 'ervandew/supertab'
-    "Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-pastie'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-unimpaired'
+    Plugin 'eventualbuddha/vim-protobuf'
     "Plugin 'tpope/vim-scriptease'
     "Plugin 'ynkdir/vim-vimlparser' "required by vimlint
-    "Plugin 'tacahiroy/ctrlp-funky'
     "Plugin 'chemzqm/unite-js-func'
     "Plugin 'syngan/vim-vimlint'
     "Plugin 'chrisbra/NrrwRgn'
@@ -112,24 +217,34 @@
     "Plugin 'mhinz/vim-grepper'
     "Plugin 'mhinz/vim-sayonara'
     "Plugin 'greyblake/vim-preview'
-    "Plugin 'guileen/vim-node-dict'
+    Plugin 'guileen/vim-node-dict'
     "Plugin 'HerringtonDarkholme/yats.vim'
     "Plugin 'junegunn/vim-easy-align'
+    "Plugin 'junegunn/goyo.vim'
+    "Plugin 'bronson/vim-trailing-whitespace'
+    "Plugin 'unblevable/quick-scope'
+    "Plugin 'terryma/vim-expand-region'
     "Plugin 'klen/python-mode'
     "Plugin 'mattn/excelview-vim'
     "Plugin 'mattn/vim-maketable'
     "Plugin 'michalliu/jsoncodecs.vim'
     "Plugin 'vim-scripts/JavaScript-Indent'
     "Plugin 'ntpeters/vim-better-whitespace'
-    "Plugin 'nvie/vim-flake8'
-    "Plugin 'ryanss/vim-hackernews'
     "Plugin 'tpope/vim-obsession'
     "Plugin 'dhruvasagar/vim-prosession'
     "Plugin 'digitaltoad/vim-jade'
     "Plugin 'majutsushi/tagbar'
     "Plugin 'garyburd/go-explorer'
     "Plugin 'zchee/deoplete-go'
+    "Plugin 'jnurmine/Zenburn'
+    "Plugin 'altercation/vim-colors-solarized'
+    "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
   "}
+  " install vundle bundles
+  if filereadable(expand("~/.vimrc/bundle"))
+    source ~/.vimrc/bundles
+    source ~/.vimrc/bundles.local
+  endif
   call vundle#end()
 "}
 
@@ -159,10 +274,10 @@
   set nobackup
   set noswapfile
   set nowritebackup
-  set iskeyword-=_,.,=,-,:,
+  set iskeyword-=_,.,=,-,:,#,
   set foldmethod=indent
   set tabstop=2  softtabstop=2 shiftwidth=2 expandtab
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h16 
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h16
   set autoread
   set wildignore=*.o,*~,*.pyc,*.swp,*.bak,*.class
   if has("win16") || has("win32")
@@ -177,13 +292,22 @@
   set wildmenu
   set copyindent
   set wildmode=list:longest,full
+  if exists('$TMUX')
+    set ttymouse=xterm2           " support resizing in tmux
+    " Fix Cursor in TMUX
+    let &t_SI="\<Esc>Ptumux:\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI="\<Esc>Ptumux:\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  else
+    let &t_SI="\<Esc>]50;CursorShape=1\x7"
+    let &t_EI="\<Esc>]50;CursorShape=0\x7"
+  endif
   set whichwrap=b,s,h,l,<,>,>h,[,]   " Backspace and cursor keys wrap too
-  if !&scrolloff
-    set scrolloff=1           " Minimum lines to keep above and below cursor
-  endif
-  if !&sidescrolloff
-    set scrolloff=5
-  endif
+  "if !&scrolloff
+  "  set scrolloff=1           " Minimum lines to keep above and below cursor
+  "endif
+  "if !&sidescrolloff
+  "  set scrolloff=5
+  "endif
   set display+=lastline
   set nowrap      " Do not wrap long lines
   set backspace=eol,start,indent
@@ -226,17 +350,26 @@
   set showmode                        " Display current mode
   set showcmd                         " Show partial commands in status line and
                                     " Selected characters/lines in visual mode
-  set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+  " Better Unix / Windows compatibility
+  set viewoptions=folds,options,cursor,unix,slash 
   set virtualedit=onemore " used with caution of breaking plugins
   set completeopt=menuone,menu,preview,longest
   set tags=./tags;/,~/.vimtags
   " Make tags placed in .git/tags file available in all levels of a repository
-  let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
+  let gitroot = substitute(system('git rev-parse --show-toplevel'),
+                \ '[\n\r]', '', 'g')
   if gitroot != ''
     let &tags = &tags . ',' . gitroot . '/.git/tags'
   endif
-  colorscheme PaperColor
   set t_Co=256
+  " gui settings
+  if (&t_Co == 256 || has('gui_running'))
+    if ($TERM_PROGRAM == 'iTerm.app')
+      colorscheme PaperColor
+    else
+      colorscheme desert
+    endif
+  endif
   set nofoldenable                  " Auto fold code
   set foldlevel=1
   set foldlevelstart=99
@@ -259,6 +392,13 @@
   syntax on
   highlight CursorLine term=reverse
   highlight CursorColumn term=reverse
+  " configure default split position
+  set splitbelow
+  set splitright
+  if has('gui_running')
+    set background=dark
+  endif
+  set t_Co=256
 "}
 
 "{Mappings
@@ -270,7 +410,8 @@
   nnoremap <Leader>h :nohlsearch<CR>
   " Use <C-L> to clear the highlighting of :set hlsearch
   if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?
+              \ '<Bar>diffupdate':''<CR><CR><C-L>
   endif
   nnoremap <leader>l :set list!<CR>
   nnoremap <leader>w :set wrap!<CR>
@@ -323,18 +464,20 @@
 
 "{Plugin settings
   "scrooloose/syntastic
+    set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
     let g:syntastic_check_on_open=0
     let g:syntastic_always_populate_loc_list=1
     let g:syntastic_auto_loc_list=1
     let g:syntastic_check_on_wq=1
     let g:syntastic_enable_signs=1
     let g:syntastic_aggregate_errors=1
-    let g:syntastic_error_symbol="E"
-    let g:syntastic_warning_symbol="W"
+    let g:syntastic_error_symbol="💣"
+    let g:syntastic_warning_symbol="‼️""
     highlight SyntasticError guibg=#2F0000
-    nnoremap <leader>n :lnext<CR>
-    nnoremap <leader>p :lprevious<CR>
+    "nnoremap <leader>n :lnext<CR>
+    "nnoremap <leader>p :lprevious<CR>
     "prerequisite:
     "  npm packages:
     "    eslint jsxhint babel-eslint eslint-plugin-react json-lint jshint
@@ -389,6 +532,9 @@
     " Angular UI-router ignores
     let g:syntastic_html_tidy_ignore_errors += [
           \ " proprietary attribute \"ui-sref"]
+    " Cpp checker settings
+    let g:syntastic_cpp_check_header = 1
+    let g:syntastic_cpp_auto_refresh_includes = 1
 
   "bling/vim-airline
     if !exists('g:airline_symbols')
@@ -412,6 +558,10 @@
     let g:NERDTreeShowLineNumbers=1
     let g:NERDTreeChDirMode=2
     let NERDTreeWinPos="left"
+    let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+  "jistr/vim-nerdtree-tabs
+    "nnoremap <leader>nte :NERDTreeTabsToggle<CR>
 
   "noscripter/tabman.vim
     let g:tabman_side="right"
@@ -429,6 +579,7 @@
     let g:startify_bookmarks = [
           \ '~/projects/assets/daily.md',
           \ '~/projects/assets/',
+          \ '~/projects/assets/mytaobao/mytaobao/nodejs/',
           \ '~/downloads/',
           \ '~/projects/node/',
           \  '~/projects/daily/',
@@ -461,6 +612,7 @@
       " ag is fast enough that CtrlP doesn't need to cache
       let g:ctrlp_use_caching = 0
     endif
+    nnoremap <leader>b :CtrlPBuffer<CR>
 
   "YouCompleteMe
     let g:ycm_min_num_of_chars_for_completion = 3
@@ -471,10 +623,14 @@
     "leave '<s-tab>', '<c-k>' for ultisnips
     let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
     let g:ycm_confirm_extra_conf = 0
-    let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-    " http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+    let g:ycm_global_ycm_extra_conf=
+      \ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+    " http://www.alexeyshmalko.com/2014/
+    " \ youcompleteme-ultimate-autocomplete-plugin-for-vim/
     let g:ycm_key_list_select_completion=[]
     let g:ycm_key_list_previous_completion=[]
+    let g:ycm_autoclose_preview_window_after_completion=1
+    map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
     let g:ycm_filetype_blacklist = {
           \ 'tagbar' : 1,
           \ 'qf' : 1,
@@ -525,7 +681,8 @@
     autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
     autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
     autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-    autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+    autocmd FileType javascript vnoremap <buffer> <c-f>
+            \ :call RangeJsBeautify()<cr>
     autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
     autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
     autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
@@ -567,15 +724,16 @@
     let g:used_javascript_libs = 'react,angularjs,flux'
 
   "pangloss/vim-javascript
-    let g:javascript_conceal_function   = "ƒ"
-    let g:javascript_conceal_null       = "ø"
-    let g:javascript_conceal_this       = "@"
-    let g:javascript_conceal_return     = "⇚"
-    let g:javascript_conceal_undefined  = "¿"
-    let g:javascript_conceal_NaN        = "ℕ"
-    let g:javascript_conceal_prototype  = "¶"
-    let g:javascript_conceal_static     = "•"
-    let g:javascript_conceal_super      = "Ω"
+    "let g:javascript_conceal_function   = "ƒ"
+    "let g:javascript_conceal_null       = "ø"
+    "let g:javascript_conceal_this       = "@"
+    "let g:javascript_conceal_return     = "⇚"
+    "let g:javascript_conceal_undefined  = "¿"
+    "let g:javascript_conceal_NaN        = "ℕ"
+    "let g:javascript_conceal_prototype  = "¶"
+    "let g:javascript_conceal_static     = "•"
+    "let g:javascript_conceal_super      = "Ω"
+    "let g:javascript_enable_domhtmlcss = 1
 
   "groenewege/vim-less
     autocmd BufNewFile,BufRead *.less set filetype=less
@@ -585,16 +743,15 @@
     "let g:airline_theme='dark'
 
   "fatih/vim-go
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_interfaces = 1
-    let g:go_highlight_operators = 1
+    let g:go_highlight_functions         = 1
+    let g:go_highlight_methods           = 1
+    let g:go_highlight_structs           = 1
+    let g:go_highlight_interfaces        = 1
+    let g:go_highlight_operators         = 1
     let g:go_highlight_build_constraints = 1
-    let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-    "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-    let g:go_fmt_command = "goimports"
-    let g:go_fmt_autosave = 0
+    let g:syntastic_go_checkers          = ['golint', 'govet', 'errcheck']
+    let g:go_fmt_command                 = "goimports"
+    let g:go_fmt_autosave                = 0
     au FileType go set expandtab
 
   "vim-action-ag
@@ -604,8 +761,13 @@
     " vmap * <Plug>AgActionVisual
 
   "Yggdroot/indentLine
-    let g:indentLine_enabled=1
-    "let g:indentLine_conceallevel=0
+    let g:indentLine_enabled         = 1
+    let g:indentLine_conceallevel    = 0
+    let g:indentLine_color_term      = 239
+    let g:indentLine_color_gui       = '#A4E57E'
+    let g:indentLine_color_tty_light = 7
+    let g:indentLine_color_dark      = 1
+    let g:indentLine_char            = '┆'
 
   "mhinz/vim-grepper
     " Mimic :grep and make ag the default tool.
@@ -615,6 +777,35 @@
         \ 'jump':  1,
         \ }
 
+  "jaxbot/semantic-highlight.vim
+    "let g:semanticEnableFileTypes = {'javascript': 'js', 'vim': 'vim'}
+
+  "Shougo/neocomplete.vim
+    " Disable AutoComplPop.
+    let g:acp_enableAtStartup = 0
+    " Use neocomplete.
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplete#enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplete#sources#syntax#min_keyword_length = 3
+    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+  "vim-scripts/winmanager
+  """"""""""""""""""""""""""""""
+  " winManager setting
+  """"""""""""""""""""""""""""""
+  let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
+  let g:winManagerWidth = 30
+  let g:defaultExplorer = 0
+  nmap <C-W><C-F> :FirstExplorerWindow<cr>
+  nmap <C-W><C-B> :BottomExplorerWindow<cr>
+  nmap <silent> <leader>wm :WMToggle<cr>
+
+  "nvie/vim-flake8
+    "let python_highlight_all = 1
+    "syntax on
+    "autocmd BufWritePost *.py call Flake8()
 "}
 
 "{helper functions
@@ -767,7 +958,18 @@
        \ if line("'\"") > 0 && line("'\"") <= line("$") |
        \   exe "normal! g`\"" |
        \ endif
+  " flagging unnecessary whitespace
+  "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+  "au BufNewFile,BufRead *.py
+    "\ set tabstop=4
+    "\ set softtabstop=4
+    "\ set shiftwidth=4
+    "\ set textwidth=79
+    "\ set expandtab
+    "\ set autoindent
+    "\ set fileformat=unix
   autocmd! BufRead,BufNewFile *.markdown set filetype=mkd
+  autocmd! BufRead,BufNewFile *.fdoc set filetype=yaml
   autocmd! BufRead,BufNewFile *.md       set filetype=mkd
   autocmd! BufRead,BufNewFile,BufReadPost *.snippets set filetype=snippets
   autocmd! BufRead,BufNewFile *.json set filetype=json
@@ -804,7 +1006,8 @@
         \ if getline(1) =~ '--\*-Perl-\*--' | setf perl | endif
   autocmd WinEnter call SetTabLabel()
   autocmd BufEnter call SetTabLabel()
-  "https://superuser.com/questions/195022/vim-how-to-synchronize-nerdtree-with-current-opened-tab-file-path
+  "https://superuser.com/questions/195022/
+  " \ vim-how-to-synchronize-nerdtree-with-current-opened-tab-file-path
   if expand("%:p")
     autocmd BufEnter * lcd %:p:h
   endif
@@ -830,12 +1033,13 @@
   au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
   " Restore cursor position upon reopening files {{{
   autocmd BufReadPost *
-      \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+    \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$")|
+    \   exe "normal! g`\"" |
+    \ endif
   " }}}
   " gnuplot syntax highlighting
   au BufNewFile,BufRead *.plt,.gnuplot setf gnuplot
+  " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
   autocmd FileType ruby set dictionary+=~/.vim/dict/ruby.dict
   au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
