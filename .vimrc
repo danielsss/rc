@@ -1,17 +1,3 @@
-"{Environment
-  "Identify platform {
-  silent function! OSX()
-    return has('macunix')
-  endfunction
-  silent function! LINUX()
-    return has('unix') || !has('mauix') && !has('win32unix')
-  endfunction
-  silent function! WINDOWS()
-    return (has('win32') || has('win64'))
-  endfunction
-  "}
-"}
-
 "{vundle setup
   set nocompatible
   filetype off
@@ -22,71 +8,176 @@
   "{plugins
     Plugin 'gmarik/Vundle.vim'
     Plugin 'FelikZ/ctrlp-py-matcher'
-    Plugin 'Raimondi/delimitMate'
-    Plugin 'Valloric/MatchTagAlways'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'bling/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'dhruvasagar/vim-vinegar'
     Plugin 'docunext/closetag.vim'
-    Plugin 'editorconfig/editorconfig-vim'
     Plugin 'godlygeek/tabular'
-    Plugin 'jaxbot/semantic-highlight.vim'
-    Plugin 'kshenoy/vim-signature'
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'mattn/emmet-vim'
     Plugin 'mhinz/vim-startify'
-    Plugin 'moll/vim-node'
-    Plugin 'mxw/vim-jsx'
-    Plugin 'noscripter/tabman.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'scrooloose/syntastic'
-    Plugin 'tomtom/tcomment_vim'
     Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-surround'
-    Plugin 'Yggdroot/indentLine'
     Plugin 'NLKNguyen/papercolor-theme'
-    Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'mileszs/ack.vim'
-    Plugin 'rking/ag.vim'
-    Plugin 'bufexplorer.zip'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'Raimondi/delimitMate'
+    Plugin 'tpope/vim-obsession'
+    Plugin 'dhruvasagar/vim-prosession'
+    Plugin 'moll/vim-node'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'juneedahamed/svnj.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'Shougo/neocomplcache.vim'
+    Plugin 'tpope/vim-vinegar'
+    Plugin 'junegunn/vim-peekaboo' " view register content
+    Plugin 'noscripter/tabman.vim'
     Plugin 'itchyny/calendar.vim'
-    Plugin 'ryanss/vim-hackernews'
-    """"""""""""""""""""""""
+    Plugin 'marijnh/tern_for_vim'
+    Plugin 'bufexplorer.zip'
+    Plugin 'junegunn/vim-xmark'
+    Plugin 'Yggdroot/indentLine'
+    "----------------------------------------------
+    "Plugin 'tpope/vim-eunuch'
+    "Plugin 'reedes/vim-wordy'
+    "Plugin 'mattn/gist-vim'
+    "Plugin 'suan/vim-instant-markdown'
+    "Plugin 'tpope/vim-repeat'
+    "Plugin 'pyflakes/pyflakes'
+    "Plugin 'tpope/vim-surround'
+    "Plugin 'tpope/vim-endwise'
+    "Plugin 'tpope/vim-commentary'
+    "Plugin 'mbbill/undotree'
+    "Plugin 'vim-scripts/ReplaceWithRegister'
+    "Plugin 'AndrewRadev/splitjoin.vim'
+    "Plugin 'tpope/vim-tbone'
+    "Plugin 'justinmk/vim-gtfo'
+    "Plugin 'majutsushi/tagbar'
+    "Plugin 'tpope/vim-speeddating'
+    "Plugin 'tpope/vim-abolish'
+    "Plugin 'tpope/vim-unimpaired'
+    "Plugin 'svermeulen/vim-easyclip'
+    "Plugin 'junegunn/vader.vim'
+    "Plugin 'junegunn/vim-ruby-x'
+    "Plugin 'junegunn/fzf'
+    "Plugin 'junegunn/fzf.vim'
+    "Plugin 'junegunn/vim-after-object'
+    "Plugin 'junegunn/vim-journal'
+    "Plugin 'junegunn/vim-pseudocl'
+    "Plugin 'junegunn/vim-oblique'
+    "Plugin 'junegunn/vim-fnr'
+    "Plugin 'vim-ruby/vim-ruby'
+    "Plugin 'kchmck/vim-coffee-script'
+    "Plugin 'slim-template/vim-slim'
+    "Plugin 'derekwyatt/vim-scala'
+    "Plugin 'honza/dockerfile.vim'
+    "Plugin 'solarnz/thrift.vim'
+    "Plugin 'dag/vim-fish'
+    "Plugin 'keithbsmiley/investigate.vim'
+    "Plugin 'rizzatti/dash.vim'
+    "Plugin 'chrisbra/unicode.vim'
+    "Plugin 'tomasr/molokai'
+    "Plugin 'junegunn/seoul256.vim'
+    "Plugin 'chriskempson/vim-tomorrow-theme'
+    "Plugin 'plasticboy/vim-markdown'
+    "Plugin 'dhruvasagar/vim-table-mode'
+    "Plugin 'dhruvasagar/vim-dotoo'
+    "Plugin 'dhruvasagar/vim-vinegar'
+    "Plugin 'chrisbra/vim-show-whitespace'
+    "Plugin 'kshenoy/vim-signature'
+    "Plugin 'pangloss/vim-javascript'
+    "Plugin 'jelera/vim-javascript-syntax'
+    "Plugin 'othree/yajs.vim'
+    "Plugin 'tomtom/tlib_vim'
+    "Plugin 'garbas/vim-snipmate'
+    "Plugin 'isRuslan/vim-es6'
+    "Plugin 'MarcWeber/vim-addon-mw-utils'
+    "Plugin 'SirVer/ultisnips'
+    "Plugin 'honza/vim-snippets'
+    "Plugin 'Shougo/neosnippet-snippets'
+    "Plugin 'Shougo/neosnippet.vim'
+    "Plugin 'justinj/vim-react-snippets'
+    "Plugin 'spf13/snipmate-snippets'
+    "Plugin 'easymotion/vim-easymotion'
+    "Plugin 'elzr/vim-json'
+    "Plugin 'Valloric/MatchTagAlways'
+    "----------------------------------------------
+    "Plugin 'PeterRincker/vim-argumentative'
+    "Plugin 'google/vim-colorscheme-primary'
+    "Plugin 'junegunn/vim-easy-align'
+    "Plugin 'vim-scripts/Better-CSS-Syntax-for-Vim'
+    "Plugin 'ap/vim-css-color'
+    "Plugin 'godlygeek/csapprox'
+    "Plugin 'tpope/vim-dispatch'
+    "Plugin 'mxw/vim-jsx'
+    "Plugin 'othree/javascript-libraries-syntax.vim'
+    "Plugin '1995eaton/vim-better-javascript-completion'
+    "Plugin 'rking/ag.vim'
+    "Plugin 'Shougo/neocomplete.vim'
+    "Plugin 'Olical/vim-enmasse'
+    "Plugin 'sheerun/vim-polyglot'
+    "Plugin 'bigfish/vim-js-context-coloring'
+    "Plugin 'gavocanov/vim-js-indent'
+    "Plugin 'othree/es.next.syntax.vim'
+    "Plugin 'othree/jsdoc-syntax.vim'
+    "Plugin 'heavenshell/vim-jsdoc'
+    "Plugin 'itspriddle/vim-jquery'
+    "Plugin 'othree/jspc.vim'
+    "Plugin 'Shougo/unite.vim'
+    "Plugin 'osyo-manga/vim-watchdogs'
+    "Plugin 'Shougo/vimproc.vim'
+    "Plugin 'neomake/neomake'
+    "Plugin 'Chiel92/vim-autoformat'
+    "Plugin 'Wolfy87/vim-syntax-expand'
+    "Plugin 'Lokaltog/vim-distinguished'
+    "Plugin 'tpope/vim-projectionist'
+    "Plugin 'embear/vim-localvimrc'
+    "Plugin 'tpope/vim-fireplace'
+    "Plugin 'guns/vim-clojure-static'
+    "Plugin 'wookiehangover/jshint.vim'
+    "Plugin 'kien/rainbow_parentheses.vim'
+    "Plugin 'vim-scripts/paredit.vim'
+    "Plugin 'guns/vim-clojure-highlight'
+    "Plugin 'ramitos/jsctags'
+    "Plugin 'ludovicchabant/vim-gutentags'
+    "Plugin 'itspriddle/vim-javascript-indent'
+    "Plugin 'jiangmiao/simple-javascript-indenter'
+    "Plugin 'jason0x43/vim-js-indent'
+    "Plugin 'ryanss/vim-hackernews'
+    "Plugin 'editorconfig/editorconfig-vim'
+    "Plugin 'jaxbot/semantic-highlight.vim'
+    "Plugin 'tomtom/tcomment_vim'
+    "Plugin 'nathanaelkane/vim-indent-guides'
+    "Plugin 'mhinz/vim-grepper'
+    "Plugin 'mhinz/vim-rfc'
     "Plugin 'tmhedberg/SimpylFold' " TODO
     "Plugin 'vim-scripts/indentpython.vim' " TODO
-    Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'juvenn/mustache.vim'
-    Plugin 'nono/vim-handlebars'
-    Plugin 'kchmck/vim-coffee-script'
-    Plugin 'leafgarland/typescript-vim'
-    Plugin 'klen/python-mode'
-    Plugin 'vim-scripts/taglist.vim'
-    Plugin 'vim-scripts/winmanager'
+    "Plugin 'christoomey/vim-tmux-navigator'
+    "Plugin 'juvenn/mustache.vim'
+    "Plugin 'nono/vim-handlebars'
+    "Plugin 'leafgarland/typescript-vim'
+    "Plugin 'klen/python-mode'
+    "Plugin 'vim-scripts/taglist.vim'
+    "Plugin 'vim-scripts/winmanager'
     "Plugin 'nvie/vim-flake8'
     "Plugin 'jistr/vim-nerdtree-tabs'
-    Plugin 'OmniCppComplete'
+    "Plugin 'OmniCppComplete'
     "Plugin 'ghewgill/vim-scmdiff'
-    Plugin 'marijnh/tern_for_vim'
     "Plugin 'dyng/ctrlsf.vim'
-    Plugin 'tpope/vim-dispatch'
     "Plugin 'wincent/ferret'
-    "Plugin 'Shougo/vimproc.vim'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'vim-ruby/vim-ruby'
-    Plugin 'vim-scripts/mark'
-    Plugin 'vim-scripts/matchit.zip'
-    Plugin 'vim-scripts/Align'
-    Plugin 'vim-scripts/greplace.vim'
-    Plugin 'vim-scripts/a.vim'
-    Plugin 'pyflakes/pyflakes'
-    Plugin 'fs111/pydoc.vim'
-    Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-ragtag'
+    "Plugin 'vim-scripts/mark'
+    "Plugin 'vim-scripts/matchit.zip'
+    "Plugin 'vim-scripts/Align'
+    "Plugin 'vim-scripts/greplace.vim'
+    "Plugin 'vim-scripts/a.vim'
+    "Plugin 'lookupfile'
+    "Plugin 'genutils'
+    "Plugin 'fs111/pydoc.vim'
+    "Plugin 'tpope/vim-ragtag'
     "Plugin 'SyntaxComplete'
-    Plugin 'othree/javascript-libraries-syntax.vim'
     "Plugin 'othree/vim-autocomplpop'
     "Plugin 'einars/js-beautify'
     "Plugin 'jaxbot/syntastic-react'
@@ -99,8 +190,7 @@
     "Plugin 'SQLComplete.vim'
     "Plugin 'haya14busa/incsearch.vim'
     "Plugin 'thinca/vim-quickrun'
-    "Plugin 'kien/rainbow_parentheses.vim'
-    Plugin 'evanmiller/nginx-vim-syntax'
+    "Plugin 'evanmiller/nginx-vim-syntax'
     "Plugin 'szw/vim-ctrlspace'
     "Plugin 'kana/vim-textobj-line'
     "Plugin 'kana/vim-textobj-user'
@@ -116,50 +206,40 @@
     "Plugin 'surround.vim'
     "Plugin 'L9'
     "Plugin 'FuzzyFinder'
-    Plugin 'vim-voom/VOoM'
-    Plugin 'vim-voom/VOoM_extras'
-    Plugin 'justinj/vim-react-snippets'
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'nathanaelkane/vim-indent-guides'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
-    "Plugin 'msanders/snipmate.vim'
-    Plugin 'slim-template/vim-slim'
+    "Plugin 'vim-voom/VOoM'
+    "Plugin 'vim-voom/VOoM_extras'
     "Plugin 'FredKSchott/CoVim'
-    Plugin 'myint/syntastic-extras'
+    "Plugin 'myint/syntastic-extras'
     "Plugin 'kballard/vim-swift'
     "Plugin 'jparise/vim-graphql'
-    Plugin 'fatih/vim-go'
+    "Plugin 'fatih/vim-go'
     "Plugin 'michalliu/jsruntime.vim'
     "Plugin 'michalliu/sourcebeautify.vim'
-    Plugin 'pangloss/vim-javascript'
+    "Plugin 'MattesGroeger/vim-bookmarks'
     "Plugin 'xolox/vim-misc'
-    "Plugin 'tommcdo/vim-exchange'
-    "Plugin 'vim-scripts/ReplaceWithRegister'
-    "Plugin 'christoomey/vim-sort-motion'
-    "Plugin 'christoomey/vim-titlecase'
-    Plugin 'juneedahamed/svnj.vim'
-    "Plugin 'Shougo/deoplete.nvim'
-    Plugin 'vim-scripts/Conque-Shell'
-    Plugin 'FencView.vim'
-    Plugin 'adah1972/tellenc'
-    Plugin 'vim-scripts/VisIncr'
-    Plugin 'vimwiki'
-    "Plugin 'Xuyuanp/nerdtree-git-plugin'
-    Plugin 'groenewege/vim-less'
-    "Plugin 'sheerun/vim-polyglot'
-    "Plugin 'Shougo/vimshell.vim'
+    "Plugin 'xolox/vim-notes'
     "Plugin 'xolox/vim-shell'
     "Plugin 'xolox/vim-easytags'
+    "Plugin 'xolox/vim-session'
+    "Plugin 'tommcdo/vim-exchange'
+    "Plugin 'christoomey/vim-sort-motion'
+    "Plugin 'christoomey/vim-titlecase'
+    "Plugin 'Shougo/deoplete.nvim'
+    "Plugin 'vim-scripts/Conque-Shell'
+    "Plugin 'FencView.vim'
+    "Plugin 'adah1972/tellenc'
+    "Plugin 'vim-scripts/VisIncr'
+    "Plugin 'vim-scripts/sessionman.vim'
+    "Plugin 'vimwiki'
+    "Plugin 'Xuyuanp/nerdtree-git-plugin'
+    "Plugin 'groenewege/vim-less'
+    "Plugin 'Shougo/vimshell.vim'
     "Plugin 'edkolev/promptline.vim'
     "Plugin 'sjl/clam.vim'
-    Plugin 'sjl/gundo.vim'
-    "Plugin 'mbbill/undotree'
+    "Plugin 'sjl/gundo.vim'
     "Plugin 'spf13/vim-autoclose'
     "Plugin 'spf13/PIV'
-    Plugin 'spf13/snipmate-snippets'
     "Plugin 'vim-scripts/ZoomWin'
-    "Plugin 'elzr/vim-json'
     "Plugin 'jeetsukumaran/vim-buffergator'
     "Plugin 'skalnik/vim-vroom'
     "Plugin 'mattn/webapi-vim'
@@ -168,22 +248,14 @@
     "Plugin 'airblade/vim-rooter'
     "Plugin 'sidorares/node-vim-debugger'
     "Plugin 'ryanoasis/vim-devicons'
-    "Plugin 'jelera/vim-javascript-syntax'
+    "Plugin 'itchyny/lightline.vim'
     "Plugin 'othree/html5-syntax.vim'
     "Plugin 'othree/html5.vim'
     "Plugin 'claco/jasmine.vim'
     "Plugin 'Shougo/vimfiler.vim'
     "Plugin 'rdnetto/YCM-Generator'
-    "Plugin 'Shougo/neocomplete.vim'
-    "Plugin 'Shougo/neocomplcache.vim'
-    "Plugin 'othree/yajs.vim'
-    "Plugin 'othree/es.next.syntax.vim'
     "Plugin 'hail2u/vim-css3-syntax'
     "Plugin 'cakebaker/scss-syntax.vim'
-    Plugin 'honza/vim-snippets'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'Shougo/neosnippet-snippets'
-    Plugin 'Shougo/neosnippet.vim'
     "Plugin 'zenorocha/dracula-theme'
     "Plugin 'jdkanani/vim-material-theme'
     "Plugin 'kristijanhusak/vim-hybrid-material'
@@ -192,35 +264,35 @@
     "Plugin 'terryma/vim-multiple-cursors'
     "Plugin 'Chun-Yang/vim-action-ag'
     "Plugin 'tpope/vim-haml'
-    Plugin 'tpope/vim-bundler'
-    Plugin 'tpope/vim-commentary'
-    Plugin 'tpope/vim-cucumber'
+    "Plugin 'tpope/vim-bundler'
+    "Plugin 'tpope/vim-cucumber'
     "Plugin 'gregsexton/gitv'
     "Plugin 'Lokaltog/vim-easymotion' "Note: this is deprecated
-    "Plugin 'easymotion/vim-easymotion'
     "Plugin 'justinmk/vim-dirvish'
-    Plugin 'ddollar/nerdcommenter'
+    "Plugin 'mhinz/vim-janah'
+    "Plugin 'mhinz/vim-hugefile'
+    "Plugin 'ddollar/nerdcommenter'
     "Plugin 'AndrewRadev/splitjoin.vim'
-    Plugin 'davidhalter/jedi-vim'
+    "Plugin 'davidhalter/jedi-vim'
     "Plugin 'ervandew/supertab'
-    Plugin 'tpope/vim-rails'
-    Plugin 'tpope/vim-pastie'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-unimpaired'
-    Plugin 'eventualbuddha/vim-protobuf'
+    "Plugin 'tpope/vim-rails'
+    "Plugin 'tpope/vim-pastie'
+    "Plugin 'eventualbuddha/vim-protobuf'
     "Plugin 'tpope/vim-scriptease'
     "Plugin 'ynkdir/vim-vimlparser' "required by vimlint
     "Plugin 'chemzqm/unite-js-func'
     "Plugin 'syngan/vim-vimlint'
     "Plugin 'chrisbra/NrrwRgn'
-    "Plugin 'mhinz/vim-signify'
-    "Plugin 'mhinz/vim-grepper'
     "Plugin 'mhinz/vim-sayonara'
+    "Plugin 'mhinz/vim-randomtag'
     "Plugin 'greyblake/vim-preview'
-    Plugin 'guileen/vim-node-dict'
+    "Plugin 'guileen/vim-node-dict'
     "Plugin 'HerringtonDarkholme/yats.vim'
-    "Plugin 'junegunn/vim-easy-align'
     "Plugin 'junegunn/goyo.vim'
+    "Plugin 'junegunn/limelight.vim'
+    "Plugin 'junegunn/vim-emoji'
+    "Plugin 'junegunn/vim-github-dashboard'
+    "Plugin 'junegunn/gv.vim' " depend on fugitive
     "Plugin 'bronson/vim-trailing-whitespace'
     "Plugin 'unblevable/quick-scope'
     "Plugin 'terryma/vim-expand-region'
@@ -230,10 +302,7 @@
     "Plugin 'michalliu/jsoncodecs.vim'
     "Plugin 'vim-scripts/JavaScript-Indent'
     "Plugin 'ntpeters/vim-better-whitespace'
-    "Plugin 'tpope/vim-obsession'
-    "Plugin 'dhruvasagar/vim-prosession'
     "Plugin 'digitaltoad/vim-jade'
-    "Plugin 'majutsushi/tagbar'
     "Plugin 'garyburd/go-explorer'
     "Plugin 'zchee/deoplete-go'
     "Plugin 'jnurmine/Zenburn'
@@ -249,6 +318,7 @@
 "}
 
 "{Basic settings
+  set expandtab
   set nospell
   set nu
   set relativenumber
@@ -302,12 +372,12 @@
     let &t_EI="\<Esc>]50;CursorShape=0\x7"
   endif
   set whichwrap=b,s,h,l,<,>,>h,[,]   " Backspace and cursor keys wrap too
-  "if !&scrolloff
-  "  set scrolloff=1           " Minimum lines to keep above and below cursor
-  "endif
-  "if !&sidescrolloff
-  "  set scrolloff=5
-  "endif
+  if !&scrolloff
+    set scrolloff=1           " Minimum lines to keep above and below cursor
+  endif
+  if !&sidescrolloff
+    set sidescrolloff=1
+  endif
   set display+=lastline
   set nowrap      " Do not wrap long lines
   set backspace=eol,start,indent
@@ -331,11 +401,6 @@
   set laststatus=2  " always show statusline
   set showtabline=2 " always show tabline
   set hidden
-  " enables filetype based indentation
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
   set noerrorbells novisualbell t_vb=
   set autowrite
@@ -351,7 +416,7 @@
   set showcmd                         " Show partial commands in status line and
                                     " Selected characters/lines in visual mode
   " Better Unix / Windows compatibility
-  set viewoptions=folds,options,cursor,unix,slash 
+  set viewoptions=folds,options,cursor,unix,slash
   set virtualedit=onemore " used with caution of breaking plugins
   set completeopt=menuone,menu,preview,longest
   set tags=./tags;/,~/.vimtags
@@ -361,15 +426,7 @@
   if gitroot != ''
     let &tags = &tags . ',' . gitroot . '/.git/tags'
   endif
-  set t_Co=256
-  " gui settings
-  if (&t_Co == 256 || has('gui_running'))
-    if ($TERM_PROGRAM == 'iTerm.app')
-      colorscheme PaperColor
-    else
-      colorscheme desert
-    endif
-  endif
+  colorscheme PaperColor
   set nofoldenable                  " Auto fold code
   set foldlevel=1
   set foldlevelstart=99
@@ -388,7 +445,6 @@
   "set conceallevel=0
   set list
   set guioptions=e "only show guitablabel
-  "set guioptions=
   syntax on
   highlight CursorLine term=reverse
   highlight CursorColumn term=reverse
@@ -399,6 +455,7 @@
     set background=dark
   endif
   set t_Co=256
+  set paste
 "}
 
 "{Mappings
@@ -417,24 +474,12 @@
   nnoremap <leader>w :set wrap!<CR>
   nnoremap <leader>f :%!js-beautify -j -q -B -f -<CR>
   nnoremap <c-s> :w<CR>
-  "noremap <Leader>W :w !sudo tee % > /dev/null
+  noremap <Leader>W :w !sudo tee % > /dev/null
   " Quickly edit/reload the vimrc file
     nnoremap <leader>ev :tabe $MYVIMRC<CR>
     nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
     nnoremap <space> za
     vnoremap <space> zf
-  " tab switch key mappings
-    " http://vim.wikia.com/wiki/Alternative_tab_navigation
-    "nnoremap <A-1> 1gt
-    "nnoremap <A-2> 2gt
-    "nnoremap <A-3> 3gt
-    "nnoremap <A-4> 4gt
-    "nnoremap <A-5> 5gt
-    "nnoremap <A-6> 6gt
-    "nnoremap <A-7> 7gt
-    "nnoremap <A-8> 8gt
-    "nnoremap <A-9> 9gt
-    "nnoremap <A-0> 10gt
   " map for xxd editing
     nnoremap <Leader>xd :%!xxd<CR>
     nnoremap <Leader>xr :%!xxd -r<CR>
@@ -444,22 +489,7 @@
     nnoremap <leader>to :tabonly<cr>
     nnoremap <leader>x :q<cr>
     nnoremap <leader>tx :tabclose<cr>
-    "nnoremap    <C-Tab>    :tabnext<CR>
-    "imap   <C-Tab>    <C-O>:tabnext<CR>
-    "map    <C-S-Tab>  :tabprev<CR>
-    "imap   <C-S-Tab>  <C-O>:tabprev<CR>
-  "Simplify help navigation
-    "http://vim.wikia.com/wiki/Learn_to_use_help
-    "Press Enter to jump to the subject (topic) under the cursor.
-    "Press Backspace to return from the last jump.
-    "Press s to find the next subject, or S to find the previous subject.
-    "Press o to find the next option, or O to find the previous option.
-    "nnoremap <buffer> <CR> <C-]>
-    "nnoremap <buffer> <BS> <C-T>
-    "nnoremap <buffer> o /'\l\{2,\}'<CR>
-    "nnoremap <buffer> O ?'\l\{2,\}'<CR>
-    "nnoremap <buffer> s /\|\zs\S\+\ze\|<CR>
-    "nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
+  nnoremap <leader>d :tabe ~/projects/assets/daily.md<CR>
 "}
 
 "{Plugin settings
@@ -467,33 +497,33 @@
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
-    let g:syntastic_check_on_open=0
+    let g:syntastic_check_on_open=1
     let g:syntastic_always_populate_loc_list=1
     let g:syntastic_auto_loc_list=1
     let g:syntastic_check_on_wq=1
     let g:syntastic_enable_signs=1
     let g:syntastic_aggregate_errors=1
-    let g:syntastic_error_symbol="💣"
-    let g:syntastic_warning_symbol="‼️""
+    " 💣 ⚑ ✗ ☯ ⚡
+    let g:syntastic_error_symbol="⚡"
+    let g:syntastic_warning_symbol="⚑"
     highlight SyntasticError guibg=#2F0000
-    "nnoremap <leader>n :lnext<CR>
-    "nnoremap <leader>p :lprevious<CR>
     "prerequisite:
     "  npm packages:
     "    eslint jsxhint babel-eslint eslint-plugin-react json-lint jshint
+    "    jsx-jshint-wrapper
     "let g:syntastic_javascript_checkers = ['eslint',
     "    \'jsxhint', 'babel-eslint', 'eslint-plugin-react', 'json-lint',
     "    \'jshint', 'jscs']
     let g:syntastic_json_checkers=['jsonlint']
     let g:syntastic_javascript_checkers = ['eslint']
-    "let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-    let g:syntastic_python_checkers = ['pylint']
+    let g:syntastic_javascript_jsxhint_exec = ['eslint']
+    let g:syntastic_python_checkers = ['pyflakes', 'pylint']
     "let g:syntastic_python_python_exec="/usr/local/bin/python3"
     let g:syntastic_sass_checkers = ['sass', 'sassc']
-    "let g:syntastic_scss_checkers = ['sass', 'sassc', 'scsslint']
+    let g:syntastic_scss_checkers = ['sass', 'sassc', 'scsslint']
     let g:syntastic_php_checkers = ['php']
-    "let g:syntastic_ruby_checkers = ['robocop']
-    "let g:syntastic_coffee_checkes = ['coffeelint']
+    let g:syntastic_ruby_checkers = ['robocop']
+    let g:syntastic_coffee_checkes = ['coffeelint']
     let g:syntastic_shell_checkers = ['shellcheck']
     " Set up the arrays to ignore for later
     if !exists('g:syntastic_html_tidy_ignore_errors')
@@ -561,7 +591,7 @@
     let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
   "jistr/vim-nerdtree-tabs
-    "nnoremap <leader>nte :NERDTreeTabsToggle<CR>
+    nnoremap <leader>nte :NERDTreeTabsToggle<CR>
 
   "noscripter/tabman.vim
     let g:tabman_side="right"
@@ -572,30 +602,33 @@
     noremap <Leader>s :Startify<CR>
     let g:startify_list_order = [
           \ ['   Bookmarks'],     'bookmarks',
-          \ ['   MRU'],           'files' ,
           \ ['   MRU '.getcwd()], 'dir',
-          \ ['   Sessions'],      'sessions',
-          \ ]
+          \ ['   Sessions'],      'sessions']
     let g:startify_bookmarks = [
           \ '~/projects/assets/daily.md',
           \ '~/projects/assets/',
           \ '~/projects/assets/mytaobao/mytaobao/nodejs/',
           \ '~/downloads/',
           \ '~/projects/node/',
-          \  '~/projects/daily/',
           \ '~/projects/daily/fe-learning/',
-          \  '~/projects/assets/item-detail/',
           \ '~/projects/assets/noscripter.github.io/',
           \ '~/projects/assets/noscripter.github.io/_posts/',
           \ '~/projects/assets/noscripter.github.io/lab/',
           \  '~/projects/daily/fe-learning/playground/']
-    let g:startify_change_to_dir          = 0
-    let g:startify_enable_special         = 0
-    let g:startify_files_number           = 8
+    let g:startify_change_to_dir          = 1
+    let g:startify_enable_special         = 1
+    let g:startify_files_number           = 5
     let g:startify_session_autoload       = 1
     let g:startify_session_delete_buffers = 1
     let g:startify_session_persistence    = 1
     let g:startify_use_env                = 1
+    " get both startify and nerdtree at startup
+    autocmd VimEnter *
+                \   if !argc()
+                \ |   Startify
+                \ |   NERDTree
+                \ |   wincmd w
+                \ | endif
 
   "CtrlP
   """""""""""""""""""""""""
@@ -606,8 +639,8 @@
         \ 'file': '\v\.(exe|so|dll)$',
         \ 'link': 'some_bad_symbolic_links',
         \ }
-      " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-      " modify for spf13
+      " Use ag in CtrlP for listing files. Lightning fast and respects
+      " .gitignore modify for spf13
       let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
       " ag is fast enough that CtrlP doesn't need to cache
       let g:ctrlp_use_caching = 0
@@ -708,10 +741,10 @@
     let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
   "ervandew/supertab
-    "let g:SuperTabDefaultCompletionType = '<C-n>'
-    "let g:SuperTabMappingForward        = '<c-tab>'
-    "let g:SuperTabMappingBackward       = '<c-s-tab>'
-    "let g:SuperTabCrMapping             = 0
+    let g:SuperTabDefaultCompletionType = '<C-n>'
+    let g:SuperTabMappingForward        = '<c-tab>'
+    let g:SuperTabMappingBackward       = '<c-s-tab>'
+    let g:SuperTabCrMapping             = 0
 
   "moll/vim-node
     autocmd User Node
@@ -724,23 +757,23 @@
     let g:used_javascript_libs = 'react,angularjs,flux'
 
   "pangloss/vim-javascript
-    "let g:javascript_conceal_function   = "ƒ"
-    "let g:javascript_conceal_null       = "ø"
-    "let g:javascript_conceal_this       = "@"
-    "let g:javascript_conceal_return     = "⇚"
-    "let g:javascript_conceal_undefined  = "¿"
-    "let g:javascript_conceal_NaN        = "ℕ"
-    "let g:javascript_conceal_prototype  = "¶"
-    "let g:javascript_conceal_static     = "•"
-    "let g:javascript_conceal_super      = "Ω"
-    "let g:javascript_enable_domhtmlcss = 1
+    let g:javascript_conceal_function   = "ƒ"
+    let g:javascript_conceal_null       = "ø"
+    let g:javascript_conceal_this       = "@"
+    let g:javascript_conceal_return     = "⇚"
+    let g:javascript_conceal_undefined  = "¿"
+    let g:javascript_conceal_NaN        = "ℕ"
+    let g:javascript_conceal_prototype  = "¶"
+    let g:javascript_conceal_static     = "•"
+    let g:javascript_conceal_super      = "Ω"
+    let g:javascript_enable_domhtmlcss  = 1
 
   "groenewege/vim-less
     autocmd BufNewFile,BufRead *.less set filetype=less
     autocmd FileType less set omnifunc=csscomplete#CompleteCSS
 
   "vim-airline/vim-airline-themes
-    "let g:airline_theme='dark'
+    let g:airline_theme='badwolf'
 
   "fatih/vim-go
     let g:go_highlight_functions         = 1
@@ -756,9 +789,9 @@
 
   "vim-action-ag
     " use * to search current word in normal mode
-    "nmap * <Plug>AgActionWord
+    nmap * <Plug>AgActionWord
     " use * to search selected text in visual mode
-    " vmap * <Plug>AgActionVisual
+    vmap * <Plug>AgActionVisual
 
   "Yggdroot/indentLine
     let g:indentLine_enabled         = 1
@@ -776,9 +809,12 @@
         \ 'open':  0,
         \ 'jump':  1,
         \ }
+    nnoremap <leader>git :Grepper -tool git -noswitch<cr>
+    nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
+    nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
 
   "jaxbot/semantic-highlight.vim
-    "let g:semanticEnableFileTypes = {'javascript': 'js', 'vim': 'vim'}
+    let g:semanticEnableFileTypes = {'javascript': 'js', 'vim': 'vim'}
 
   "Shougo/neocomplete.vim
     " Disable AutoComplPop.
@@ -792,9 +828,6 @@
     let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
   "vim-scripts/winmanager
-  """"""""""""""""""""""""""""""
-  " winManager setting
-  """"""""""""""""""""""""""""""
   let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
   let g:winManagerWidth = 30
   let g:defaultExplorer = 0
@@ -803,9 +836,96 @@
   nmap <silent> <leader>wm :WMToggle<cr>
 
   "nvie/vim-flake8
-    "let python_highlight_all = 1
-    "syntax on
-    "autocmd BufWritePost *.py call Flake8()
+    let python_highlight_all = 1
+    syntax on
+    autocmd BufWritePost *.py call Flake8()
+
+  "ryanoasis/vim-devicons
+    let g:airline_powerline_fonts=1
+    set guifont=Inconsolata\ for\ Powerline:h16
+
+  "vim-airline/vim-airline-themes
+    let g:airline_theme_patch_func = 'AirlineThemePatch'
+    function! AirlineThemePatch(palette)
+      if g:airline_theme == 'badwolf'
+        for colors in values(a:palette.inactive)
+          let colors[3] = 245
+        endfor
+      endif
+    endfunction
+    let g:airline#extensions#ycm#enabled = 1
+    let g:airline#extensions#ycm#error_symbol = "⚡"
+    let g:airline#extensions#ycm#warning_symbol = "⚑"
+    let g:airline#extensions#nrrwrgn#enabled = 1
+    if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+    endif
+  let g:airline_left_sep = '»'
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '«'
+  let g:airline_right_sep = '◀'
+  let g:airline_symbols.crypt = '🔒'
+  let g:airline_symbols.linenr = '␊'
+  let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.maxlinenr = '☰'
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.spell = 'Ꞩ'
+  let g:airline_symbols.notexists = '∄'
+  let g:airline_symbols.whitespace = 'Ξ'
+  let g:airline_mode_map = {} " see source for the defaults
+  " or copy paste the following into your vimrc for shortform text
+  let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+
+  "nathanaelkane/vim-indent-guides
+    let g:indent_guides_auto_colors=1
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+  "MattesGroeger/vim-bookmarks
+    highlight BookmarkSign ctermbg=NONE ctermfg=160
+    highlight BookmarkLine ctermbg=194 ctermfg=NONE
+    let g:bookmark_sign = '♥'
+    let g:bookmark_highlight_lines = 1
+
+  " junegunn/limelight.vim
+    " Color name (:help cterm-colors) or ANSI code
+    let g:limelight_conceal_ctermfg = 'gray'
+    let g:limelight_conceal_ctermfg = 240
+    " Color name (:help gui-colors) or RGB color
+    let g:limelight_conceal_guifg = 'DarkGray'
+    let g:limelight_conceal_guifg = '#777777'
+    " Default: 0.5
+    let g:limelight_default_coefficient = 0.7
+    " Number of preceding/following paragraphs to include (default: 0)
+    let g:limelight_paragraph_span = 1
+    " Beginning/end of paragraph
+    "   When there's no empty line between the paragraphs
+    "   and each paragraph starts with indentation
+    let g:limelight_bop = '^\s'
+    let g:limelight_eop = '\ze\n^\s'
+    " Highlighting priority (default: 10)
+    "   Set it to -1 not to overrule hlsearch
+    let g:limelight_priority = -1
+
+  " junegunn/vim-emoji
+    set completefunc=emoji#complete
 "}
 
 "{helper functions
@@ -950,24 +1070,35 @@
       endif
     endfunction
     noremap <leader>bg :call ToggleBG()<CR>
+
+  " Maximize Current Window
+  nnoremap <C-W>O :call MaximizeToggle()<CR>
+  nnoremap <C-W>o :call MaximizeToggle()<CR>
+  nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
+
+  function! MaximizeToggle()
+    if exists("s:maximize_session")
+      exec "source " . s:maximize_session
+      call delete(s:maximize_session)
+      unlet s:maximize_session
+      let &hidden=s:maximize_hidden_save
+      unlet s:maximize_hidden_save
+    else
+      let s:maximize_hidden_save = &hidden
+      let s:maximize_session = tempname()
+      set hidden
+      exec "mksession! " . s:maximize_session
+      only
+    endif
+  endfunction
 "}
 
 "{auto commands
-  " Return to last edit position when opening files (You want this!)
-  autocmd BufReadPost *
-       \ if line("'\"") > 0 && line("'\"") <= line("$") |
-       \   exe "normal! g`\"" |
-       \ endif
-  " flagging unnecessary whitespace
-  "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-  "au BufNewFile,BufRead *.py
-    "\ set tabstop=4
-    "\ set softtabstop=4
-    "\ set shiftwidth=4
-    "\ set textwidth=79
-    "\ set expandtab
-    "\ set autoindent
-    "\ set fileformat=unix
+  " Uncomment the following to have Vim jump to the last position when
+  " reopening a file
+  if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  endif
   autocmd! BufRead,BufNewFile *.markdown set filetype=mkd
   autocmd! BufRead,BufNewFile *.fdoc set filetype=yaml
   autocmd! BufRead,BufNewFile *.md       set filetype=mkd
@@ -1002,6 +1133,7 @@
   autocmd BufNewFile,BufRead *.jinja set syntax=htmljinja
   autocmd BufNewFile,BufRead *.mako set ft=mako
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.markdown set filetype=markdown
   au! BufRead,BufNewFile *.bat
         \ if getline(1) =~ '--\*-Perl-\*--' | setf perl | endif
   autocmd WinEnter call SetTabLabel()
@@ -1043,4 +1175,34 @@
   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
   autocmd FileType ruby set dictionary+=~/.vim/dict/ruby.dict
   au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  augroup WhitespaceMatch
+    " Remove ALL autocommands for the WhitespaceMatch group.
+    autocmd!
+    autocmd BufWinEnter * let w:whitespace_match_number =
+          \ matchadd('ExtraWhitespace', '\s\+$')
+    autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
+    autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
+  augroup END
+  function! s:ToggleWhitespaceMatch(mode)
+    let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+    if exists('w:whitespace_match_number')
+      call matchdelete(w:whitespace_match_number)
+      call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+    else
+      " Something went wrong, try to be graceful.
+      let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+    endif
+  endfunction
+  function! MakeSession()
+    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+    if (filewritable(b:sessiondir) != 2)
+      exe 'silent !mkdir -p ' b:sessiondir
+      redraw!
+    endif
+    let b:filename = b:sessiondir . '/session.vim'
+    exe "mksession! " . b:filename
+  endfunction
 "}
