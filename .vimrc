@@ -8,8 +8,6 @@
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'tacahiroy/ctrlp-funky'
-    Plugin 'FelikZ/ctrlp-py-matcher'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'easymotion/vim-easymotion'
     Plugin 'docunext/closetag.vim'
@@ -23,6 +21,7 @@
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-git'
     Plugin 'gregsexton/gitv'
+    Plugin 'airblade/vim-gitgutter'
     Plugin 'mileszs/ack.vim'
     Plugin 'mhinz/vim-signify'
     Plugin 'scrooloose/nerdcommenter'
@@ -37,39 +36,99 @@
     Plugin 'flazz/vim-colorschemes'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
     Plugin 'jelera/vim-javascript-syntax'
+    Plugin 'bigfish/vim-js-context-coloring'
     Plugin 'othree/es.next.syntax.vim'
     Plugin 'othree/javascript-libraries-syntax.vim'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'heavenshell/vim-jsdoc'
     Plugin 'beautify-web/js-beautify'
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'SirVer/ultisnips'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'Shougo/vimproc.vim'
+    Plugin 'Shougo/vimshell.vim'
+    Plugin 'Shougo/neocomplete.vim'
+    Plugin 'AndrewRadev/splitjoin.vim'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-abolish'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'chriskempson/base16-vim'
+    Plugin 'davidhalter/jedi-vim'
+    Plugin 'tpope/vim-vinegar'
+    Plugin 'bling/vim-bufferline'
+    Plugin 'tyru/open-browser.vim'
+    Plugin 'felixSchl/ctrlp-unity3d-docs'
+    Plugin 'voronkovich/ctrlp-nerdtree.vim'
+    Plugin 'elentok/ctrlp-objects.vim'
+    Plugin 'h14i/vim-ctrlp-buftab'
+    Plugin 'vim-scripts/ctrlp-cmdpalette'
+    Plugin 'mattn/ctrlp-windowselector'
+    Plugin 'the9ball/ctrlp-gtags'
+    Plugin 'thiderman/ctrlp-project'
+    Plugin 'mattn/ctrlp-google'
+    Plugin 'ompugao/ctrlp-history'
+    Plugin 'pielgrzym/ctrlp-sessions'
+    Plugin 'prabirshrestha/ctrlp-env'
+    Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'brookhong/k.vim'
+    Plugin 'mattn/ctrlp-launcher'
+    Plugin 'sgur/ctrlp-extensions.vim'
+    Plugin 'FelikZ/ctrlp-py-matcher'
+    Plugin 'JazzCore/ctrlp-cmatcher'
+    Plugin 'kmnk/vim-unite-giti'
+    Plugin 'mbbill/undotree'
+    Plugin 'junegunn/vim-easy-align'
+    Plugin 'honza/vim-snippets'
+    Plugin 'fatih/vim-go'
+    Plugin 'haya14busa/incsearch.vim'
+    Plugin 'tpope/vim-endwise'
+    Plugin 'tpope/vim-dispatch'
+    Plugin 'Yggdroot/indentLine'
+    Plugin 'Yggdroot/LeaderF'
+    Plugin 'AndrewRadev/sideways.vim'
+    Plugin 'vim-scripts/YankRing.vim'
+    Plugin 'sheerun/vim-polyglot'
+    Plugin 'shougo/unite-outline'
+    Plugin 'dhruvasagar/vim-table-mode'
+    Plugin 'AndrewRadev/inline_edit.vim'
+    Plugin 'chrisbra/changesPlugin'
+    Plugin 'chrisbra/NrrwRgn'
+    Plugin 'chrisbra/unicode.vim'
+    Plugin 'ryanss/vim-hackernews'
+    Plugin 'itchyny/calendar.vim'
+    Plugin 'Rykka/autotype.vim'
   "}
   call vundle#end()
 "}
 
 "{Mappings
   let mapleader=','
+  nnoremap <leader>cw :pwd<CR>
   nnoremap <C-tab> :tabn<CR>
   nnoremap <S-C-tab> :tabp<CR>
   nnoremap <Leader>2  :set tabstop=2 softtabstop=2 shiftwidth=2<CR>
   nnoremap <Leader>4  :set tabstop=4 softtabstop=4 shiftwidth=4<CR>
   nnoremap <Leader>eg :e ++enc=gbk<CR>
   nnoremap <Leader>eu :e ++enc=utf8<CR>
-  nnoremap <Leader>h  :nohlsearch<CR>
+  nnoremap <Leader>nl  :nohlsearch<CR>
   nnoremap <leader>l  :set list!<CR>
   nnoremap <leader>w  :set wrap!<CR>
   noremap  <Leader>W  :w !sudo tee % > /dev/null
-  nnoremap <leader>f  :%!js-beautify -j -q -B -f -<CR>
+  nnoremap <leader>fm  :%!js-beautify -j -q -B -f -<CR>
   nnoremap <leader>ev :tabe $MYVIMRC<CR>
+  nnoremap <leader>e  :e $MYVIMRC<CR>
   nnoremap <Leader>xd :%!xxd<CR>
   nnoremap <Leader>xr :%!xxd -r<CR>
-  nnoremap <leader>t  :tabe \| Startify<cr>
+  nnoremap <leader>te  :tabe \| Startify<cr>
   nnoremap <leader>tm :echo strftime('%c')<cr>
   nnoremap <leader>v  :vnew \| Startify<cr>
   nnoremap <leader>to :tabonly<cr>
   nnoremap <leader>x  :q<cr>
   nnoremap <leader>tx :tabclose<cr>
   nnoremap <leader>d  :tabe ~/projects/assets/daily.md<CR>
+  nnoremap <leader>de :e ~/projects/assets/daily.md<CR>
   nnoremap <leader>dt :windo diffthis<CR>
   nnoremap <leader>do :windo diffoff<CR>
   nnoremap <leader>;  :%s:::g<Left><Left><Left>
@@ -98,13 +157,14 @@
   nnoremap ]q :cnext<CR>
   nnoremap [Q :cfirst<CR>
   nnoremap ]Q :clast<CR>
-  nnoremap - :Ex<Cr>
+  nnoremap <leader>fe :Ex<CR>
 "}
 
 "{Plugin settings
   "scrooloose/syntastic
-    set statusline+=%#warningmsg#
-    set statusline+=%*
+    "set statusline+=%#warningmsg#
+    "set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%*
     let g:syntastic_check_on_open=0
     let g:syntastic_always_populate_loc_list=1
     let g:syntastic_auto_loc_list=1
@@ -195,9 +255,15 @@
         \ 'link': 'some_bad_symbolic_links',
         \ }
       let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-      let g:ctrlp_use_caching = 0
+      let g:ctrlp_working_path_mode='ra'
+      let g:ctrlp_root_markers="pom.xml"
+      let g:ctrlp_match_window="bottom,order:btt,min:1,max:25,results:25"
+      let g:ctrlp_show_hidden=1
+      let g:ctrlp_use_caching=1
+      let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
     endif
     nnoremap <leader>b :CtrlPBuffer<CR>
+    nnoremap <C-P> :CtrlPMixed<CR>
 
   "Valloric/YouCompleteMe
     let g:ycm_min_num_of_chars_for_completion = 3
@@ -300,7 +366,7 @@
 
   "tpope/vim-fugitive
     autocmd BufReadPost fugitive://* set bufhidden=delete
-    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+    "set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
     autocmd User fugitive
       \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
       \   nnoremap <buffer> .. :edit %:h<CR> |
@@ -325,6 +391,85 @@
     let g:ctrlp_funky_matchtype = 'path'
     nnoremap <Leader>fu :CtrlPFunky<CR>
     nnoremap <Leader>fU :execute 'CtrlPFunky' .expand('<cword')<CR>
+
+  "voronkovich/ctrlp-nerdtree.vim
+    let g:ctrlp_nerdtree_show_hidden=1
+
+  "pielgrzym/ctrlp-sessions
+    let g:ctrlp_extensions = ['funky', 'sessions' , 'k' , 'tag', 'mixed',
+          \ 'quickfix', 'undo', 'line', 'changes', 'cmdline', 'menu']
+
+  "brookhong/k.vim
+    nnoremap <silend> <leader>qe:CtrlPK<CR>
+
+  "mattn/ctrlp-launcher
+    nnoremap <leader>pl :<C-U>CtrlpLauncher<CR>
+
+  "Shougo/unite.vim
+    nnoremap <leader>un :Unite<CR>
+    let g:unite_source_history_yank_enable=1
+    try
+      let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+      call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    catch
+    endtry
+    let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
+    nnoremap <space>u :split<CR> :<C-u>Unite -start-insert file_rec/async<CR>
+    nnoremap <space>r <Plug>(unite_restart)
+    let g:unite_source_menu_menus.git = {
+        \ 'description' : '            gestionar repositorios git
+            \                            ⌘ [espacio]g',
+        \}
+    let g:unite_source_menu_menus.git.command_candidates = [
+        \['▷ tig                                              ⌘ ,gt',
+            \'normal ,gt'],
+        \['▷ git status       (Fugitive)                      ⌘ ,gs',
+            \'Gstatus'],
+        \['▷ git diff         (Fugitive)                      ⌘ ,gd',
+            \'Gdiff'],
+        \['▷ git commit       (Fugitive)                      ⌘ ,gc',
+            \'Gcommit'],
+        \['▷ git log          (Fugitive)                      ⌘ ,gl',
+            \'exe "silent Glog | Unite quickfix"'],
+        \['▷ git blame        (Fugitive)                      ⌘ ,gb',
+            \'Gblame'],
+        \['▷ git stage        (Fugitive)                      ⌘ ,gw',
+            \'Gwrite'],
+        \['▷ git checkout     (Fugitive)                      ⌘ ,go',
+            \'Gread'],
+        \['▷ git rm           (Fugitive)                      ⌘ ,gr',
+            \'Gremove'],
+        \['▷ git mv           (Fugitive)                      ⌘ ,gm',
+            \'exe "Gmove " input("destino: ")'],
+        \['▷ git push         (Fugitive, salida por buffer)   ⌘ ,gp',
+            \'Git! push'],
+        \['▷ git pull         (Fugitive, salida por buffer)   ⌘ ,gP',
+            \'Git! pull'],
+        \['▷ git prompt       (Fugitive, salida por buffer)   ⌘ ,gi',
+            \'exe "Git! " input("comando git: ")'],
+        \['▷ git cd           (Fugitive)',
+            \'Gcd'],
+        \]
+    nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
+
+  "JazzCore/ctrlp-cmatcher
+    let g:ctrlp_match_func={'match': 'matcher#cmatch'}
+
+  "pangloss/vim-javascript
+    let g:javascript_plugin_jsdoc = 1
+    let g:javascript_plugin_ngdoc = 1
+    let g:javascript_plugin_flow = 1
+
+  "bigfish/vim-js-context-coloring
+    let g:js_context_colors_colorize_comments = 1
+
+  "fatih/vim-go
+    let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+    let g:go_list_type = "quickfix"
+
+  "Yggdroot/indentLine
+    let g:indentLine_enabled = 0
 "}
 
 "{helper functions
@@ -523,6 +668,8 @@
   endif
   set nobackup
   set noswapfile
+  set noundofile
+  set undodir=~/.undodir
   set nowritebackup
   set iskeyword-=_,.,=,-,:,#,
   set foldmethod=indent
@@ -535,6 +682,8 @@
   set copyindent
   set wildmode=list:longest,full
   set whichwrap=b,s,h,l,<,>,>h,[,]
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class " Linux/MacOSX
+  set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe " Windows
   if !&scrolloff
     set scrolloff=1
   endif
@@ -596,4 +745,5 @@
   set splitbelow
   set splitright
   set tabstop=2  softtabstop=2 shiftwidth=2 expandtab
+  set verbosefile=~/.vim/vimbenchmark
 "}
