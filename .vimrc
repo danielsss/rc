@@ -112,7 +112,6 @@
   nnoremap <Leader>4  :set tabstop=4 softtabstop=4 shiftwidth=4<CR>
   nnoremap <Leader>eg :e ++enc=gbk<CR>
   nnoremap <Leader>eu :e ++enc=utf8<CR>
-  nnoremap <Leader>nl  :nohlsearch<CR>
   nnoremap <leader>l  :set list!<CR>
   nnoremap <leader>w  :set wrap!<CR>
   noremap  <Leader>W  :w !sudo tee % > /dev/null
@@ -162,9 +161,9 @@
 
 "{Plugin settings
   "scrooloose/syntastic
-    "set statusline+=%#warningmsg#
-    "set statusline+=%{SyntasticStatuslineFlag()}
-    "set statusline+=%*
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
     let g:syntastic_check_on_open=0
     let g:syntastic_always_populate_loc_list=1
     let g:syntastic_auto_loc_list=1
@@ -367,6 +366,7 @@
   "tpope/vim-fugitive
     autocmd BufReadPost fugitive://* set bufhidden=delete
     "set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+    set statusline+=%{fugitive#statusline()}
     autocmd User fugitive
       \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
       \   nnoremap <buffer> .. :edit %:h<CR> |
