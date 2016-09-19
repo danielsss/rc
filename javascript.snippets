@@ -1,0 +1,103 @@
+# require async
+snippet Async "Async"
+var Async = require('async');
+endsnippet
+
+snippet use
+'use strict';
+endsnippet
+
+snippet ifelse "if else statement"
+if ($1) {
+ $2
+} else {
+}
+endsnippet
+
+snippet const "const statement"
+const $1 = require('$1');
+$0
+endsnippet
+
+snippet let "let statement"
+let $1 = require('$2');
+endsnippet
+
+snippet describe "describe of mocha"
+describe('$1', function(done) {
+  $0
+});
+endsnippet
+
+snippet eslintd "eslint-disable"
+/* eslint-disable $1 */
+endsnippet
+
+snippet eslinte "eslint-enable"
+/* eslint-enable $1 */
+endsnippet
+
+
+# Welcome to the Javascript ES6 snippets!
+
+# Generator function
+snippet gfn "generator function"
+  function* ${1:name}(${2}) {
+    yield ${3};
+  }
+endsnippet
+
+# Arrow function
+snippet => "arrow function"
+  (${1}) => {
+    ${2}
+  }
+endsnippet
+
+# Class
+snippet class
+  class ${1:name} {
+    constructor(${2:arg}) {
+      ${3:// init}
+    }
+    ${4}
+  }
+endsnippet
+
+# For of loop
+snippet forof
+  for (let ${1:s} of ${2:sequence}) {
+    ${3}
+  }
+endsnippet
+
+# Import
+snippet im
+  import ${1:foo} from '${2:bar}'
+endsnippet
+
+# Export
+snippet ex
+  export ${1:default} ${2:bar}
+endsnippet
+
+snippet console "console with format"
+console.log('%c$1', '${2:font-size: 2rem; color: red;}'$0);
+endsnippet
+
+snippet xhr "new XHMLHttpRequest"
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '$1', true);
+
+// Hack to pass bytes through unprocessed.
+xhr.overrideMimeType('text/plain; charset=x-user-defined');
+
+xhr.onreadystatechange = function(e) {
+  if (this.readyState == 4 && this.status == 200) {
+    var binStr = this.responseText;
+    console.log('%cresponse%o', 'font-size:2rem; color:red;', binStr);
+  }
+};
+
+xhr.send();
+endsnippet
