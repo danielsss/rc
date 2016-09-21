@@ -26,6 +26,9 @@ pup() {
   pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
 }
 
+alias nhttp="sudo tcpdump -i en0 -vvv 'port 80'"
+alias nhttps="sudo tcpdump -i en0 -vvv 'port 443'"
+
 # check self ip
 myip() {
     curl ifconfig.me
@@ -81,4 +84,43 @@ ngrephttp2() {
 
 showtime() {
   date "+%Y-%m-%d %H:%M:%S"
+}
+
+
+alias now='date +"%Y-%m-%d_%H_%M_%S-vim-startuptime-log"'
+vimtime() {
+  vim --startuptime `now` `now`
+}
+mvimtime() {
+  mvim --startuptime `now` `now`
+}
+#TODO: parameter
+profilevim() {
+  vim --cmd 'profile start vim-profile.log' \
+      --cmd 'profile func *' \
+      --cmd 'profile file *' \
+      -c 'profdel func *' \
+      -c 'profdel file *' \
+      -c 'qa!'
+}
+
+### generate random mac address
+alias randommacaddy="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
+
+alias randommac="openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
+spoofmac() {
+  ifconfig en0 ether
+  sudo ifconfig en0 ether `randommac`
+  ifconfig en0 ether
+}
+
+spoofmac2() {
+  openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo "obase=2;ibase=16;" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo "obase=16;ibase=2;" | bc | sed "s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/" | xargs sudo ifconfig en0 ether
+}
+
+alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
+
+
+check() {
+  ps axw -o pid,ppid,user,%cpu,vsz,wchan,command | egrep '('$1'|PID)' | grep -v egrep
 }
