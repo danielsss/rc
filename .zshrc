@@ -124,3 +124,7 @@ alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 
 check() {
   ps axw -o pid,ppid,user,%cpu,vsz,wchan,command | egrep '('$1'|PID)' | grep -v egrep
 }
+
+checkbaidu() {
+  curl -w "DNS解析时间：%{time_namelookup}，TCP 连接建立时间: %{time_connect}, SSL 连接建立时间: %{time_appconnect}, 服务器返回第一个字节所用的时间：%{time_starttransfer}，完成请求所用的时间：%{time_total}，下载大小：%{size_download}，下载速度：%{speed_download}\n" \ -so /dev/null -L http://baidu.com/
+}
