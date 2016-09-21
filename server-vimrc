@@ -1,0 +1,27 @@
+echom 'reload vimrc'
+set nocompatible " no vi compatible
+set incsearch " search while typing
+set ignorecase " search case insensitive
+set smartcase " enable smart case
+set smartindent " enable smart indent
+set nu " show number
+set autochdir " change pwd to current file's directory
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2 " 2 space for each tab
+set expandtab " replace tab with space
+set nobackup " no stupid backup file
+set noswapfile " no stupid .swp file
+set paste " enable paste to keep original format
+set foldmethod=indent " enable fold
+set statusline=%F\ -\ FileType:%y " show full path name and filetype
+set statusline+=%l/%L " show current line and total lines
+set laststatus=2 " show statusline
+set mouse=a " enable to scroll with mouse
+
+"{auto reload your vimrc
+  augroup reload_vimrc
+    autocmd!
+    autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+  augroup END
+"}
