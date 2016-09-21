@@ -59,3 +59,26 @@ cleardnscache2() {
 clearcache() {
   dscacheutil -flushcache
 }
+
+fixssh() {
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/github
+  ssh-add -l
+}
+
+tsharkhttp() {
+  tshark  'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+}
+
+ngrephttp() {
+  ngrep -q -d en0 -W byline port 80
+}
+
+## grep all HTTP GET or POST requests from network traffic on eth0 interface  ##
+ngrephttp2() {
+  ngrep -l -q -d en0 "^GET |^POST " tcp and port 80
+}
+
+showtime() {
+  date "+%Y-%m-%d %H:%M:%S"
+}
