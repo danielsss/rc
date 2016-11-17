@@ -1,10 +1,26 @@
+"echom "Hacked by leo"
+"CHANGELOG:
+"  20160917:
+"     add plugins xtpl.vim, weex.vim, vim-pug
+"  20160918-00:40:50:
+"     comment all ctrlp extension plugins and custom settings
+"     customize airline left_sep and right_sep
+"  20160918-15:49:47
+"     comment taboo.vim
+" NOTE:
+"   ultisnips: break from ff10513cddc36f316e5d848c9b54aa8dd9ba9cd5
+"   k.vim: <leader>t map conflict
+"   changesPlugin.vim <leader>h map conflict
+"   yankring.vim <C-P> map conflict
+"   comment yankring 20160914
+"   comment LeaderF 20160915
 "{vundle setup
   set nocompatible
   filetype off
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
   "{plugins
-    Plugin 'gmarik/Vundle.vim'
+    Plugin 'VundleVim/Vundle.vim'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'ctrlpvim/ctrlp.vim'
@@ -21,6 +37,7 @@
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-git'
     Plugin 'gregsexton/gitv'
+    Plugin 'junegunn/gv.vim'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'mileszs/ack.vim'
     Plugin 'mhinz/vim-signify'
@@ -46,59 +63,110 @@
     Plugin 'beautify-web/js-beautify'
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'SirVer/ultisnips'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'Shougo/vimproc.vim'
-    Plugin 'Shougo/vimshell.vim'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'klen/python-mode'
+    Plugin 'thinca/vim-quickrun'
+    "Plugin 'MarcWeber/vim-addon-mw-utils'
+    "Plugin 'tomtom/tlib_vim'
+    "Plugin 'garbas/vim-snipmate'
+    "Plugin 'Shougo/unite.vim'
+    "Plugin 'Shougo/vimproc.vim'
+    "Plugin 'Shougo/vimshell.vim'
     Plugin 'Shougo/neocomplete.vim'
     Plugin 'AndrewRadev/splitjoin.vim'
     Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-abolish'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'chriskempson/base16-vim'
-    Plugin 'davidhalter/jedi-vim'
+    "Plugin 'tpope/vim-abolish'
+    "Plugin 'tpope/vim-repeat'
+    "Plugin 'chriskempson/base16-vim'
+    "Plugin 'davidhalter/jedi-vim'
     Plugin 'tpope/vim-vinegar'
-    Plugin 'bling/vim-bufferline'
-    Plugin 'tyru/open-browser.vim'
-    Plugin 'felixSchl/ctrlp-unity3d-docs'
-    Plugin 'voronkovich/ctrlp-nerdtree.vim'
-    Plugin 'elentok/ctrlp-objects.vim'
-    Plugin 'h14i/vim-ctrlp-buftab'
-    Plugin 'vim-scripts/ctrlp-cmdpalette'
-    Plugin 'mattn/ctrlp-windowselector'
-    Plugin 'the9ball/ctrlp-gtags'
-    Plugin 'thiderman/ctrlp-project'
-    Plugin 'mattn/ctrlp-google'
-    Plugin 'ompugao/ctrlp-history'
-    Plugin 'pielgrzym/ctrlp-sessions'
-    Plugin 'prabirshrestha/ctrlp-env'
-    Plugin 'tacahiroy/ctrlp-funky'
-    Plugin 'brookhong/k.vim'
-    Plugin 'mattn/ctrlp-launcher'
-    Plugin 'sgur/ctrlp-extensions.vim'
-    Plugin 'FelikZ/ctrlp-py-matcher'
-    Plugin 'JazzCore/ctrlp-cmatcher'
-    Plugin 'kmnk/vim-unite-giti'
-    Plugin 'mbbill/undotree'
-    Plugin 'junegunn/vim-easy-align'
+    "Plugin 'bling/vim-bufferline'
+    "Plugin 'tyru/open-browser.vim'
+    "Plugin 'felixSchl/ctrlp-unity3d-docs'
+    "Plugin 'voronkovich/ctrlp-nerdtree.vim'
+    "Plugin 'elentok/ctrlp-objects.vim'
+    "Plugin 'h14i/vim-ctrlp-buftab'
+    "Plugin 'vim-scripts/ctrlp-cmdpalette'
+    "Plugin 'mattn/ctrlp-windowselector'
+    "Plugin 'the9ball/ctrlp-gtags'
+    "Plugin 'thiderman/ctrlp-project'
+    "Plugin 'mattn/ctrlp-google'
+    "Plugin 'ompugao/ctrlp-history'
+    "Plugin 'pielgrzym/ctrlp-sessions'
+    "Plugin 'prabirshrestha/ctrlp-env'
+    "Plugin 'tacahiroy/ctrlp-funky'
+    "Plugin 'mattn/ctrlp-launcher'
+    "Plugin 'sgur/ctrlp-extensions.vim'
+    "Plugin 'FelikZ/ctrlp-py-matcher'
+    "Plugin 'JazzCore/ctrlp-cmatcher'
+    "Plugin 'brookhong/k.vim'
+    "Plugin 'kmnk/vim-unite-giti'
+    "Plugin 'mbbill/undotree'
+    "Plugin 'junegunn/vim-easy-align'
     Plugin 'honza/vim-snippets'
     Plugin 'fatih/vim-go'
-    Plugin 'haya14busa/incsearch.vim'
-    Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-dispatch'
-    Plugin 'Yggdroot/indentLine'
-    Plugin 'Yggdroot/LeaderF'
-    Plugin 'AndrewRadev/sideways.vim'
-    Plugin 'vim-scripts/YankRing.vim'
+    "Plugin 'haya14busa/incsearch.vim'
+    "Plugin 'kana/vim-operator-user'
+    "Plugin 'haya14busa/vim-operator-flashy'
+    "Plugin 'haya14busa/vim-asterisk'
+    "Plugin 'tpope/vim-endwise'
+    "Plugin 'tpope/vim-dispatch'
+    "Plugin 'Yggdroot/indentLine'
+    "Plugin 'Yggdroot/LeaderF'
+    "Plugin 'AndrewRadev/sideways.vim'
+    "Plugin 'vim-scripts/YankRing.vim'
     Plugin 'sheerun/vim-polyglot'
-    Plugin 'shougo/unite-outline'
-    Plugin 'dhruvasagar/vim-table-mode'
-    Plugin 'AndrewRadev/inline_edit.vim'
-    Plugin 'chrisbra/changesPlugin'
-    Plugin 'chrisbra/NrrwRgn'
-    Plugin 'chrisbra/unicode.vim'
-    Plugin 'ryanss/vim-hackernews'
-    Plugin 'itchyny/calendar.vim'
-    Plugin 'Rykka/autotype.vim'
+    "Plugin 'shougo/unite-outline'
+    "Plugin 'dhruvasagar/vim-table-mode'
+    "Plugin 'AndrewRadev/inline_edit.vim'
+    "Plugin 'chrisbra/changesPlugin'
+    "Plugin 'tomtom/quickfixsigns_vim'
+    "Plugin 'chrisbra/NrrwRgn'
+    "Plugin 'chrisbra/unicode.vim'
+    "Plugin 'ryanss/vim-hackernews'
+    "Plugin 'itchyny/calendar.vim'
+    "Plugin 'Rykka/autotype.vim'
+    "Plugin 'chrisbra/csv.vim'
+    "Plugin 'jmcantrell/vim-virtualenv'
+    "Plugin 'tpope/vim-obsession'
+    "Plugin 'majutsushi/tagbar'
+    "Plugin 'vim-ctrlspace/vim-ctrlspace'
+    "Plugin 'chrisbra/Colorizer'
+    "Plugin 'gcmt/taboo.vim'
+    Plugin 'mattn/vim-maketable'
+    "Plugin 'junegunn/vim-emoji'
+    "Plugin 'jparise/vim-graphql'
+    Plugin 'yuezk/xtpl.vim'
+    "Plugin 'yuezk/weex.vim'
+    "Plugin 'digitaltoad/vim-pug'
+    "Plugin 'jacoborus/tender.vim'
+    "Plugin 'tpope/vim-characterize'
+    "Plugin 'Rykka/easydigraph.vim'
+    "Plugin 'manicmaniac/betterga'
+    Plugin 'isRuslan/vim-es6'
+    "Plugin 'ddrscott/vim-side-search'
+    "Plugin 'ekalinin/Dockerfile.vim'
+    "Plugin 'fweep/vim-tabber'
+    "Plugin 'mkitt/tabline.vim'
+    "Plugin 'dkprice/vim-easygrep'
+    "Plugin 'dyng/ctrlsf.vim'
+    "Plugin 'ramele/agrep'
+    "Plugin 'nelstrom/vim-qargs'
+    "Plugin 'rking/ag.vim'
+    "Plugin 'shepherdwind/vim-velocity'
+    Plugin 'ap/vim-css-color'
+    "Plugin 'cakebaker/scss-syntax.vim'
+    "Plugin 'hail2u/vim-css3-syntax'
+    "Plugin 'tpope/vim-haml'
+    "Plugin 'groenewege/vim-less'
+    "Plugin 'stylus/stylus'
+    "Plugin 'leafgarland/typescript-vim'
+    "Plugin 'HerringtonDarkholme/yats.vim'
+    "Plugin 'Quramy/tsuquyomi'
+    "Plugin 'clausreinke/typescript-tools.vim'
+    "Plugin 'ai/autoprefixer'
+    "Plugin 'honza/dockerfile.vim'
+    "Plugin 'editorconfig/editorconfig-vim'
   "}
   call vundle#end()
 "}
@@ -112,7 +180,7 @@
   nnoremap <Leader>4  :set tabstop=4 softtabstop=4 shiftwidth=4<CR>
   nnoremap <Leader>eg :e ++enc=gbk<CR>
   nnoremap <Leader>eu :e ++enc=utf8<CR>
-  nnoremap <Leader>nl  :nohlsearch<CR>
+  nnoremap <Leader>h  :nohlsearch<CR>
   nnoremap <leader>l  :set list!<CR>
   nnoremap <leader>w  :set wrap!<CR>
   noremap  <Leader>W  :w !sudo tee % > /dev/null
@@ -121,7 +189,7 @@
   nnoremap <leader>e  :e $MYVIMRC<CR>
   nnoremap <Leader>xd :%!xxd<CR>
   nnoremap <Leader>xr :%!xxd -r<CR>
-  nnoremap <leader>te  :tabe \| Startify<cr>
+  nnoremap <leader>t  :tabe \| Startify<cr>
   nnoremap <leader>tm :echo strftime('%c')<cr>
   nnoremap <leader>v  :vnew \| Startify<cr>
   nnoremap <leader>to :tabonly<cr>
@@ -162,11 +230,11 @@
 
 "{Plugin settings
   "scrooloose/syntastic
-    "set statusline+=%#warningmsg#
-    "set statusline+=%{SyntasticStatuslineFlag()}
-    "set statusline+=%*
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
     let g:syntastic_check_on_open=0
-    let g:syntastic_always_populate_loc_list=1
+    let g:syntastic_always_populate_loc_list=0
     let g:syntastic_auto_loc_list=1
     let g:syntastic_check_on_wq=1
     let g:syntastic_enable_signs=1
@@ -179,7 +247,7 @@
     let g:syntastic_python_checkers = ['pyflakes', 'pylint']
     let g:syntastic_python_python_exec="/usr/local/bin/python3"
     let g:syntastic_sass_checkers = ['sass', 'sassc']
-    let g:syntastic_scss_checkers = ['sass', 'sassc', 'scsslint']
+    let g:syntastic_scss_checkers = ['sass', 'sassc', 'scss-lint']
     let g:syntastic_php_checkers = ['php']
     let g:syntastic_ruby_checkers = ['robocop']
     let g:syntastic_coffee_checkes = ['coffeelint']
@@ -208,6 +276,7 @@
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_auto_refresh_includes = 1
     highlight SyntasticErrorSign guifg=white guibg=red
+    let g:syntastic_quiet_messages = { "level": "warnings" }
 
   "scrooloose/nerdtree
     nnoremap <leader>ne :NERDTreeFind<CR>
@@ -255,7 +324,7 @@
         \ 'link': 'some_bad_symbolic_links',
         \ }
       let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-      let g:ctrlp_working_path_mode='ra'
+      let g:ctrlp_working_path_mode='cra'
       let g:ctrlp_root_markers="pom.xml"
       let g:ctrlp_match_window="bottom,order:btt,min:1,max:25,results:25"
       let g:ctrlp_show_hidden=1
@@ -311,26 +380,26 @@
 
   "maksimr/vim-jsbeautify
     map <c-f> :call JsBeautify()<cr>
-    autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-    autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-    autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-    autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-    autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-    autocmd FileType javascript vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
-    autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-    autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-    autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-    autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+    autocmd! FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+    autocmd! FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+    autocmd! FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+    autocmd! FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+    autocmd! FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+    autocmd! FileType javascript vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
+    autocmd! FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+    autocmd! FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+    autocmd! FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+    autocmd! FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
   "FelikZ/ctrlp-py-matcher
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-    let g:ctrlp_lazy_update = 350
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_max_files = 0
-    if executable("ag")
-        set grepprg=ag\ --nogroup\ --nocolor
-        let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
-    endif
+    "let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+    "let g:ctrlp_lazy_update = 350
+    "let g:ctrlp_clear_cache_on_exit = 0
+    "let g:ctrlp_max_files = 0
+    "if executable("ag")
+        "set grepprg=ag\ --nogroup\ --nocolor
+        "let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+    "endif
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -341,7 +410,7 @@
     let g:UltiSnipsEditSplit           = "vertical"
 
   "moll/vim-node
-    autocmd User Node
+    autocmd! User Node
       \ if &filetype == "javascript" |
       \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
       \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
@@ -361,13 +430,27 @@
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ''
     let g:airline_symbols.branch = '⭠'
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
+    let g:airline_left_sep = '⮀'
+    let g:airline_left_alt_sep = '▶'
+    let g:airline_right_sep = '⮂'
+    let g:airline_right_alt_sep = '◀'
+    "let g:airline_extensions = ['branch', 'tabline', 'bufferline', 'csv',
+          "\ 'hunks', 'ctrlp', 'virtualenv']
+    "let g:airline#extensions#tabline#enabled = 1
+    "let g:airline#extensions#tabline#show_buffers=1
+    "let g:airline#extensions#bufferline#enabled = 1
+    "let g:airline#extensions#branch#enabled = 1
+    "let g:airline#extensions#csv#enabled = 1
+    "let g:airline#extensions#hunks#enabled = 1
+    "let g:airline#extensions#hunks#non_zero_only = 1
+    "let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+    "let g:airline#extensions#virtualenv#enabled = 1
+    "let g:airline#extensions#whitespace#enabled = 1
 
   "tpope/vim-fugitive
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-    "set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-    autocmd User fugitive
+    autocmd! BufReadPost fugitive://* set bufhidden=delete
+    set statusline+=%{fugitive#statusline()}
+    autocmd! User fugitive
       \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
       \   nnoremap <buffer> .. :edit %:h<CR> |
       \ endif
@@ -387,23 +470,23 @@
     let g:syntastic_yaml_checkers = ['pyyaml']
 
   "tacahiroy/ctrlp-funky
-    let g:ctrlp_funky_syntax_highlight = 1
-    let g:ctrlp_funky_matchtype = 'path'
-    nnoremap <Leader>fu :CtrlPFunky<CR>
-    nnoremap <Leader>fU :execute 'CtrlPFunky' .expand('<cword')<CR>
+    "let g:ctrlp_funky_syntax_highlight = 1
+    "let g:ctrlp_funky_matchtype = 'path'
+    "nnoremap <Leader>fu :CtrlPFunky<CR>
+    "nnoremap <Leader>fU :execute 'CtrlPFunky' .expand('<cword')<CR>
 
   "voronkovich/ctrlp-nerdtree.vim
-    let g:ctrlp_nerdtree_show_hidden=1
+    "let g:ctrlp_nerdtree_show_hidden=1
 
   "pielgrzym/ctrlp-sessions
-    let g:ctrlp_extensions = ['funky', 'sessions' , 'k' , 'tag', 'mixed',
-          \ 'quickfix', 'undo', 'line', 'changes', 'cmdline', 'menu']
+    "let g:ctrlp_extensions = ['funky', 'sessions' , 'k' , 'tag', 'mixed',
+          "\ 'quickfix', 'undo', 'line', 'changes', 'cmdline', 'menu']
 
   "brookhong/k.vim
-    nnoremap <silend> <leader>qe:CtrlPK<CR>
+    "nnoremap <silend> <leader>qe:CtrlPK<CR>
 
   "mattn/ctrlp-launcher
-    nnoremap <leader>pl :<C-U>CtrlpLauncher<CR>
+    "nnoremap <leader>pl :<C-U>CtrlpLauncher<CR>
 
   "Shougo/unite.vim
     nnoremap <leader>un :Unite<CR>
@@ -453,7 +536,7 @@
     nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
 
   "JazzCore/ctrlp-cmatcher
-    let g:ctrlp_match_func={'match': 'matcher#cmatch'}
+    "let g:ctrlp_match_func={'match': 'matcher#cmatch'}
 
   "pangloss/vim-javascript
     let g:javascript_plugin_jsdoc = 1
@@ -470,9 +553,25 @@
 
   "Yggdroot/indentLine
     let g:indentLine_enabled = 0
+
+  "bling/vim-bufferline
+    "let g:bufferline_echo = 1
+    "autocmd! VimEnter *
+      "\ let &statusline='%{bufferline#refresh_status()}'
+        "\ .bufferline#get_status_string()
 "}
 
 "{helper functions
+  command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+  function! QuickfixFilenames()
+    " Building a hash ensures we get each buffer only once
+    let buffer_numbers = {}
+    for quickfix_item in getqflist()
+      let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+    endfor
+    return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+  endfunction
+
   command! -nargs=* Stab call Stab()
   function! Stab()
     let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
@@ -530,7 +629,7 @@
   endfunction
 
   au VimEnter * :call SetTabLabel()
-  autocmd BufEnter,WinEnter call SetTabLabel()
+  autocmd! BufEnter,WinEnter call SetTabLabel()
 
   if exists("+showtabline")
     function! MyTabLine()
@@ -599,45 +698,80 @@
     endif
   endfunction
   noremap <leader>bg :call ToggleBG()<CR>
+
+  " Add argument (can be negative, default 1) to global variable i.
+  " Return value of i before the change.
+  function! Inc(...)
+    let result = g:i
+    let g:i += a:0 > 0 ? a:1 : 1
+    return result
+  endfunction
+  " Usage
+  " :let i = 1 | %sabc/\='xyz_'.Inc()/g
 "}
 
 "{auto commands
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-  autocmd! BufRead,BufNewFile,BufReadPost *.py            set tabstop=2  softtabstop=2 shiftwidth=2 expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.markdown      set filetype=mkd tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.fdoc          set filetype=yaml expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.md            set filetype=markdown tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.json          set filetype=json expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.ts            set filetype=typescript expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.vm            set filetype=html expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.html.twig     set filetype=html.twig expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.conf          set filetype=config expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.scss          set filetype=scss.css expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.vm            set filetype=html expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.coffee        set filetype=coffee expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.rss,*.atom    set filetype=xml expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.vm            set filetype=velocity expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.xtpl          set filetype=html expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.ejs           set filetype=html expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.snippets      set filetype=snippets expandtab
-  autocmd! BufRead,BufNewFile,BufReadPost *.xtpl          set filetype=html
-  autocmd! BufRead,BufNewFile,BufReadPost *.jinja         set syntax=htmljinja
-  autocmd! BufRead,BufNewFile,BufReadPost *.plt,*.gnuplot set filetype=gnuplot
-  autocmd! BufRead,BufNewFile,BufReadPost *               set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  autocmd! FileType gitcommit             setlocal spell textwidth=72
-  autocmd! FileType ruby                  set dictionary+=$HOME/.vim/dict/ruby.dict
-  autocmd! FileType javascript            set dictionary+=$HOME/.vim/dict/node.dict
-  autocmd! FileType javascript            setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd! BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+    autocmd! BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+
+  "{auto filetype
+    autocmd! BufRead,BufNewFile,BufReadPost *.py            set tabstop=2  softtabstop=2 shiftwidth=2 expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.markdown      set filetype=mkd tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.fdoc          set filetype=yaml expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.md            set filetype=markdown tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.json          set filetype=json expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.ts            set filetype=typescript expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.vm            set filetype=html expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.html.twig     set filetype=html.twig expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.conf          set filetype=config expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.scss          set filetype=scss.css expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.vm            set filetype=html expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.coffee        set filetype=coffee expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.rss,*.atom    set filetype=xml expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.vm            set filetype=velocity expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.xtpl          set filetype=html expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.ejs           set filetype=html expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.snippets      set filetype=snippets expandtab
+    autocmd! BufRead,BufNewFile,BufReadPost *.xtpl          set filetype=html
+    autocmd! BufRead,BufNewFile,BufReadPost *.jinja         set syntax=htmljinja
+    autocmd! BufRead,BufNewFile,BufReadPost *.plt,*.gnuplot set filetype=gnuplot
+    autocmd! BufRead,BufNewFile,BufReadPost *               set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    autocmd! FileType gitcommit             setlocal spell textwidth=72
+    autocmd! FileType ruby                  set dictionary+=$HOME/.vim/dict/ruby.dict
+    autocmd! FileType javascript            set dictionary+=$HOME/.vim/dict/node.dict
+    autocmd! FileType javascript            setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd! BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+  "}
 
   "{auto reload your vimrc
-  augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-  augroup END
+    augroup reload_vimrc
+      autocmd!
+      autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+    augroup END
+  "}
+
+  "{highlight unwanted spaces
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    augroup WhitespaceMatch
+      " Remove ALL autocommands for the WhitespaceMatch group.
+      autocmd!
+      autocmd! BufWinEnter * let w:whitespace_match_number =
+            \ matchadd('ExtraWhitespace', '\s\+$')
+      autocmd! InsertEnter * call s:ToggleWhitespaceMatch('i')
+      autocmd! InsertLeave * call s:ToggleWhitespaceMatch('n')
+    augroup END
+    function! s:ToggleWhitespaceMatch(mode)
+      let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+      if exists('w:whitespace_match_number')
+        call matchdelete(w:whitespace_match_number)
+        call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+      else
+        " Something went wrong, try to be graceful.
+        let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+      endif
+    endfunction
   "}
 "}
 
@@ -737,7 +871,7 @@
   set formatoptions-=l
   set wrapmargin=2
   set list
-  set guioptions=e
+  set guioptions=
   syntax on
   set background=dark
   set t_Co=256
@@ -746,4 +880,5 @@
   set splitright
   set tabstop=2  softtabstop=2 shiftwidth=2 expandtab
   set verbosefile=~/.vim/vimbenchmark
+  set shiftround
 "}
