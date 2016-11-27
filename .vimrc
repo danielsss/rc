@@ -7,6 +7,11 @@
 "     customize airline left_sep and right_sep
 "  20160918-15:49:47
 "     comment taboo.vim
+"  20161126-21:00:34
+"     vimmake
+"     asyncrun.vim
+"  20161127-00:33:40
+"     w0rp/ale
 " NOTE:
 "   ultisnips: break from ff10513cddc36f316e5d848c9b54aa8dd9ba9cd5
 "   k.vim: <leader>t map conflict
@@ -24,6 +29,7 @@
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'FelikZ/ctrlp-py-matcher'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'easymotion/vim-easymotion'
     Plugin 'docunext/closetag.vim'
@@ -55,7 +61,6 @@
     Plugin 'scrooloose/nerdtree'
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     Plugin 'jelera/vim-javascript-syntax'
-    Plugin 'bigfish/vim-js-context-coloring'
     Plugin 'othree/es.next.syntax.vim'
     Plugin 'othree/javascript-libraries-syntax.vim'
     Plugin 'pangloss/vim-javascript'
@@ -63,23 +68,72 @@
     Plugin 'beautify-web/js-beautify'
     Plugin 'maksimr/vim-jsbeautify'
     Plugin 'SirVer/ultisnips'
-    Plugin 'nathanaelkane/vim-indent-guides'
     Plugin 'klen/python-mode'
     Plugin 'thinca/vim-quickrun'
-    "Plugin 'MarcWeber/vim-addon-mw-utils'
-    "Plugin 'tomtom/tlib_vim'
-    "Plugin 'garbas/vim-snipmate'
-    "Plugin 'Shougo/unite.vim'
-    "Plugin 'Shougo/vimproc.vim'
-    "Plugin 'Shougo/vimshell.vim'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'Shougo/vimproc.vim'
+    Plugin 'Shougo/vimshell.vim'
     Plugin 'Shougo/neocomplete.vim'
     Plugin 'AndrewRadev/splitjoin.vim'
     Plugin 'tpope/vim-surround'
-    "Plugin 'tpope/vim-abolish'
-    "Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-vinegar'
+    Plugin 'honza/vim-snippets'
+    Plugin 'fatih/vim-go'
+    Plugin 'yuezk/xtpl.vim'
+    Plugin 'isRuslan/vim-es6'
+    Plugin 'ap/vim-css-color'
+    Plugin 'skywind3000/asyncrun.vim'
+    Plugin 'skywind3000/vimmake'
+    Plugin 'w0rp/ale'
+    Plugin 'Yggdroot/indentLine'
+    Plugin 'plasticboy/vim-markdown'
+    Plugin 'chrisbra/NrrwRgn'
+    Plugin 'chrisbra/unicode.vim'
+    Plugin 'ryanss/vim-hackernews'
+    Plugin 'itchyny/calendar.vim'
+    Plugin 'weynhamz/vim-plugin-minibufexpl'
+    Plugin 'mattn/gist-vim'
+    Plugin 'mbbill/undotree'
+    Plugin 'sjl/gundo.vim'
+    Plugin 'exvim/ex-utility'
+    Plugin 'exvim/ex-project' " focus on project
+    Plugin 'exvim/ex-visincr' " add increase numbers
+    Plugin 'vim-scripts/LargeFile'
+    Plugin 'vim-scripts/Mark'
+    Plugin 'vim-scripts/Marks-Browser'
+    Plugin 'tpope/vim-characterize'
+    Plugin 'vim-scripts/MarkLines'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'vimwiki/vimwiki'
+    Plugin 'vim-scripts/align'
+    Plugin 'tpope/vim-speeddating'
+    Plugin 'tpope/vim-commentary'
+    Plugin 'noscripter/CmdlineComplete'
+    Plugin 'dhruvasagar/vim-table-mode'
+    Plugin 'tpope/vim-abolish'
+    Plugin 'tpope/vim-rhubarb'
+    Plugin 'tpope/vim-ragtag'
+    Plugin 'tpope/vim-sleuth'
+    "Plugin 'DataWraith/auto_mkdir'
+    "Plugin 'vim-scripts/L9'
+    "Plugin 'vim-scripts/FuzzyFinder'
+    "Plugin 'vim-voom/VOoM'
+    "Plugin 'evanmiller/nginx-vim-syntax'
+    "Plugin 'tpope/vim-dispatch'
+    "Plugin 'tpope/vim-scriptease'
+    "Plugin 'tpope/vim-eunuch'
+    "Plugin 'tpope/vim-obsession'
+    "Plugin 'tpope/vim-endwise'
+    "Plugin 'svermeulen/vim-easyclip'
+    "Plugin 'tpope/vim-unimpaired'
+    "Plugin 'nathanaelkane/vim-indent-guides'
+    "Plugin 'sheerun/vim-polyglot'
+    "Plugin 'garbas/vim-snipmate'
+    "Plugin 'bigfish/vim-js-context-coloring'
     "Plugin 'chriskempson/base16-vim'
     "Plugin 'davidhalter/jedi-vim'
-    Plugin 'tpope/vim-vinegar'
     "Plugin 'bling/vim-bufferline'
     "Plugin 'tyru/open-browser.vim'
     "Plugin 'felixSchl/ctrlp-unity3d-docs'
@@ -97,53 +151,36 @@
     "Plugin 'tacahiroy/ctrlp-funky'
     "Plugin 'mattn/ctrlp-launcher'
     "Plugin 'sgur/ctrlp-extensions.vim'
-    "Plugin 'FelikZ/ctrlp-py-matcher'
     "Plugin 'JazzCore/ctrlp-cmatcher'
     "Plugin 'brookhong/k.vim'
     "Plugin 'kmnk/vim-unite-giti'
-    "Plugin 'mbbill/undotree'
     "Plugin 'junegunn/vim-easy-align'
-    Plugin 'honza/vim-snippets'
-    Plugin 'fatih/vim-go'
     "Plugin 'haya14busa/incsearch.vim'
     "Plugin 'kana/vim-operator-user'
     "Plugin 'haya14busa/vim-operator-flashy'
     "Plugin 'haya14busa/vim-asterisk'
-    "Plugin 'tpope/vim-endwise'
-    "Plugin 'tpope/vim-dispatch'
-    "Plugin 'Yggdroot/indentLine'
     "Plugin 'Yggdroot/LeaderF'
     "Plugin 'AndrewRadev/sideways.vim'
     "Plugin 'vim-scripts/YankRing.vim'
-    Plugin 'sheerun/vim-polyglot'
     "Plugin 'shougo/unite-outline'
-    "Plugin 'dhruvasagar/vim-table-mode'
     "Plugin 'AndrewRadev/inline_edit.vim'
     "Plugin 'chrisbra/changesPlugin'
     "Plugin 'tomtom/quickfixsigns_vim'
-    "Plugin 'chrisbra/NrrwRgn'
-    "Plugin 'chrisbra/unicode.vim'
-    "Plugin 'ryanss/vim-hackernews'
-    "Plugin 'itchyny/calendar.vim'
     "Plugin 'Rykka/autotype.vim'
     "Plugin 'chrisbra/csv.vim'
     "Plugin 'jmcantrell/vim-virtualenv'
-    "Plugin 'tpope/vim-obsession'
     "Plugin 'majutsushi/tagbar'
     "Plugin 'vim-ctrlspace/vim-ctrlspace'
     "Plugin 'chrisbra/Colorizer'
     "Plugin 'gcmt/taboo.vim'
-    Plugin 'mattn/vim-maketable'
+    "Plugin 'mattn/vim-maketable'
     "Plugin 'junegunn/vim-emoji'
     "Plugin 'jparise/vim-graphql'
-    Plugin 'yuezk/xtpl.vim'
     "Plugin 'yuezk/weex.vim'
     "Plugin 'digitaltoad/vim-pug'
     "Plugin 'jacoborus/tender.vim'
-    "Plugin 'tpope/vim-characterize'
     "Plugin 'Rykka/easydigraph.vim'
     "Plugin 'manicmaniac/betterga'
-    Plugin 'isRuslan/vim-es6'
     "Plugin 'ddrscott/vim-side-search'
     "Plugin 'ekalinin/Dockerfile.vim'
     "Plugin 'fweep/vim-tabber'
@@ -154,7 +191,6 @@
     "Plugin 'nelstrom/vim-qargs'
     "Plugin 'rking/ag.vim'
     "Plugin 'shepherdwind/vim-velocity'
-    Plugin 'ap/vim-css-color'
     "Plugin 'cakebaker/scss-syntax.vim'
     "Plugin 'hail2u/vim-css3-syntax'
     "Plugin 'tpope/vim-haml'
@@ -190,7 +226,7 @@
   nnoremap <Leader>xd :%!xxd<CR>
   nnoremap <Leader>xr :%!xxd -r<CR>
   nnoremap <leader>t  :tabe \| Startify<cr>
-  nnoremap <leader>tm :echo strftime('%c')<cr>
+  nnoremap <leader>ft :echo strftime('%c')<cr>
   nnoremap <leader>v  :vnew \| Startify<cr>
   nnoremap <leader>to :tabonly<cr>
   nnoremap <leader>x  :q<cr>
@@ -226,6 +262,7 @@
   nnoremap [Q :cfirst<CR>
   nnoremap ]Q :clast<CR>
   nnoremap <leader>fe :Ex<CR>
+  nnoremap gp `[v`]
 "}
 
 "{Plugin settings
@@ -290,6 +327,7 @@
     let g:tabman_side="right"
     let g:tabman_specials=1
     let g:tabman_number = 1
+    let g:tabman_toggle = '<leader>tm'
 
   "mhinz/vim-startify
     noremap <Leader>s :Startify<CR>
@@ -310,10 +348,16 @@
           \ '~/projects/node/',
           \ '~/projects/daily/taobao/',
           \ '~/projects/daily/fe-learning/',
+          \ '~/projects/assets/blog/',
           \ '~/projects/assets/noscripter.github.io/',
           \ '~/projects/assets/noscripter.github.io/_posts/',
           \ '~/projects/assets/noscripter.github.io/lab/',
-          \  '~/projects/daily/fe-learning/playground/']
+          \  '~/projects/daily/fe-learning/playground/',
+          \  '~/projects/daily/fe-learning/playground/v8/',
+          \  '~/projects/daily/fe-learning/playground/node/node/',
+          \  '~/projects/daily/fe-learning/playground/node/libuv/',
+          \  '~/projects/daily/fe-learning/playground/alibaba/'
+          \]
 
   "ctrlpvim/ctrlp.vim
     if exists(':CtrplP')
@@ -392,14 +436,14 @@
     autocmd! FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
   "FelikZ/ctrlp-py-matcher
-    "let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-    "let g:ctrlp_lazy_update = 350
-    "let g:ctrlp_clear_cache_on_exit = 0
-    "let g:ctrlp_max_files = 0
-    "if executable("ag")
-        "set grepprg=ag\ --nogroup\ --nocolor
-        "let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
-    "endif
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+    let g:ctrlp_lazy_update = 350
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_max_files = 0
+    if executable("ag")
+        set grepprg=ag\ --nogroup\ --nocolor
+        let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+    endif
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -551,14 +595,41 @@
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
     let g:go_list_type = "quickfix"
 
+  "nathanaelkane/vim-indent-guides
+    let g:indent_guide_size=1
+
   "Yggdroot/indentLine
-    let g:indentLine_enabled = 0
+    let g:indentLine_showFirstIndentLevel = 1
+    let g:indentLine_enabled = 1
 
   "bling/vim-bufferline
     "let g:bufferline_echo = 1
     "autocmd! VimEnter *
       "\ let &statusline='%{bufferline#refresh_status()}'
         "\ .bufferline#get_status_string()
+
+  "skywind3000/asyncrun.vim
+  augroup vimrc
+    autocmd QuickFixCmdPost * botright copen 8
+    " auto open quickfix window when text adds to it
+    autocmd QuickFixCmdPost * call asyncrun#quickfix_toggle(8, 1)
+    " auto open quickfix window when asyncrun starts
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+  augroup END
+
+  "plasticboy/vim-markdown
+    let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_toc_autofit = 1
+    let g:vim_markdown_emphasis_multiline = 0
+    let g:vim_markdown_conceal = 0
+    let g:vim_markdown_json_frontmatter = 1
+    let g:vim_markdown_new_list_item_indent = 2
+
+  "thinca/vim-quickrun
+    let g:quickrun_no_default_key_mappings = 1
+
+  "tpope/vim-obsession
+    "set statusline+= %{ObsessionStatus()}
 "}
 
 "{helper functions
