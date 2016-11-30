@@ -11,7 +11,7 @@
 "     vimmake
 "     asyncrun.vim
 "  20161127-00:33:40
-"     w0rp/ale
+"     w0rp/ale use ale to replace syntastic
 " NOTE:
 "   ultisnips: break from ff10513cddc36f316e5d848c9b54aa8dd9ba9cd5
 "   k.vim: <leader>t map conflict
@@ -37,9 +37,9 @@
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'mattn/emmet-vim'
     Plugin 'mhinz/vim-startify'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'jaxbot/syntastic-react'
-    Plugin 'myint/syntastic-extras'
+    "Plugin 'scrooloose/syntastic'
+    "Plugin 'jaxbot/syntastic-react'
+    "Plugin 'myint/syntastic-extras'
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-git'
     Plugin 'gregsexton/gitv'
@@ -47,6 +47,9 @@
     Plugin 'airblade/vim-gitgutter'
     Plugin 'mileszs/ack.vim'
     Plugin 'mhinz/vim-signify'
+    Plugin 'mhinz/vim-grepper'
+    Plugin 'mhinz/vim-randomtag'
+    Plugin 'mhinz/vim-hugefile'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'bufexplorer.zip'
     Plugin 'marijnh/tern_for_vim'
@@ -116,15 +119,29 @@
     Plugin 'tpope/vim-rhubarb'
     Plugin 'tpope/vim-ragtag'
     Plugin 'tpope/vim-sleuth'
-    "Plugin 'DataWraith/auto_mkdir'
-    "Plugin 'vim-scripts/L9'
-    "Plugin 'vim-scripts/FuzzyFinder'
-    "Plugin 'vim-voom/VOoM'
+    Plugin 'jmcantrell/vim-virtualenv'
+    Plugin 'DataWraith/auto_mkdir'
+    Plugin 'vim-scripts/L9'
+    Plugin 'vim-scripts/FuzzyFinder'
+    Plugin 'vim-voom/VOoM'
+    Plugin 'tpope/vim-scriptease'
+    Plugin 'tpope/vim-eunuch'
+    Plugin 'tpope/vim-obsession'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'haya14busa/incsearch.vim'
+    Plugin 'haya14busa/incsearch-fuzzy.vim'
+    Plugin 'kien/rainbow_parentheses.vim'
+    Plugin 'lambdalisue/vim-gita'
+    Plugin 'mhinz/vim-rfc'
+    Plugin 'vim-scripts/rfc-syntax'
+    Plugin 'Rykka/easydigraph.vim'
+    Plugin 'salsifis/vim-transpose'
+    Plugin 'junegunn/vim-github-dashboard'
+    Plugin 'Alaya-in-Matrix/record-vim-time'
+    Plugin 'Alaya-in-Matrix/vim-activity-log'
+    Plugin 'Shougo/vinarise.vim' " ultimate binary editing
     "Plugin 'evanmiller/nginx-vim-syntax'
     "Plugin 'tpope/vim-dispatch'
-    "Plugin 'tpope/vim-scriptease'
-    "Plugin 'tpope/vim-eunuch'
-    "Plugin 'tpope/vim-obsession'
     "Plugin 'tpope/vim-endwise'
     "Plugin 'svermeulen/vim-easyclip'
     "Plugin 'tpope/vim-unimpaired'
@@ -155,7 +172,6 @@
     "Plugin 'brookhong/k.vim'
     "Plugin 'kmnk/vim-unite-giti'
     "Plugin 'junegunn/vim-easy-align'
-    "Plugin 'haya14busa/incsearch.vim'
     "Plugin 'kana/vim-operator-user'
     "Plugin 'haya14busa/vim-operator-flashy'
     "Plugin 'haya14busa/vim-asterisk'
@@ -168,8 +184,6 @@
     "Plugin 'tomtom/quickfixsigns_vim'
     "Plugin 'Rykka/autotype.vim'
     "Plugin 'chrisbra/csv.vim'
-    "Plugin 'jmcantrell/vim-virtualenv'
-    "Plugin 'majutsushi/tagbar'
     "Plugin 'vim-ctrlspace/vim-ctrlspace'
     "Plugin 'chrisbra/Colorizer'
     "Plugin 'gcmt/taboo.vim'
@@ -179,7 +193,6 @@
     "Plugin 'yuezk/weex.vim'
     "Plugin 'digitaltoad/vim-pug'
     "Plugin 'jacoborus/tender.vim'
-    "Plugin 'Rykka/easydigraph.vim'
     "Plugin 'manicmaniac/betterga'
     "Plugin 'ddrscott/vim-side-search'
     "Plugin 'ekalinin/Dockerfile.vim'
@@ -208,6 +221,7 @@
 "}
 
 "{Mappings
+  "K normal command will lookup the keyword in man
   let mapleader=','
   nnoremap <leader>cw :pwd<CR>
   nnoremap <C-tab> :tabn<CR>
@@ -268,7 +282,7 @@
 "{Plugin settings
   "scrooloose/syntastic
     set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
     let g:syntastic_check_on_open=0
     let g:syntastic_always_populate_loc_list=0
@@ -327,7 +341,8 @@
     let g:tabman_side="right"
     let g:tabman_specials=1
     let g:tabman_number = 1
-    let g:tabman_toggle = '<leader>tm'
+    let g:tabman_toggle = '<leader>bm'
+    let g:loaded_tabman = 0
 
   "mhinz/vim-startify
     noremap <Leader>s :Startify<CR>
@@ -601,6 +616,7 @@
   "Yggdroot/indentLine
     let g:indentLine_showFirstIndentLevel = 1
     let g:indentLine_enabled = 1
+    let g:indentLine_concealcursor = ""
 
   "bling/vim-bufferline
     "let g:bufferline_echo = 1
@@ -630,6 +646,21 @@
 
   "tpope/vim-obsession
     "set statusline+= %{ObsessionStatus()}
+
+  "w0rp/ale
+    " disable linter
+    let g:ale_linters = {
+          \ 'javascript': ['eslint'],
+          \}
+    let g:ale_sign_error = "⚡"
+    let g:ale_sign_warning = "⚑"
+    set statusline+=%{ALEGetStatusLine()}
+    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "}
 
 "{helper functions
