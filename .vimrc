@@ -19,6 +19,7 @@ let g:solarized_termtrans=1
     Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'junegunn/gv.vim'
+    Plug 'mattn/gist-vim'
   "}
   "{ insert mode auto-completion for quotes, parens, brackets, etc
     Plug 'Raimondi/delimitMate' 
@@ -91,6 +92,10 @@ let g:solarized_termtrans=1
     Plug 'tpope/vim-vinegar'
     Plug 'vim-airline/vim-airline'
     Plug 'majutsushi/tagbar'
+    Plug 'szw/vim-dict'
+    Plug 'ianva/vim-youdao-translater'
+    Plug 'beloglazov/vim-online-thesaurus'
+    Plug 'Ron89/thesaurus_query.vim'
   "}
   "{ markdown plugin
     Plug 'plasticboy/vim-markdown'
@@ -143,6 +148,7 @@ let g:solarized_termtrans=1
           \ ]
     let g:startify_bookmarks = [
           \ '~/projects/assets/',
+          \ '~/projects/assets/cloakroom/plugins/haystack/',
           \ '~/projects/assets/mercury/nodejs',
           \ '~/projects/assets/mw-mytaobao/nodejs/',
           \ '~/projects/assets/daily.md',
@@ -154,6 +160,7 @@ let g:solarized_termtrans=1
           \ '~/projects/assets/noscripter.github.io/_posts/',
           \ '~/projects/assets/noscripter.github.io/lab/',
           \  '~/projects/daily/fe-learning/playground/',
+          \  '~/projects/daily/fe-learning/playground/node/',
           \  '~/projects/daily/fe-learning/playground/v8/',
           \  '~/projects/daily/fe-learning/playground/libuv/',
           \]
@@ -392,6 +399,9 @@ let g:solarized_termtrans=1
 
   "colorizer
     let g:colorizer_maxlines=100
+
+  "scrooloose/nerdcommenter
+  map <leader>cx <plug>NERDCommenterSexy
 "}
 
 "{Mappings
