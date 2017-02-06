@@ -22,7 +22,7 @@ let g:solarized_termtrans=1
     Plug 'mattn/gist-vim'
   "}
   "{ insert mode auto-completion for quotes, parens, brackets, etc
-    Plug 'Raimondi/delimitMate' 
+    Plug 'Raimondi/delimitMate'
   "}
   "{ TypeScript Syntax file for Vim
     Plug 'Quramy/tsuquyomi'
@@ -56,6 +56,7 @@ let g:solarized_termtrans=1
     Plug 'posva/vim-vue'
     Plug 'vim-scripts/SQLComplete.vim'
     Plug 'jparise/vim-graphql'
+    Plug 'mattn/webapi-vim'
   "}
   "{ utility
     Plug 'gcmt/wildfire.vim'
@@ -94,12 +95,19 @@ let g:solarized_termtrans=1
     Plug 'majutsushi/tagbar'
     Plug 'szw/vim-dict'
     Plug 'ianva/vim-youdao-translater'
+  "}
+  "{lexical and thesaurus
     Plug 'beloglazov/vim-online-thesaurus'
     Plug 'Ron89/thesaurus_query.vim'
+    Plug 'reedes/vim-lexical'
   "}
-  "{ markdown plugin
+  "{markdown plugin
     Plug 'plasticboy/vim-markdown'
     Plug 'dhruvasagar/vim-table-mode'
+  "}
+  "{refresh
+    Plug 'ryanss/vim-hackernews'
+    Plug 'itchyny/calendar.vim'
   "}
   "{xml
     Plug 'othree/xml.vim'
@@ -107,6 +115,9 @@ let g:solarized_termtrans=1
   "{cpp
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'derekwyatt/vim-protodef'
+  "}
+  "{editor-settings
+    Plug 'editorconfig/editorconfig-vim'
   "}
   "{ go-lang
     Plug 'fatih/vim-go'
@@ -148,6 +159,7 @@ let g:solarized_termtrans=1
           \ ]
     let g:startify_bookmarks = [
           \ '~/projects/assets/',
+          \ '~/projects/assets/cloakroom/',
           \ '~/projects/assets/cloakroom/plugins/haystack/',
           \ '~/projects/assets/mercury/nodejs',
           \ '~/projects/assets/mw-mytaobao/nodejs/',
@@ -401,7 +413,27 @@ let g:solarized_termtrans=1
     let g:colorizer_maxlines=100
 
   "scrooloose/nerdcommenter
-  map <leader>cx <plug>NERDCommenterSexy
+  "map <leader>cv <plug>NERDCommenterSexy
+
+  "reedes/vim-lexical
+  augroup lexical
+    autocmd!
+    autocmd FileType markdown,mkd call lexical#init()
+    autocmd FileType textile call lexical#init()
+    autocmd FileType text call lexical#init({ 'spell': 0 })
+  augroup END
+  let g:lexical#spell = 0
+
+  "beloglazov/vim-online-thesaurus
+  "disable default keymapping
+  let g:online_thesaurus_map_keys = 0
+
+  "Ron89/thesaurus_query.vim
+  let tq_map_keys = 0
+  nnoremap <unique><silent> <Leader>csn :ThesaurusQueryReplaceCurrentWord<CR>
+  vnoremap <unique><silent> <Leader>csn "ky:ThesaurusQueryReplace <C-r>k<CR>
+  nnoremap <silent> <LocalLeader>csn :ThesaurusQueryReplaceCurrentWord<CR>
+  vnoremap <silent> <LocalLeader>csn "ky:ThesaurusQueryReplace <C-r>k<CR>
 "}
 
 "{Mappings
