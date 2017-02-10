@@ -103,6 +103,7 @@ let g:solarized_termtrans=1
   "}
   "{markdown plugin
     Plug 'plasticboy/vim-markdown'
+    Plug 'suan/vim-instant-markdown'
     Plug 'dhruvasagar/vim-table-mode'
   "}
   "{refresh
@@ -158,23 +159,12 @@ let g:solarized_termtrans=1
           \ 'files',
           \ ]
     let g:startify_bookmarks = [
-          \ '~/projects/assets/',
-          \ '~/projects/assets/cloakroom/',
-          \ '~/projects/assets/cloakroom/plugins/haystack/',
-          \ '~/projects/assets/mercury/nodejs',
-          \ '~/projects/assets/mw-mytaobao/nodejs/',
-          \ '~/projects/assets/daily.md',
-          \ '~/projects/assets/daily-learning.md',
-          \ '~/projects/daily/taobao/',
-          \ '~/projects/daily/fe-learning/',
-          \ '~/projects/assets/blog/',
-          \ '~/projects/assets/noscripter.github.io/',
-          \ '~/projects/assets/noscripter.github.io/_posts/',
-          \ '~/projects/assets/noscripter.github.io/lab/',
-          \  '~/projects/daily/fe-learning/playground/',
-          \  '~/projects/daily/fe-learning/playground/node/',
-          \  '~/projects/daily/fe-learning/playground/v8/',
-          \  '~/projects/daily/fe-learning/playground/libuv/',
+          \ '~/projects/cloakroom/',
+          \ '~/projects/cloakroom/plugins/haystack/',
+          \  '~/projects/playground/',
+          \  '~/projects/playground/usersurvey',
+          \ '~/projects/mercury/nodejs',
+          \ '~/projects/mw-mytaobao/nodejs/',
           \]
 
   "vim-easy-align
@@ -187,17 +177,18 @@ let g:solarized_termtrans=1
     if !exists('g:airline_symbols')
       let g:airline_symbols = {}
     endif
-    let g:airline_symbols.linenr = '⭡'
+    "let g:airline_symbols.linenr = '⭡'
     let g:airline_symbols.paste = 'ρ'
     let g:airline_symbols.whitespace = 'Ξ'
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ''
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_left_sep = '⮀'
+    "let g:airline_symbols.branch = '⭠'
+    "let g:airline_left_sep = '⮀'
     let g:airline_left_alt_sep = '▶'
-    let g:airline_right_sep = '⮂'
+    "let g:airline_right_sep = '⮂'
     let g:airline_right_alt_sep = '◀'
+    "let g:airline_powerline_fonts = 1
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -434,6 +425,10 @@ let g:solarized_termtrans=1
   vnoremap <unique><silent> <Leader>csn "ky:ThesaurusQueryReplace <C-r>k<CR>
   nnoremap <silent> <LocalLeader>csn :ThesaurusQueryReplaceCurrentWord<CR>
   vnoremap <silent> <LocalLeader>csn "ky:ThesaurusQueryReplace <C-r>k<CR>
+
+  "suan/vim-instant-markdown
+    "trigger through command `:InstantMarkdownPreview`
+    let g:instant_markdown_autostart = 0
 "}
 
 "{Mappings
@@ -461,8 +456,8 @@ let g:solarized_termtrans=1
   nnoremap <leader>to :tabonly<cr>
   nnoremap <leader>x  :q<cr>
   nnoremap <leader>tx :tabclose<cr>
-  nnoremap <leader>d  :tabe ~/projects/assets/daily.md<CR>
-  nnoremap <leader>de :e ~/projects/assets/daily.md<CR>
+  nnoremap <leader>d  :tabe ~/projects/daily.md<CR>
+  nnoremap <leader>de :e ~/projects/daily.md<CR>
   nnoremap <leader>dt :windo diffthis<CR>
   nnoremap <leader>do :windo diffoff<CR>
   nnoremap <leader>;  :%s:::g<Left><Left><Left>
@@ -724,7 +719,7 @@ let g:solarized_termtrans=1
   set iskeyword-=_,.,=,-,:,#,
   set foldmethod=indent
   set foldnestmax=10
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+  set guifont=Sauce\ Code\ Powerline:h16
   set autoread
   set lazyredraw
   set switchbuf=useopen
