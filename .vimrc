@@ -59,6 +59,8 @@ let g:solarized_termtrans=1
     Plug 'mattn/webapi-vim'
   "}
   "{ utility
+    Plug 'tpope/vim-dispatch'
+    Plug 'wincent/ferret'
     Plug 'gcmt/wildfire.vim'
     Plug 'vim-scripts/DrawIt'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -87,6 +89,7 @@ let g:solarized_termtrans=1
     Plug 'amix/open_file_under_cursor.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'skywind3000/asyncrun.vim'
+    Plug 'skywind3000/vimmake'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -95,6 +98,7 @@ let g:solarized_termtrans=1
     Plug 'majutsushi/tagbar'
     Plug 'szw/vim-dict'
     Plug 'ianva/vim-youdao-translater'
+    "Plug 'mh21/errormarker.vim'
   "}
   "{lexical and thesaurus
     Plug 'beloglazov/vim-online-thesaurus'
@@ -139,9 +143,11 @@ let g:solarized_termtrans=1
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'neoclide/vim-jsx-improve'
     Plug 'othree/es.next.syntax.vim'
+    "Plug 'bigfish/vim-js-context-coloring'
     Plug 'othree/javascript-libraries-syntax.vim'
     Plug 'othree/yajs.vim'
     Plug 'pangloss/vim-javascript'
+    Plug 'jelera/vim-javascript-syntax'
     Plug 'jason0x43/vim-js-indent'
     Plug 'Quramy/vim-js-pretty-template'
   "}
@@ -159,6 +165,7 @@ let g:solarized_termtrans=1
           \ 'files',
           \ ]
     let g:startify_bookmarks = [
+          \ '~/projects/bookmarks/result',
           \ '~/projects/cloakroom/',
           \ '~/projects/cloakroom/plugins/haystack/',
           \  '~/projects/playground/',
@@ -177,18 +184,13 @@ let g:solarized_termtrans=1
     if !exists('g:airline_symbols')
       let g:airline_symbols = {}
     endif
-    "let g:airline_symbols.linenr = '⭡'
     let g:airline_symbols.paste = 'ρ'
     let g:airline_symbols.whitespace = 'Ξ'
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ''
-    "let g:airline_symbols.branch = '⭠'
-    "let g:airline_left_sep = '⮀'
     let g:airline_left_alt_sep = '▶'
-    "let g:airline_right_sep = '⮂'
     let g:airline_right_alt_sep = '◀'
-    "let g:airline_powerline_fonts = 1
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -429,6 +431,31 @@ let g:solarized_termtrans=1
   "suan/vim-instant-markdown
     "trigger through command `:InstantMarkdownPreview`
     let g:instant_markdown_autostart = 0
+
+  "leafgarland/typescript-vim
+    let g:typescript_indent_disable = 1
+    let g:typescript_compiler_binary = 'tsc'
+    let g:typescript_compiler_options = ''
+    autocmd FileType typescript :set makeprg=tsc
+    autocmd QuickFixCmdPost [^l]* nested cwindow
+    autocmd QuickFixCmdPost    l* nested lwindow
+
+  "skywind3000/asyncrun.vim
+    augroup QuickfixStatus
+      au! BufWinEnter quickfix setlocal
+          \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
+    augroup END
+    let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+    command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+    "augroup vimrc
+      "autocmd QuickFixCmdPost * botright copen 8
+    "augroup END
+    "augroup vimrc
+      "autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+    "augroup END
+
+  "bigfish/vim-js-context-coloring
+  let g:js_context_colors_enabled=0
 "}
 
 "{Mappings
@@ -546,13 +573,13 @@ let g:solarized_termtrans=1
         break
       endif
     endfor
-    let label .= v:lnum.': '
+    let label .= v:lnum.':'
     let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
     if name == ''
       if &buftype=='quickfix'
         let name = '[Quickfix List]'
       else
-        let name = '[No Name]'
+        let name = '[New File]'
       endif
     else
       let name = fnamemodify(name,":t")
@@ -586,7 +613,7 @@ let g:solarized_termtrans=1
         let file = bufname(buflist[winnr - 1])
         let file = fnamemodify(file, ':p:t')
         if file == ''
-          let file = '[No Name]'
+          let file = '[New File]'
         endif
         let s .= file
         let i = i + 1
@@ -598,22 +625,6 @@ let g:solarized_termtrans=1
     set stal=2
     set tabline=%!MyTabLine()
   endif
-
-  function! GuiTabToolTip()
-    let tip = ''
-    let bufnrlist = tabpagebuflist(v:lnum)
-    for bufnr in bufnrlist
-      if tip != ''
-        let tip .= " \n "
-      endif
-      let name = bufname(bufnr)
-      if getbufvar(bufnr, "&modified")
-        let tip .= ' [+]'
-      endif
-    endfor
-    return tip
-  endfunction
-  set guitabtooltip=%{GuiTabToolTip()}
 
   function! Preserve(command)
     let _s=@/
@@ -777,7 +788,7 @@ let g:solarized_termtrans=1
   set viewoptions=folds,options,cursor,unix,slash
   set virtualedit=onemore
   set completeopt=menuone,menu,preview,longest
-  colorscheme solarized
+  colorscheme molokai_dark "solarized
   set nofoldenable
   set foldlevel=1
   set foldlevelstart=99
@@ -823,24 +834,24 @@ let g:solarized_termtrans=1
 
   "hand-made statusline like airline
   "https://www.v2ex.com/t/330610
-  "function! Buf_total_num()
-  "  return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
-  "endfunction
-  "function! File_size(f)
-  "  let l:size = getfsize(expand(a:f))
-  "  if l:size == 0 || l:size == -1 || l:size == -2
-  "    return ''
-  "  endif
-  "  if l:size < 1024
-  "    return l:size.' bytes'
-  "  elseif l:size < 1024*1024
-  "    return printf('%.1f', l:size/1024.0).'k'
-  "  elseif l:size < 1024*1024*1024
-  "    return printf('%.1f', l:size/1024.0/1024.0) . 'm'
-  "  else
-  "    return printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
-  "  endif
-  "endfunction
+  function! Buf_total_num()
+    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+  endfunction
+  function! File_size(f)
+    let l:size = getfsize(expand(a:f))
+    if l:size == 0 || l:size == -1 || l:size == -2
+      return ''
+    endif
+    if l:size < 1024
+      return l:size.' bytes'
+    elseif l:size < 1024*1024
+      return printf('%.1f', l:size/1024.0).'k'
+    elseif l:size < 1024*1024*1024
+      return printf('%.1f', l:size/1024.0/1024.0) . 'm'
+    else
+      return printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
+    endif
+  endfunction
   "set statusline=%<%1*[B-%n]%*
   "" TOT is an abbreviation for total
   "set statusline+=%2*[TOT:%{Buf_total_num()}]%*
