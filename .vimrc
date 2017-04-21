@@ -693,6 +693,14 @@ let g:solarized_termtrans=1
       endif
     endfunction
   "}
+
+  "prettier(npm install -g prettier | yarn global add prettier)
+  "https://til.hashrocket.com/posts/25081f7db9-making-your-js-files-prettier-on-vim
+  "https://github.com/prettier/prettier/issues/743#issuecomment-286950257
+  "autocmd FileType javascript set formatprg=prettier\ --single-quote\ --trailing-comma\ es5\ --stdin
+  "autocmd BufWritePre *.js :normal gggqG
+  "autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+  "autocmd FileType javascript set formatprg=~/.prettier.sh
 "}
 
 "{Basic settings
@@ -870,4 +878,25 @@ let g:solarized_termtrans=1
   "hi User6 cterm=None ctermfg=246 ctermbg=237
   "hi User7 cterm=None ctermfg=250 ctermbg=238
   "hi User8 cterm=None ctermfg=249 ctermbg=240
+  set list
+  set listchars+=tab:▸,eol:$,trail:……,extends:>,precedes:<
+  set &showbreak = '↳ '
+  "set listchars+=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+  " <https://www.reddit.com/r/vim/comments/4hoa6e/what_do_you_use_for_your_listchars/>
+  if has('gui_running')
+    set list listchars=tab:▶‒,nbsp:∙,trail:∙,extends:▶,precedes:◀
+    let &showbreak = '↳'
+  else
+    set list listchars=tab:>-,nbsp:.,trail:.,extends:>,precedes:<
+    let &showbreak = '^'
+  endif
+
+  " highlight unwanted space
+  " <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>
+  " <https://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character>
+  "highlight ExtraWhitespace ctermbg=red guibg=red
+  " The following alternative may be less obtrusive.
+  "highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
+  " Try the following if your GUI uses a dark background.
+  highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 "}
