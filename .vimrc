@@ -171,13 +171,13 @@ let g:solarized_termtrans=1
           \ 'files',
           \ ]
     let g:startify_bookmarks = [
-          \ '~/projects/bookmarks/result',
-          \ '~/projects/cloakroom/',
-          \ '~/projects/cloakroom/plugins/haystack/',
-          \  '~/projects/playground/',
-          \  '~/projects/playground/usersurvey',
-          \ '~/projects/mercury/nodejs',
-          \ '~/projects/mw-mytaobao/nodejs/',
+          \ { 'c': '~/projects/bookmarks/result' },
+          \ { 'd': '~/projects/cloakroom/' },
+          \ { 'f': '~/projects/cloakroom/plugins/haystack/' },
+          \ { 'g': '~/projects/playground/' },
+          \ { 'h': '~/projects/playground/usersurvey' },
+          \ { 'l': '~/projects/mercury/nodejs' },
+          \ { 'o': '~/projects/mw-mytaobao/nodejs/' },
           \]
 
   "vim-easy-align
