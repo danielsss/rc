@@ -9,8 +9,12 @@ let g:solarized_termtrans=1
     Plug 'noscripter/bufexplorer.zip'
     Plug 'scrooloose/nerdcommenter'
     Plug 'noscripter/nerdtree'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'shougo/vimfiler.vim'
     Plug 'dyng/ctrlsf.vim'
+  "}
+  "{
+    Plug 'BufOnly.vim'
   "}
   "{ git
     Plug 'tpope/vim-fugitive'
@@ -64,6 +68,7 @@ let g:solarized_termtrans=1
     Plug 'gcmt/wildfire.vim'
     Plug 'vim-scripts/DrawIt'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'lilydjwg/tailf.vim'
     Plug 'lilydjwg/colorizer'
@@ -95,6 +100,7 @@ let g:solarized_termtrans=1
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-vinegar'
     Plug 'vim-airline/vim-airline'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'majutsushi/tagbar'
     Plug 'szw/vim-dict'
     Plug 'ianva/vim-youdao-translater'
@@ -157,7 +163,7 @@ let g:solarized_termtrans=1
 "{Plugin settings
   "vim-startify
     noremap <Leader>s :Startify<CR>
-    let g:startify_files_number = 9
+    let g:startify_files_number = 20
     let g:startify_list_order = [
           \ ['   Bookmarks'],
           \ 'bookmarks',
@@ -189,8 +195,11 @@ let g:solarized_termtrans=1
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ''
-    let g:airline_left_alt_sep = '▶'
-    let g:airline_right_alt_sep = '◀'
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_powerline_fonts=1
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -456,6 +465,20 @@ let g:solarized_termtrans=1
 
   "bigfish/vim-js-context-coloring
   let g:js_context_colors_enabled=0
+
+  "vim-devicons
+    if has('gui_running')
+      set ambiwidth=double
+      let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+      let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+      let g:DevIconsEnableFoldersOpenClose = 1
+      let g:webdevicons_conceal_nerdtree_brackets = 1
+      let g:webdevicons_enable_nerdtree = 1
+    else
+      " remember to hack startify for terminal degrade
+      "https://github.com/mhinz/vim-startify/commit/c193556225af93405cc87518781d48cf932efc2f
+      let g:webdevicons_enable = 0
+    endif
 "}
 
 "{Mappings
@@ -738,7 +761,8 @@ let g:solarized_termtrans=1
   set iskeyword-=_,.,=,-,:,#,
   set foldmethod=indent
   set foldnestmax=10
-  set guifont=Sauce\ Code\ Powerline:h16
+  "set guifont=Sauce\ Code\ Powerline:h16
+  set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h16
   set autoread
   set lazyredraw
   set switchbuf=useopen
@@ -836,6 +860,7 @@ let g:solarized_termtrans=1
   "set verbosefile=~/.vim/vimbenchmark
   noremap <Leader>s :Startify<CR>
   nnoremap <leader>ne :NERDTreeFind<CR>
+  noremap <Leader>su :sort u<CR>
   set indentexpr=
 
   set expandtab
@@ -879,17 +904,18 @@ let g:solarized_termtrans=1
   "hi User7 cterm=None ctermfg=250 ctermbg=238
   "hi User8 cterm=None ctermfg=249 ctermbg=240
   set list
-  set listchars+=tab:▸,eol:$,trail:……,extends:>,precedes:<
-  set &showbreak = '↳ '
+  "set listchars+=tab:▸,eol:$,trail:……,extends:>,precedes:<
+  "set &showbreak = '↳ '
   "set listchars+=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
   " <https://www.reddit.com/r/vim/comments/4hoa6e/what_do_you_use_for_your_listchars/>
   if has('gui_running')
-    set list listchars=tab:▶‒,nbsp:∙,trail:∙,extends:▶,precedes:◀
+    set list listchars+=tab:▶‒,nbsp:∙,trail:∙,extends:▶,precedes:◀
     let &showbreak = '↳'
   else
-    set list listchars=tab:>-,nbsp:.,trail:.,extends:>,precedes:<
+    set list listchars+=tab:>-,nbsp:.,trail:.,extends:>,precedes:<
     let &showbreak = '^'
   endif
+  " insert non breaking space: `ctrl-v x a 0`
 
   " highlight unwanted space
   " <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>
@@ -899,4 +925,5 @@ let g:solarized_termtrans=1
   "highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
   " Try the following if your GUI uses a dark background.
   highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+  set t_Co=256
 "}
