@@ -12,6 +12,10 @@ let g:solarized_termtrans=1
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'shougo/vimfiler.vim'
     Plug 'dyng/ctrlsf.vim'
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-session'
+    Plug 'thaerkh/vim-workspace'
+    Plug 'vim-ctrlspace/vim-ctrlspace'
   "}
   "{
     Plug 'BufOnly.vim'
@@ -24,6 +28,8 @@ let g:solarized_termtrans=1
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'junegunn/gv.vim'
     Plug 'mattn/gist-vim'
+    Plug 'itchyny/vim-gitbranch'
+    Plug 'jreybert/vimagit'
   "}
   "{ insert mode auto-completion for quotes, parens, brackets, etc
     Plug 'Raimondi/delimitMate'
@@ -76,6 +82,8 @@ let g:solarized_termtrans=1
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'brooth/far.vim'
     Plug 'scrooloose/syntastic'
+    Plug 'Chiel92/vim-autoformat'
+    "Plug 'w0rp/ale'
     Plug 'mhinz/vim-signify'
     Plug 'mhinz/vim-startify'
     Plug 'mileszs/ack.vim'
@@ -91,8 +99,17 @@ let g:solarized_termtrans=1
     Plug 'flazz/vim-colorschemes'
     Plug 'godlygeek/tabular'
     Plug 'noscripter/tabman.vim'
+    Plug 'fweep/vim-tabber'
     Plug 'amix/open_file_under_cursor.vim'
     Plug 'easymotion/vim-easymotion'
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'haya14busa/incsearch-easymotion.vim'
+    Plug 'haya14busa/incsearch-fuzzy.vim'
+    Plug 'justinmk/vim-sneak'
+    Plug 'rhysd/clever-f.vim'
+    Plug 'kana/vim-operator-user'
+    Plug 'haya14busa/vim-operator-flashy'
+    Plug 'haya14busa/vim-asterisk'
     Plug 'skywind3000/asyncrun.vim'
     Plug 'skywind3000/vimmake'
     Plug 'terryma/vim-multiple-cursors'
@@ -100,11 +117,12 @@ let g:solarized_termtrans=1
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-vinegar'
     Plug 'vim-airline/vim-airline'
-    Plug 'ryanoasis/vim-devicons'
+    "Plug 'ryanoasis/vim-devicons'
     Plug 'majutsushi/tagbar'
     Plug 'szw/vim-dict'
     Plug 'ianva/vim-youdao-translater'
     "Plug 'mh21/errormarker.vim'
+    Plug 'vim-scripts/YankRing.vim'
   "}
   "{lexical and thesaurus
     Plug 'beloglazov/vim-online-thesaurus'
@@ -149,13 +167,22 @@ let g:solarized_termtrans=1
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'neoclide/vim-jsx-improve'
     Plug 'othree/es.next.syntax.vim'
-    "Plug 'bigfish/vim-js-context-coloring'
+    Plug 'bigfish/vim-js-context-coloring'
     Plug 'othree/javascript-libraries-syntax.vim'
     Plug 'othree/yajs.vim'
     Plug 'pangloss/vim-javascript'
     Plug 'jelera/vim-javascript-syntax'
     Plug 'jason0x43/vim-js-indent'
     Plug 'Quramy/vim-js-pretty-template'
+    Plug 'vimlab/jscs.vim'
+  "}
+  "{gui options
+    Plug 'mkitt/tabline.vim'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim'
+  "}
+  "{
+    Plug 'lifepillar/vim-cheat40'
   "}
   call plug#end()
 "}
@@ -163,7 +190,7 @@ let g:solarized_termtrans=1
 "{Plugin settings
   "vim-startify
     noremap <Leader>s :Startify<CR>
-    let g:startify_files_number = 20
+    let g:startify_files_number = 50
     let g:startify_list_order = [
           \ ['   Bookmarks'],
           \ 'bookmarks',
@@ -171,6 +198,7 @@ let g:solarized_termtrans=1
           \ 'files',
           \ ]
     let g:startify_bookmarks = [
+          \ { 'c': '~/projects/archive/20170531-kpi.md' },
           \ { 'c': '~/projects/bookmarks/result' },
           \ { 'd': '~/projects/cloakroom/' },
           \ { 'f': '~/projects/cloakroom/plugins/haystack/' },
@@ -200,6 +228,7 @@ let g:solarized_termtrans=1
     let g:airline_left_alt_sep = ''
     let g:airline_right_alt_sep = ''
     let g:airline_powerline_fonts=1
+    let g:airline#extensions#tabline#enabled = 1
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -473,12 +502,31 @@ let g:solarized_termtrans=1
       let g:WebDevIconsUnicodeDecorateFolderNodes = 1
       let g:DevIconsEnableFoldersOpenClose = 1
       let g:webdevicons_conceal_nerdtree_brackets = 1
+      let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
       let g:webdevicons_enable_nerdtree = 1
+      let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
     else
       " remember to hack startify for terminal degrade
       "https://github.com/mhinz/vim-startify/commit/c193556225af93405cc87518781d48cf932efc2f
       let g:webdevicons_enable = 0
     endif
+
+  "xolox/vim-session
+    let g:session_autosave = 'yes'
+    let g:session_autoload = 'yes'
+
+  "semantic-vim
+  let g:semanticEnableFileTypes = ['javascript', 'vim']
+
+  "w0rp/ale
+    let g:ale_lint_on_save = 1
+    let g:ale_lint_on_text_changed = 0
+
+  "Chiel92/autoformat
+    let g:autoformat_verbosemode=1
+
+  "junegunn/limelight.vim
+    autocmd! User GoyoEnter Limelight
 "}
 
 "{Mappings
@@ -616,8 +664,9 @@ let g:solarized_termtrans=1
     set guitablabel=%{GuiTabLabel()}
   endfunction
 
-  au VimEnter * :call SetTabLabel()
-  autocmd! BufEnter,WinEnter call SetTabLabel()
+  " TODO
+  "au VimEnter * :call SetTabLabel()
+  "autocmd! BufEnter,WinEnter call SetTabLabel()
 
   if exists("+showtabline")
     function! MyTabLine()
@@ -680,6 +729,50 @@ let g:solarized_termtrans=1
   endfunction
   " Usage
   " :let i = 1 | %sabc/\='xyz_'.Inc()/g
+
+  "TODO: doesn't work
+  "https://stackoverflow.com/questions/1642611/how-to-save-and-restore-multiple-different-sessions-in-vim
+  "http://vim.wikia.com/wiki/Go_away_and_come_back
+  "make session automatically
+  function! MakeSession()
+    let b:sessiondir = $HOME . "/.vim/session.vim"
+    if (filewritable(b:sessiondir) != 2)
+      exe 'silent !mkdir -p ' b:sessiondir
+      redraw!
+    endif
+  endfunction
+  function! LoadSession()
+    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+    let b:sessionfile = b:sessiondir . "/session.vim"
+    if (filereadable(b:sessionfile))
+      exe 'source ' b:sessionfile
+    else
+      echo 'No session loaded'
+    endif
+  endfunction
+  " Adding automations for entering and leaving vim
+  if (argc() == 0)
+    au VimEnter * nested :call LoadSession()
+  endif
+  au VimLeave * :call MakeSession()
+
+  "close all tabs to the right
+  function! TabCloseRight(bang)
+    let cur=tabpagenr()
+    while cur < tabpagenr('$')
+      exe 'tabclose' . a:bang . ' ' . (cur + 1)
+    endwhile
+  endfunction
+
+  " close tabs to the left
+  function! TabCloseLeft(bang)
+    while tabpagenr() > 1
+      exe 'tabclose' . a:bang . ' 1'
+    endwhile
+  endfunction
+
+  command! -bang Tabcloseright call TabCloseRight('<bang>')
+  command! -bang Tabcloseleft call TabCloseLeft('<bang>')
 "}
 
 "{auto commands
@@ -886,7 +979,7 @@ let g:solarized_termtrans=1
     endif
   endfunction
   "set statusline=%<%1*[B-%n]%*
-  "" TOT is an abbreviation for total
+  "TOT is an abbreviation for total
   "set statusline+=%2*[TOT:%{Buf_total_num()}]%*
   "set statusline+=%3*\ %{File_size(@%)}\ %*
   "set statusline+=%4*\ %F\ %*
