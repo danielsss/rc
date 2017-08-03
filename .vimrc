@@ -6,19 +6,20 @@ let g:solarized_termtrans=1
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'FelikZ/ctrlp-py-matcher'
     Plug 'tacahiroy/ctrlp-funky'
-    Plug 'noscripter/bufexplorer.zip'
+    "Plug 'jeetsukumaran/ctrlp-pythonic.vim'
     Plug 'scrooloose/nerdcommenter'
     Plug 'noscripter/nerdtree'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plug 'shougo/vimfiler.vim'
-    Plug 'dyng/ctrlsf.vim'
+    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    "Plug 'shougo/vimfiler.vim'
+    "Plug 'dyng/ctrlsf.vim'
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
-    Plug 'thaerkh/vim-workspace'
-    Plug 'vim-ctrlspace/vim-ctrlspace'
+    "Plug 'thaerkh/vim-workspace'
+    "Plug 'vim-ctrlspace/vim-ctrlspace'
+    "Plug 'trapd00r/vidir'
   "}
-  "{
-    Plug 'BufOnly.vim'
+  "{ vim buffer operation
+    Plug 'vim-scripts/BufOnly.vim'
   "}
   "{ git
     Plug 'tpope/vim-fugitive'
@@ -27,24 +28,44 @@ let g:solarized_termtrans=1
     Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'junegunn/gv.vim'
-    Plug 'mattn/gist-vim'
-    Plug 'itchyny/vim-gitbranch'
-    Plug 'jreybert/vimagit'
+    "Plug 'mattn/gist-vim'
+    "Plug 'itchyny/vim-gitbranch'
+    "Plug 'jreybert/vimagit'
   "}
   "{ insert mode auto-completion for quotes, parens, brackets, etc
     Plug 'Raimondi/delimitMate'
   "}
+  "{ stack traces
+    "Plug 'mattboehm/vim-unstack' " conflict with startify
+  "}
   "{ TypeScript Syntax file for Vim
-    Plug 'Quramy/tsuquyomi'
-    Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
-    Plug 'leafgarland/typescript-vim'
-    Plug 'HerringtonDarkholme/yats.vim'
+    "Plug 'Quramy/tsuquyomi'
+    "Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
+    "Plug 'leafgarland/typescript-vim'
+    "Plug 'HerringtonDarkholme/yats.vim'
+  "}
+  "{ coffeescript plugin
+    Plug 'kchmck/vim-coffee-script'
+    "Plug 'carlosvillu/coffeScript-VIM-Snippets'
+    Plug 'claco/jasmine.vim'
+    Plug 'clvv/a.vim'
+    Plug 'othree/coffee-check.vim'
   "}
   "{ keyword completion system
   "  by maintaining a cache of keywords in the current buffer
     Plug 'Shougo/neocomplete.vim'
-    Plug 'Shougo/vimshell'
-    Plug 'Shougo/neco-vim'
+    "Plug 'Shougo/vimshell'
+    "Plug 'Shougo/neco-vim'
+    "Plug 'Shougo/vinarise.vim'
+  "}
+  "{ buffer switch
+    " ref: http://vim.wikia.com/wiki/Easier_buffer_switching
+    Plug 'noscripter/bufexplorer.zip'
+    Plug 'bsdelf/bufferhint'
+    Plug 'jeetsukumaran/vim-buffergator'
+    Plug 'jeetsukumaran/vim-buffersaurus'
+    Plug 'jeetsukumaran/vim-filesearch'
+    Plug 'google/vim-searchindex'
   "}
   "{ snippet
     Plug 'Shougo/neosnippet.vim'
@@ -54,7 +75,9 @@ let g:solarized_termtrans=1
   "}
   "{ web development
     Plug 'Valloric/MatchTagAlways'
-    Plug 'ap/vim-css-color'
+    Plug 'vim-scripts/matchit.zip'
+    "Plug 'ap/vim-css-color' " problem processing json
+    Plug 'KabbAmine/vCoolor.vim'
     Plug 'beautify-web/js-beautify'
     Plug 'evanmiller/nginx-vim-syntax'
     Plug 'elzr/vim-json'
@@ -67,6 +90,10 @@ let g:solarized_termtrans=1
     Plug 'vim-scripts/SQLComplete.vim'
     Plug 'jparise/vim-graphql'
     Plug 'mattn/webapi-vim'
+    Plug 'christoomey/vim-quicklink'
+  "}
+  "{ text objects enhancement
+    Plug 'wellle/targets.vim'
   "}
   "{ utility
     Plug 'tpope/vim-dispatch'
@@ -89,27 +116,26 @@ let g:solarized_termtrans=1
     Plug 'mileszs/ack.vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'junegunn/vim-emoji'
-    Plug 'junegunn/vim-peekaboo'
     Plug 'junegunn/vim-xmark', { 'do': 'make' }
     Plug 'maxbrunsfeld/vim-yankstack'
     Plug 'junkblocker/patchreview-vim'
     Plug 'kshenoy/vim-signature'
+    "Plug 'jeetsukumaran/vim-markology'
     Plug 'Valloric/YouCompleteMe'
-    Plug 'Yggdroot/indentLine'
     Plug 'flazz/vim-colorschemes'
     Plug 'godlygeek/tabular'
     Plug 'noscripter/tabman.vim'
-    Plug 'fweep/vim-tabber'
+    "Plug 'fweep/vim-tabber'
     Plug 'amix/open_file_under_cursor.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'haya14busa/incsearch.vim'
     Plug 'haya14busa/incsearch-easymotion.vim'
     Plug 'haya14busa/incsearch-fuzzy.vim'
     Plug 'justinmk/vim-sneak'
-    Plug 'rhysd/clever-f.vim'
-    Plug 'kana/vim-operator-user'
-    Plug 'haya14busa/vim-operator-flashy'
-    Plug 'haya14busa/vim-asterisk'
+    "Plug 'rhysd/clever-f.vim'
+    "Plug 'kana/vim-operator-user'
+    "Plug 'haya14busa/vim-operator-flashy'
+    "Plug 'haya14busa/vim-asterisk'
     Plug 'skywind3000/asyncrun.vim'
     Plug 'skywind3000/vimmake'
     Plug 'terryma/vim-multiple-cursors'
@@ -121,8 +147,18 @@ let g:solarized_termtrans=1
     Plug 'majutsushi/tagbar'
     Plug 'szw/vim-dict'
     Plug 'ianva/vim-youdao-translater'
+    Plug 'itchyny/dictionary.vim'
     "Plug 'mh21/errormarker.vim'
-    Plug 'vim-scripts/YankRing.vim'
+    "Plug 'vim-scripts/YankRing.vim'
+  "}
+  "{ indent
+    Plug 'tweekmonster/braceless.vim'
+    Plug 'Yggdroot/indentLine'
+    Plug 'jeetsukumaran/vim-indentwise'
+  "}
+  "{ registers
+    Plug 'junegunn/vim-peekaboo'
+    "Plug 'jeetsukumaran/vim-lotr'
   "}
   "{lexical and thesaurus
     Plug 'beloglazov/vim-online-thesaurus'
@@ -139,7 +175,7 @@ let g:solarized_termtrans=1
     Plug 'itchyny/calendar.vim'
   "}
   "{xml
-    Plug 'othree/xml.vim'
+    "Plug 'othree/xml.vim' " problematic
   "}
   "{cpp
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -157,9 +193,15 @@ let g:solarized_termtrans=1
     Plug 'nvie/vim-flake8'
   "}
   "{ javascript plugin
+    "Plug 'bigfish/vim-js-context-coloring'
+    Plug 'pangloss/vim-javascript'
+    Plug 'jelera/vim-javascript-syntax'
+    Plug 'jason0x43/vim-js-indent'
+    Plug 'Quramy/vim-js-pretty-template'
+    Plug 'vimlab/jscs.vim'
     Plug 'heavenshell/vim-jsdoc'
     Plug 'isRuslan/vim-es6'
-    Plug 'jaxbot/semantic-highlight.vim'
+    Plug 'othree/yajs.vim'
     Plug 'maksimr/vim-jsbeautify'
     Plug 'marijnh/tern_for_vim'
     Plug 'moll/vim-node'
@@ -167,21 +209,19 @@ let g:solarized_termtrans=1
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'neoclide/vim-jsx-improve'
     Plug 'othree/es.next.syntax.vim'
-    Plug 'bigfish/vim-js-context-coloring'
     Plug 'othree/javascript-libraries-syntax.vim'
-    Plug 'othree/yajs.vim'
-    Plug 'pangloss/vim-javascript'
-    Plug 'jelera/vim-javascript-syntax'
-    Plug 'jason0x43/vim-js-indent'
-    Plug 'Quramy/vim-js-pretty-template'
-    Plug 'vimlab/jscs.vim'
+    Plug 'jaxbot/semantic-highlight.vim'
   "}
   "{gui options
     Plug 'mkitt/tabline.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/goyo.vim'
+    Plug 'jeetsukumaran/vim-nefertiti'
   "}
-  "{
+  "{show function, method, class name of current cursor position
+    Plug 'jeetsukumaran/vim-gazetteer'
+  "}
+  "{doc and help with mapping ,?
     Plug 'lifepillar/vim-cheat40'
   "}
   call plug#end()
@@ -198,7 +238,7 @@ let g:solarized_termtrans=1
           \ 'files',
           \ ]
     let g:startify_bookmarks = [
-          \ { 'c': '~/projects/archive/20170531-kpi.md' },
+          \ { 'b': '~/projects/daily.md' },
           \ { 'c': '~/projects/bookmarks/result' },
           \ { 'd': '~/projects/cloakroom/' },
           \ { 'f': '~/projects/cloakroom/plugins/haystack/' },
@@ -228,7 +268,9 @@ let g:solarized_termtrans=1
     let g:airline_left_alt_sep = ''
     let g:airline_right_alt_sep = ''
     let g:airline_powerline_fonts=1
-    let g:airline#extensions#tabline#enabled = 1
+    "let g:airline#extensions#tabline#enabled = 1
+    let airline#extensions#tabline#show_buffers = 0
+    "let g:airline#extensions#tabline#show_tab_nr = 1
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -243,7 +285,7 @@ let g:solarized_termtrans=1
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
     let g:syntastic_check_on_open=0
-    let g:syntastic_always_populate_loc_list=0
+    let g:syntastic_always_populate_loc_list=1
     let g:syntastic_auto_loc_list=1
     let g:syntastic_check_on_wq=1
     let g:syntastic_enable_signs=1
@@ -447,13 +489,13 @@ let g:solarized_termtrans=1
   "map <leader>cv <plug>NERDCommenterSexy
 
   "reedes/vim-lexical
-  augroup lexical
-    autocmd!
-    autocmd FileType markdown,mkd call lexical#init()
-    autocmd FileType textile call lexical#init()
-    autocmd FileType text call lexical#init({ 'spell': 0 })
-  augroup END
-  let g:lexical#spell = 0
+  "augroup lexical
+    "autocmd!
+    "autocmd FileType markdown,mkd call lexical#init()
+    "autocmd FileType textile call lexical#init()
+    "autocmd FileType text call lexical#init({ 'spell': 0 })
+  "augroup END
+  "let g:lexical#spell = 0
 
   "beloglazov/vim-online-thesaurus
   "disable default keymapping
@@ -484,16 +526,21 @@ let g:solarized_termtrans=1
           \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
     augroup END
     let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+    let g:asyncrun_last = 3
+    let g:asyncrun_encs = 'gbk'
     command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-    "augroup vimrc
+    augroup async
       "autocmd QuickFixCmdPost * botright copen 8
-    "augroup END
-    "augroup vimrc
-      "autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
-    "augroup END
+      autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+      "autocmd User AsyncRunStop call asyncrun#quickfix_toggle(8, 1)
+    augroup END
 
   "bigfish/vim-js-context-coloring
-  let g:js_context_colors_enabled=0
+    "let g:js_context_colors_enabled=1
+    "let g:js_context_colors_colorize_comments=1
+    "let g:js_context_colors_highlight_function_names=1
+    "let g:js_context_colors_jsx=1
+    "let g:js_context_colors_allow_jsx_syntax=1
 
   "vim-devicons
     if has('gui_running')
@@ -516,17 +563,44 @@ let g:solarized_termtrans=1
     let g:session_autoload = 'yes'
 
   "semantic-vim
-  let g:semanticEnableFileTypes = ['javascript', 'vim']
+    let g:semanticEnableFileTypes = ['javascript', 'vim']
 
   "w0rp/ale
-    let g:ale_lint_on_save = 1
-    let g:ale_lint_on_text_changed = 0
+    "let g:ale_lint_on_save = 1
+    "let g:ale_lint_on_text_changed = 0
+    "let g:ale_emit_conflict_warnings = 0
+    "let g:ale_linters = {
+    "      \ 'javascript': ['eslint']
+    "      \}
+    "let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+    "let g:airline#extensions#ale#enabled = 1
+    "augroup FiletypeGroup
+    "    autocmd!
+    "    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+    "augroup END
+    "let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+    "let g:ale_linter_aliases = {'jsx': 'css'}
 
   "Chiel92/autoformat
     let g:autoformat_verbosemode=1
 
   "junegunn/limelight.vim
     autocmd! User GoyoEnter Limelight
+
+  "buffergator
+    let g:buffergator_suppress_keymaps=1
+
+  "braceless
+    autocmd FileType python BracelessEnable +indent
+
+  "ctrlp-pythonic
+    let g:ctrlp_extensions = ['pythonic']
+    if has("autocmd")
+        augroup CtrlPPythonic
+            au!
+            autocmd FileType python nnoremap <Leader><Leader> :CtrlPPythonic<CR>
+        augroup END
+    endif
 "}
 
 "{Mappings
@@ -589,9 +663,40 @@ let g:solarized_termtrans=1
 
   "noscripter/bufexplorer.zip
   nnoremap <leader>be :BufExplorer<CR>
+
+  "https://www.zhihu.com/question/60296892/answer/175402140
+  noremap <M-u> <C-w>p<C-u><C-w>p
+  noremap <M-d> <C-w>p<C-d><C-w>p
+
+  " quickly move a line above or below
+  nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
+  nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+
+  " quickly add empty lines
+  nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+  nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+  " keep selection after shift indent
+  "xnoremap <  <gv
+  "xnoremap >  >gv
+
+  " smarter cursorline
+  autocmd InsertLeave,WinEnter * set cursorline
+  autocmd InsertEnter,WinLeave * set nocursorline
 "}
 
 "{helper functions
+  "https://www.zhihu.com/question/60296892/answer/175402140
+  function! Html_Prettify()
+    if &ft != 'html'
+      echo "not a html file"
+      return
+    endif
+    silent! exec "s/<[^>]*>/\r&\r/g"
+    silent! exec "g/^$/d"
+    exec "normal ggVG="
+  endfunc
+
   command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
   function! QuickfixFilenames()
     " Building a hash ensures we get each buffer only once
@@ -913,7 +1018,11 @@ let g:solarized_termtrans=1
   set viewoptions=folds,options,cursor,unix,slash
   set virtualedit=onemore
   set completeopt=menuone,menu,preview,longest
-  colorscheme molokai_dark "solarized
+  if has('gui_running')
+    colorscheme molokai_dark
+  else
+    colorscheme xterm16
+  endif
   set nofoldenable
   set foldlevel=1
   set foldlevelstart=99
@@ -1001,13 +1110,13 @@ let g:solarized_termtrans=1
   "set &showbreak = '↳ '
   "set listchars+=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
   " <https://www.reddit.com/r/vim/comments/4hoa6e/what_do_you_use_for_your_listchars/>
-  if has('gui_running')
-    set list listchars+=tab:▶‒,nbsp:∙,trail:∙,extends:▶,precedes:◀
-    let &showbreak = '↳'
-  else
+  "if has('gui_running')
+    "set list listchars+=tab:▶‒,nbsp:∙,trail:∙,extends:▶,precedes:◀
+    "let &showbreak = '↳'
+  "else
     set list listchars+=tab:>-,nbsp:.,trail:.,extends:>,precedes:<
     let &showbreak = '^'
-  endif
+  "endif
   " insert non breaking space: `ctrl-v x a 0`
 
   " highlight unwanted space
