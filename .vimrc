@@ -27,7 +27,7 @@ let g:solarized_termtrans=1
     " TODO
     "Plug 'tpope/vim-git'
     "Plug 'gregsexton/gitv'
-    "Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'
     "Plug 'Xuyuanp/nerdtree-git-plugin'
     "Plug 'junegunn/gv.vim'
     "Plug 'mattn/gist-vim'
@@ -113,6 +113,7 @@ let g:solarized_termtrans=1
     Plug 'hail2u/vim-css3-syntax'
     Plug 'cakebaker/scss-syntax.vim'
     Plug 'othree/html5.vim'
+    Plug 'tpope/vim-haml'
     Plug 'KabbAmine/vCoolor.vim'
     Plug 'beautify-web/js-beautify'
     Plug 'prettier/vim-prettier'
@@ -120,6 +121,7 @@ let g:solarized_termtrans=1
     Plug 'elzr/vim-json'
     Plug 'docunext/closetag.vim'
     Plug 'mattn/emmet-vim'
+    Plug 'gorodinskiy/vim-coloresque'
     Plug 'yuezk/xtpl.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'ekalinin/Dockerfile.vim'
@@ -187,10 +189,24 @@ let g:solarized_termtrans=1
   "}
   "{syntax checker/linters
     Plug 'scrooloose/syntastic'
-    Plug 'osyo-manga/vim-watchdogs'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-    Plug 'tpope/vim-dispatch'
-    Plug 'benekastah/neomake'
+    "Plug 'osyo-manga/vim-watchdogs'
+    "Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    "Plug 'tpope/vim-dispatch'
+    "Plug 'benekastah/neomake'
+  "}
+  "{c programming language
+    Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
+    Plug 'ludwig/split-manpage.vim'
+  "}
+  "{elixir
+    Plug 'elixir-lang/vim-elixir'
+    Plug 'carlosgaldino/elixir-snippets'
+  "}
+  "{elm
+    Plug 'elmcast/elm-vim'
+  "}
+  "{erlang
+    Plug 'jimenezrick/vimerl'
   "}
   "{ indent
     "Plug 'tweekmonster/braceless.vim'
@@ -229,12 +245,20 @@ let g:solarized_termtrans=1
     Plug 'editorconfig/editorconfig-vim'
   "}
   "{ go-lang
-    Plug 'fatih/vim-go'
+    Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
   "}
   "{ python plugin
     Plug 'python-mode/python-mode'
     Plug 'davidhalter/jedi-vim'
     Plug 'nvie/vim-flake8'
+    Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+  "}
+  "{ruby
+    Plug 'tpope/vim-rails'
+    Plug 'tpope/vim-rake'
+    Plug 'tpope/vim-projectionist'
+    Plug 'thoughtbot/vim-rspec'
+    Plug 'ecomba/vim-ruby-refactoring'
   "}
   "{ javascript plugin
   " ref: https://davidosomething.com/blog/vim-for-javascript/
@@ -405,6 +429,20 @@ let g:solarized_termtrans=1
     let NERDTreeWinPos="left"
     let NERDTreeIgnore=['\.pyc$', '\~$']
     let g:NERDTreeCascadeOpenSingleChildDir=0
+
+  "nerdtree-git-plugin
+    let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
 
   "noscripter/tabman.vim
     let g:tabman_side="right"
