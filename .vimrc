@@ -5,35 +5,42 @@ let g:solarized_termtrans=1
   "{ file navigation
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'FelikZ/ctrlp-py-matcher'
-    Plug 'tacahiroy/ctrlp-funky'
-    "Plug 'jeetsukumaran/ctrlp-pythonic.vim'
     Plug 'scrooloose/nerdcommenter'
     Plug 'noscripter/nerdtree'
+    " TODO
     "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     "Plug 'shougo/vimfiler.vim'
     "Plug 'dyng/ctrlsf.vim'
-    Plug 'xolox/vim-misc'
-    Plug 'xolox/vim-session'
+    "Plug 'xolox/vim-misc'
+    "Plug 'xolox/vim-session'
     "Plug 'thaerkh/vim-workspace'
     "Plug 'vim-ctrlspace/vim-ctrlspace'
     "Plug 'trapd00r/vidir'
+    "Plug 'tacahiroy/ctrlp-funky'
+    "Plug 'jeetsukumaran/ctrlp-pythonic.vim'
   "}
   "{ vim buffer operation
     Plug 'vim-scripts/BufOnly.vim'
   "}
   "{ git
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-git'
-    Plug 'gregsexton/gitv'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'junegunn/gv.vim'
+    " TODO
+    "Plug 'tpope/vim-git'
+    "Plug 'gregsexton/gitv'
+    "Plug 'airblade/vim-gitgutter'
+    "Plug 'Xuyuanp/nerdtree-git-plugin'
+    "Plug 'junegunn/gv.vim'
     "Plug 'mattn/gist-vim'
     "Plug 'itchyny/vim-gitbranch'
     "Plug 'jreybert/vimagit'
+    "Plug 'tommcdo/vim-fugitive-blame-ext'
   "}
   "{ insert mode auto-completion for quotes, parens, brackets, etc
-    Plug 'Raimondi/delimitMate'
+    Plug 'jiangmiao/auto-pairs'
+    " TODO
+    "Plug 'Raimondi/delimitMate'
+    "Plug 'kana/vim-smartinput'
+    "Plug 'vim-scripts/AutoClose'
   "}
   "{ stack traces
     "Plug 'mattboehm/vim-unstack' " conflict with startify
@@ -42,34 +49,60 @@ let g:solarized_termtrans=1
     "Plug 'Quramy/tsuquyomi'
     "Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
     "Plug 'leafgarland/typescript-vim'
-    "Plug 'HerringtonDarkholme/yats.vim'
   "}
   "{ coffeescript plugin
-    Plug 'kchmck/vim-coffee-script'
+    "Plug 'kchmck/vim-coffee-script'
     "Plug 'carlosvillu/coffeScript-VIM-Snippets'
-    Plug 'claco/jasmine.vim'
-    Plug 'clvv/a.vim'
-    Plug 'othree/coffee-check.vim'
+    "Plug 'othree/coffee-check.vim'
+  "}
+  "{ javascript project
+    "Plug 'claco/jasmine.vim'
+  "}
+  "{ swtich between source files and header files quickly
+    "Plug 'clvv/a.vim'
   "}
   "{ keyword completion system
   "  by maintaining a cache of keywords in the current buffer
     Plug 'Shougo/neocomplete.vim'
-    "Plug 'Shougo/vimshell'
+    Plug 'Shougo/vimshell'
+    Plug '1995eaton/vim-better-javascript-completion'
+    " TODO
     "Plug 'Shougo/neco-vim'
-    "Plug 'Shougo/vinarise.vim'
+    "Plug 'Shougo/deoplete.nvim'
+  "{ hex editing
+    Plug 'Shougo/vinarise.vim'
   "}
   "{ buffer switch
     " ref: http://vim.wikia.com/wiki/Easier_buffer_switching
     Plug 'noscripter/bufexplorer.zip'
-    Plug 'bsdelf/bufferhint'
-    Plug 'jeetsukumaran/vim-buffergator'
-    Plug 'jeetsukumaran/vim-buffersaurus'
-    Plug 'jeetsukumaran/vim-filesearch'
+    "Plug 'bsdelf/bufferhint'
+    "Plug 'jeetsukumaran/vim-buffergator'
+    "search, index, navigate buffer content by regex
+    "Plug 'jeetsukumaran/vim-buffersaurus'
+  "}
+  "{ search helper
     Plug 'google/vim-searchindex'
+    "earch local filesystem by name or content, glob or regex
+    Plug 'jeetsukumaran/vim-filesearch'
+  "}
+  "{ google vim plugins
+    "Plug 'google/vim-maktaba'
+    "Plug 'google/vimdoc'
+    "Plug 'google/vim-codefmt'
+    "Plug 'google/vim-glaive'
+    "Plug 'google/vim-colorscheme-primary'
+    "Plug 'google/vim-syncopate'
+    "Plug 'google/vroom'
+    "Plug 'google/vim-coverage'
+    "Plug 'google/vim-codereview'
+    "Plug 'google/vim-jsonnet'
+    "Plug 'google/vim-ft-go'
+    "Plug 'google/vim-ft-vroom'
+    "Plug 'google/vim-selector'
   "}
   "{ snippet
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
+    "Plug 'Shougo/neosnippet.vim'
+    "Plug 'Shougo/neosnippet-snippets'
     Plug 'Sirver/ultisnips'
     Plug 'honza/vim-snippets'
   "}
@@ -77,8 +110,12 @@ let g:solarized_termtrans=1
     Plug 'Valloric/MatchTagAlways'
     Plug 'vim-scripts/matchit.zip'
     "Plug 'ap/vim-css-color' " problem processing json
+    Plug 'hail2u/vim-css3-syntax'
+    Plug 'cakebaker/scss-syntax.vim'
+    Plug 'othree/html5.vim'
     Plug 'KabbAmine/vCoolor.vim'
     Plug 'beautify-web/js-beautify'
+    Plug 'prettier/vim-prettier'
     Plug 'evanmiller/nginx-vim-syntax'
     Plug 'elzr/vim-json'
     Plug 'docunext/closetag.vim'
@@ -86,37 +123,38 @@ let g:solarized_termtrans=1
     Plug 'yuezk/xtpl.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'ekalinin/Dockerfile.vim'
-    Plug 'posva/vim-vue'
-    Plug 'vim-scripts/SQLComplete.vim'
-    Plug 'jparise/vim-graphql'
+    "Plug 'posva/vim-vue'
+    "Plug 'vim-scripts/SQLComplete.vim'
+    "Plug 'jparise/vim-graphql'
     Plug 'mattn/webapi-vim'
-    Plug 'christoomey/vim-quicklink'
+    "Plug 'christoomey/vim-quicklink'
   "}
   "{ text objects enhancement
-    Plug 'wellle/targets.vim'
+    "Plug 'wellle/targets.vim'
   "}
   "{ utility
-    Plug 'tpope/vim-dispatch'
-    Plug 'wincent/ferret'
-    Plug 'gcmt/wildfire.vim'
-    Plug 'vim-scripts/DrawIt'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-    Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'lilydjwg/tailf.vim'
-    Plug 'lilydjwg/colorizer'
-    Plug 'chrisbra/unicode.vim'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-    Plug 'brooth/far.vim'
-    Plug 'scrooloose/syntastic'
+    Plug 'michalliu/sourcebeautify.vim'
+    "Plug 'chrisbra/vim-diff-enhanced'
     Plug 'Chiel92/vim-autoformat'
+    Plug 'alpaca-tc/beautify.vim'
+    "Plug 'wincent/ferret'
+    "Plug 'gcmt/wildfire.vim'
+    "Plug 'vim-scripts/DrawIt'
+    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    "Plug 'junegunn/fzf.vim'
+    Plug 'AndrewRadev/splitjoin.vim'
+    "Plug 'lilydjwg/tailf.vim'
+    "Plug 'lilydjwg/colorizer'
+    Plug 'chrisbra/unicode.vim'
+    "Plug 'brooth/far.vim'
+    "Plug 'Chiel92/vim-autoformat'
     "Plug 'w0rp/ale'
-    Plug 'mhinz/vim-signify'
+    "Plug 'mhinz/vim-signify'
     Plug 'mhinz/vim-startify'
     Plug 'mileszs/ack.vim'
     Plug 'junegunn/vim-easy-align'
-    Plug 'junegunn/vim-emoji'
-    Plug 'junegunn/vim-xmark', { 'do': 'make' }
+    "Plug 'junegunn/vim-emoji'
+    "Plug 'junegunn/vim-xmark', { 'do': 'make' }
     Plug 'maxbrunsfeld/vim-yankstack'
     Plug 'junkblocker/patchreview-vim'
     Plug 'kshenoy/vim-signature'
@@ -126,33 +164,36 @@ let g:solarized_termtrans=1
     Plug 'godlygeek/tabular'
     Plug 'noscripter/tabman.vim'
     "Plug 'fweep/vim-tabber'
-    Plug 'amix/open_file_under_cursor.vim'
+    "Plug 'amix/open_file_under_cursor.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'haya14busa/incsearch.vim'
     Plug 'haya14busa/incsearch-easymotion.vim'
     Plug 'haya14busa/incsearch-fuzzy.vim'
-    Plug 'justinmk/vim-sneak'
+    "Plug 'justinmk/vim-sneak'
     "Plug 'rhysd/clever-f.vim'
     "Plug 'kana/vim-operator-user'
     "Plug 'haya14busa/vim-operator-flashy'
     "Plug 'haya14busa/vim-asterisk'
     Plug 'skywind3000/asyncrun.vim'
-    Plug 'skywind3000/vimmake'
+    "Plug 'skywind3000/vimmake'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-vinegar'
     Plug 'vim-airline/vim-airline'
     "Plug 'ryanoasis/vim-devicons'
-    Plug 'majutsushi/tagbar'
-    Plug 'szw/vim-dict'
-    Plug 'ianva/vim-youdao-translater'
-    Plug 'itchyny/dictionary.vim'
     "Plug 'mh21/errormarker.vim'
     "Plug 'vim-scripts/YankRing.vim'
   "}
+  "{syntax checker/linters
+    Plug 'scrooloose/syntastic'
+    Plug 'osyo-manga/vim-watchdogs'
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    Plug 'tpope/vim-dispatch'
+    Plug 'benekastah/neomake'
+  "}
   "{ indent
-    Plug 'tweekmonster/braceless.vim'
+    "Plug 'tweekmonster/braceless.vim'
     Plug 'Yggdroot/indentLine'
     Plug 'jeetsukumaran/vim-indentwise'
   "}
@@ -161,9 +202,12 @@ let g:solarized_termtrans=1
     "Plug 'jeetsukumaran/vim-lotr'
   "}
   "{lexical and thesaurus
-    Plug 'beloglazov/vim-online-thesaurus'
-    Plug 'Ron89/thesaurus_query.vim'
-    Plug 'reedes/vim-lexical'
+    "Plug 'szw/vim-dict'
+    "Plug 'ianva/vim-youdao-translater'
+    "Plug 'itchyny/dictionary.vim'
+    "Plug 'beloglazov/vim-online-thesaurus'
+    "Plug 'Ron89/thesaurus_query.vim'
+    "Plug 'reedes/vim-lexical'
   "}
   "{markdown plugin
     Plug 'plasticboy/vim-markdown'
@@ -178,8 +222,8 @@ let g:solarized_termtrans=1
     "Plug 'othree/xml.vim' " problematic
   "}
   "{cpp
-    Plug 'octol/vim-cpp-enhanced-highlight'
-    Plug 'derekwyatt/vim-protodef'
+    "Plug 'octol/vim-cpp-enhanced-highlight'
+    "Plug 'derekwyatt/vim-protodef'
   "}
   "{editor-settings
     Plug 'editorconfig/editorconfig-vim'
@@ -193,12 +237,21 @@ let g:solarized_termtrans=1
     Plug 'nvie/vim-flake8'
   "}
   "{ javascript plugin
+  " ref: https://davidosomething.com/blog/vim-for-javascript/
     "Plug 'bigfish/vim-js-context-coloring'
+    Plug 'jbgutierrez/vim-babel'
     Plug 'pangloss/vim-javascript'
     Plug 'jelera/vim-javascript-syntax'
-    Plug 'jason0x43/vim-js-indent'
-    Plug 'Quramy/vim-js-pretty-template'
+    Plug 'briancollins/vim-jst'
+    "Plug 'jason0x43/vim-js-indent'
+    "Plug 'itspriddle/vim-javascript-indent'
+    "Plug 'jiangmiao/simple-javascript-indenter'
+    "Plug 'gavocanov/vim-js-indent'
+    "Plug 'Quramy/vim-js-pretty-template'
     Plug 'vimlab/jscs.vim'
+    Plug 'HerringtonDarkholme/yats.vim'
+    "Plug 'ynkdir/vim-vimlparser'
+    "Plug 'syngan/vim-vimlint'
     Plug 'heavenshell/vim-jsdoc'
     Plug 'isRuslan/vim-es6'
     Plug 'othree/yajs.vim'
@@ -211,18 +264,33 @@ let g:solarized_termtrans=1
     Plug 'othree/es.next.syntax.vim'
     Plug 'othree/javascript-libraries-syntax.vim'
     Plug 'jaxbot/semantic-highlight.vim'
+    "Plug 'flowtype/vim-flow'
+    Plug 'othree/jsdoc-syntax.vim'
+    Plug 'itspriddle/vim-jquery'
+    Plug 'othree/jspc.vim'
+  "}
+  "{tags
+    "Plug 'ludovicchabant/vim-gutentags'
+    "Plug 'majutsushi/tagbar'
+    "Plug 'Shougo/unite.vim'
+    "Plug 'ramitos/jsctags'
+  "}
+  "{yaml
+    Plug 'chase/vim-ansible-yaml'
   "}
   "{gui options
-    Plug 'mkitt/tabline.vim'
-    Plug 'junegunn/limelight.vim'
-    Plug 'junegunn/goyo.vim'
-    Plug 'jeetsukumaran/vim-nefertiti'
+    "Plug 'mkitt/tabline.vim'
+    "Plug 'ouzhenkun/vim-tabline'
+    "Plug 'ap/vim-buftabline'
+    "Plug 'junegunn/limelight.vim'
+    "Plug 'junegunn/goyo.vim'
+    "Plug 'jeetsukumaran/vim-nefertiti'
   "}
   "{show function, method, class name of current cursor position
-    Plug 'jeetsukumaran/vim-gazetteer'
+    "Plug 'jeetsukumaran/vim-gazetteer'
   "}
   "{doc and help with mapping ,?
-    Plug 'lifepillar/vim-cheat40'
+    "Plug 'lifepillar/vim-cheat40'
   "}
   call plug#end()
 "}
@@ -536,11 +604,11 @@ let g:solarized_termtrans=1
     augroup END
 
   "bigfish/vim-js-context-coloring
-    "let g:js_context_colors_enabled=1
-    "let g:js_context_colors_colorize_comments=1
-    "let g:js_context_colors_highlight_function_names=1
-    "let g:js_context_colors_jsx=1
-    "let g:js_context_colors_allow_jsx_syntax=1
+    let g:js_context_colors_enabled=1
+    let g:js_context_colors_colorize_comments=1
+    let g:js_context_colors_highlight_function_names=1
+    let g:js_context_colors_jsx=1
+    let g:js_context_colors_allow_jsx_syntax=1
 
   "vim-devicons
     if has('gui_running')
@@ -683,6 +751,9 @@ let g:solarized_termtrans=1
   " smarter cursorline
   autocmd InsertLeave,WinEnter * set cursorline
   autocmd InsertEnter,WinLeave * set nocursorline
+
+  " select last paste in visual mode
+  nnoremap <expr> gb '`['. strpart(getregtype(), 0, 1) . '`]'
 "}
 
 "{helper functions
@@ -698,6 +769,7 @@ let g:solarized_termtrans=1
   endfunc
 
   command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+  " populate the arguments list with all of the file names in quickfix list
   function! QuickfixFilenames()
     " Building a hash ensures we get each buffer only once
     let buffer_numbers = {}
