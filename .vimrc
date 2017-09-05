@@ -233,6 +233,7 @@ let g:solarized_termtrans=1
     Plug 'plasticboy/vim-markdown'
     Plug 'suan/vim-instant-markdown'
     Plug 'dhruvasagar/vim-table-mode'
+    Plug 'mattn/vim-maketable'
   "}
   "{refresh
     Plug 'ryanss/vim-hackernews'
@@ -423,16 +424,19 @@ let g:solarized_termtrans=1
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_auto_refresh_includes = 1
     highlight SyntasticErrorSign guifg=white guibg=red
+    highlight IncSearch guibg=green ctermbg=green term=underline
+    highlight Cursor guifg=lime guibg=steelblue
+    highlight iCursor guifg=white guibg=steelblue
     let g:syntastic_quiet_messages = { "level": "warnings" }
 
   "scrooloose/nerdtree
     nnoremap <leader>ne :NERDTreeFind<CR>
     nnoremap <leader>nt :NERDTreeToggle<CR>
     let g:NERDTreeShowLineNumbers=1
-    let g:NERDTreeChDirMode=2
+    "let g:NERDTreeChDirMode=2
     let NERDTreeWinPos="left"
     let NERDTreeIgnore=['\.pyc$', '\~$']
-    let g:NERDTreeCascadeOpenSingleChildDir=0
+    "let g:NERDTreeCascadeOpenSingleChildDir=0
 
   "nerdtree-git-plugin
     let g:NERDTreeIndicatorMapCustom = {
@@ -701,7 +705,7 @@ let g:solarized_termtrans=1
     let g:buffergator_suppress_keymaps=1
 
   "braceless
-    autocmd FileType python BracelessEnable +indent
+    "autocmd FileType python BracelessEnable +indent
 
   "ctrlp-pythonic
     let g:ctrlp_extensions = ['pythonic']
@@ -1008,25 +1012,25 @@ let g:solarized_termtrans=1
   "}
 
   "{highlight unwanted spaces
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    augroup WhitespaceMatch
-      " Remove ALL autocommands for the WhitespaceMatch group.
-      autocmd!
-      autocmd! BufWinEnter * let w:whitespace_match_number =
-            \ matchadd('ExtraWhitespace', '\s\+$')
-      autocmd! InsertEnter * call s:ToggleWhitespaceMatch('i')
-      autocmd! InsertLeave * call s:ToggleWhitespaceMatch('n')
-    augroup END
-    function! s:ToggleWhitespaceMatch(mode)
-      let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
-      if exists('w:whitespace_match_number')
-        call matchdelete(w:whitespace_match_number)
-        call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
-      else
-        " Something went wrong, try to be graceful.
-        let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
-      endif
-    endfunction
+    "highlight ExtraWhitespace ctermbg=red guibg=red
+    "augroup WhitespaceMatch
+      "" Remove ALL autocommands for the WhitespaceMatch group.
+      "autocmd!
+      "autocmd! BufWinEnter * let w:whitespace_match_number =
+            "\ matchadd('ExtraWhitespace', '\s\+$')
+      "autocmd! InsertEnter * call s:ToggleWhitespaceMatch('i')
+      "autocmd! InsertLeave * call s:ToggleWhitespaceMatch('n')
+    "augroup END
+    "function! s:ToggleWhitespaceMatch(mode)
+      "let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+      "if exists('w:whitespace_match_number')
+        "call matchdelete(w:whitespace_match_number)
+        "call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+      "else
+        "" Something went wrong, try to be graceful.
+        "let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+      "endif
+    "endfunction
   "}
 
   "prettier(npm install -g prettier | yarn global add prettier)
