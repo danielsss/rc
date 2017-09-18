@@ -4,36 +4,53 @@ let g:solarized_termtrans=1
   call plug#begin('/Users/leo/.vim/plugged/')
   "{ file navigation
     Plug 'ctrlpvim/ctrlp.vim'
+    "Plug 'natduca/quickopen'
     Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'lokikl/vim-ctrlp-ag'
+    Plug 'ivalkeen/vim-ctrlp-tjump'
+    Plug 'mhartington/ctrlp-ag'
     Plug 'scrooloose/nerdcommenter'
     Plug 'noscripter/nerdtree'
     " TODO
     "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     "Plug 'shougo/vimfiler.vim'
     "Plug 'dyng/ctrlsf.vim'
-    "Plug 'xolox/vim-misc'
-    "Plug 'xolox/vim-session'
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-session'
     "Plug 'thaerkh/vim-workspace'
     "Plug 'vim-ctrlspace/vim-ctrlspace'
     "Plug 'trapd00r/vidir'
-    "Plug 'tacahiroy/ctrlp-funky'
-    "Plug 'jeetsukumaran/ctrlp-pythonic.vim'
+    Plug 'tacahiroy/ctrlp-funky'
+    Plug 'jeetsukumaran/ctrlp-pythonic.vim'
   "}
   "{ vim buffer operation
     Plug 'vim-scripts/BufOnly.vim'
   "}
   "{ git
     Plug 'tpope/vim-fugitive'
+    Plug 'vim-scripts/gitignore'
     " TODO
     "Plug 'tpope/vim-git'
     "Plug 'gregsexton/gitv'
     Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-rooter'
     "Plug 'Xuyuanp/nerdtree-git-plugin'
     "Plug 'junegunn/gv.vim'
     "Plug 'mattn/gist-vim'
     "Plug 'itchyny/vim-gitbranch'
     "Plug 'jreybert/vimagit'
     "Plug 'tommcdo/vim-fugitive-blame-ext'
+  "}
+  "{ wechat
+    Plug 'chemzqm/wxapp.vim'
+  "}
+  "{unicode
+    Plug 'tpope/vim-characterize'
+    Plug 'mbbill/fencview'
+    Plug 'chrisbra/unicode.vim'
+  "}
+  "{operation history
+    Plug 'mbbill/undotree'
   "}
   "{ insert mode auto-completion for quotes, parens, brackets, etc
     Plug 'jiangmiao/auto-pairs'
@@ -140,6 +157,7 @@ let g:solarized_termtrans=1
     Plug 'Chiel92/vim-autoformat'
     Plug 'alpaca-tc/beautify.vim'
     "Plug 'wincent/ferret'
+    Plug 'wincent/Command-T'
     "Plug 'gcmt/wildfire.vim'
     "Plug 'vim-scripts/DrawIt'
     "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -186,6 +204,7 @@ let g:solarized_termtrans=1
     "Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-vinegar'
     Plug 'vim-airline/vim-airline'
+    "Plug 'liuchengxu/eleline.vim'
     Plug 'Olical/vim-enmasse'
     "Plug 'ryanoasis/vim-devicons'
     "Plug 'mh21/errormarker.vim'
@@ -273,10 +292,11 @@ let g:solarized_termtrans=1
     Plug 'jelera/vim-javascript-syntax'
     Plug 'briancollins/vim-jst'
     "Plug 'jason0x43/vim-js-indent'
-    "Plug 'itspriddle/vim-javascript-indent'
-    "Plug 'jiangmiao/simple-javascript-indenter'
-    "Plug 'gavocanov/vim-js-indent'
-    "Plug 'Quramy/vim-js-pretty-template'
+    Plug 'itspriddle/vim-javascript-indent'
+    Plug 'jiangmiao/simple-javascript-indenter'
+    Plug 'gavocanov/vim-js-indent'
+    Plug 'Quramy/vim-js-pretty-template'
+    Plug 'nikvdp/ejs-syntax'
     Plug 'vimlab/jscs.vim'
     Plug 'HerringtonDarkholme/yats.vim'
     "Plug 'ynkdir/vim-vimlparser'
@@ -368,6 +388,7 @@ let g:solarized_termtrans=1
     "let g:airline#extensions#tabline#enabled = 1
     let airline#extensions#tabline#show_buffers = 0
     "let g:airline#extensions#tabline#show_tab_nr = 1
+    let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
   "SirVer/ultisnips
     let g:UltiSnipsUsePythonVersion    = 2
@@ -425,8 +446,8 @@ let g:solarized_termtrans=1
     let g:syntastic_cpp_auto_refresh_includes = 1
     highlight SyntasticErrorSign guifg=white guibg=red
     highlight IncSearch guibg=green ctermbg=green term=underline
-    highlight Cursor guifg=lime guibg=steelblue
-    highlight iCursor guifg=white guibg=steelblue
+    highlight Cursor guifg=gold guibg=red
+    highlight iCursor guifg=gold guibg=red
     let g:syntastic_quiet_messages = { "level": "warnings" }
 
   "scrooloose/nerdtree
@@ -460,6 +481,17 @@ let g:solarized_termtrans=1
     let g:loaded_tabman = 0
 
   "ctrlpvim/ctrlp.vim
+    " The Silver Searcher
+    if executable('ag')
+      " Use ag over grep
+      set grepprg=ag\ --nogroup\ --nocolor
+
+      " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+      " ag is fast enough that CtrlP doesn't need to cache
+      let g:ctrlp_use_caching = 0
+    endif
     if exists(':CtrplP')
       let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -467,9 +499,13 @@ let g:solarized_termtrans=1
         \ 'file': '\v\.(exe|so|dll)$',
         \ 'link': 'some_bad_symbolic_links',
         \ }
+      set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+      "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
       let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+      "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+      "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
       let g:ctrlp_working_path_mode='cra'
-      let g:ctrlp_root_markers="pom.xml"
+      "let g:ctrlp_root_markers="pom.xml"
       let g:ctrlp_match_window="bottom,order:btt,min:1,max:25,results:25"
       let g:ctrlp_show_hidden=1
       let g:ctrlp_use_caching=1
@@ -639,7 +675,6 @@ let g:solarized_termtrans=1
       au! BufWinEnter quickfix setlocal
           \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
     augroup END
-    let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
     let g:asyncrun_last = 3
     let g:asyncrun_encs = 'gbk'
     command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
@@ -1139,7 +1174,7 @@ let g:solarized_termtrans=1
   if has('gui_running')
     colorscheme molokai_dark
   else
-    colorscheme xterm16
+    colorscheme Revolution "xterm16
   endif
   set nofoldenable
   set foldlevel=1
@@ -1246,4 +1281,5 @@ let g:solarized_termtrans=1
   " Try the following if your GUI uses a dark background.
   highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
   set t_Co=256
+  "set shell=/bin/bash
 "}
