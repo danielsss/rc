@@ -7,10 +7,12 @@ let g:solarized_termtrans=1
     "Plug 'natduca/quickopen'
     Plug 'FelikZ/ctrlp-py-matcher'
     Plug 'lokikl/vim-ctrlp-ag'
+    Plug 'jeetsukumaran/ctrlp-pythonic.vim'
     Plug 'ivalkeen/vim-ctrlp-tjump'
     Plug 'mhartington/ctrlp-ag'
     Plug 'scrooloose/nerdcommenter'
     Plug 'noscripter/nerdtree'
+    "Plug 'jeetsukumaran/vim-filebeagle'
     " TODO
     "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     "Plug 'shougo/vimfiler.vim'
@@ -34,12 +36,12 @@ let g:solarized_termtrans=1
     "Plug 'gregsexton/gitv'
     Plug 'airblade/vim-gitgutter'
     Plug 'airblade/vim-rooter'
-    "Plug 'Xuyuanp/nerdtree-git-plugin'
-    "Plug 'junegunn/gv.vim'
-    "Plug 'mattn/gist-vim'
-    "Plug 'itchyny/vim-gitbranch'
-    "Plug 'jreybert/vimagit'
-    "Plug 'tommcdo/vim-fugitive-blame-ext'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'junegunn/gv.vim'
+    Plug 'mattn/gist-vim'
+    Plug 'itchyny/vim-gitbranch'
+    Plug 'jreybert/vimagit'
+    Plug 'tommcdo/vim-fugitive-blame-ext'
   "}
   "{ wechat
     Plug 'chemzqm/wxapp.vim'
@@ -92,15 +94,23 @@ let g:solarized_termtrans=1
   "{ buffer switch
     " ref: http://vim.wikia.com/wiki/Easier_buffer_switching
     Plug 'noscripter/bufexplorer.zip'
-    "Plug 'bsdelf/bufferhint'
-    "Plug 'jeetsukumaran/vim-buffergator'
+    Plug 'bsdelf/bufferhint'
+    Plug 'jeetsukumaran/vim-buffergator'
     "search, index, navigate buffer content by regex
-    "Plug 'jeetsukumaran/vim-buffersaurus'
+    Plug 'jeetsukumaran/vim-buffersaurus'
+  "}
+  "{ developer helper
+    " Typing 'gG' will echo the (scoped) name of the function, method,
+    " class, etc. of the current cursor position.
+    Plug 'jeetsukumaran/vim-gazetteer'
   "}
   "{ search helper
     Plug 'google/vim-searchindex'
     "earch local filesystem by name or content, glob or regex
-    Plug 'jeetsukumaran/vim-filesearch'
+    "Plug 'jeetsukumaran/vim-filesearch'
+    " find-n-replace helper free of regular expressions
+    "Plug 'junegunn/vim-fnr'
+    "Plug 'junegunn/vim-slash'
   "}
   "{ google vim plugins
     "Plug 'google/vim-maktaba'
@@ -134,7 +144,7 @@ let g:solarized_termtrans=1
     Plug 'KabbAmine/vCoolor.vim'
     Plug 'beautify-web/js-beautify'
     Plug 'prettier/vim-prettier'
-    Plug 'evanmiller/nginx-vim-syntax'
+    "Plug 'evanmiller/nginx-vim-syntax'
     Plug 'elzr/vim-json'
     Plug 'docunext/closetag.vim'
     Plug 'mattn/emmet-vim'
@@ -150,6 +160,8 @@ let g:solarized_termtrans=1
   "}
   "{ text objects enhancement
     "Plug 'wellle/targets.vim'
+    Plug 'chrisbra/NrrwRgn'
+    Plug 'junegunn/vim-after-object'
   "}
   "{ utility
     Plug 'michalliu/sourcebeautify.vim'
@@ -160,8 +172,8 @@ let g:solarized_termtrans=1
     Plug 'wincent/Command-T'
     "Plug 'gcmt/wildfire.vim'
     "Plug 'vim-scripts/DrawIt'
-    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    "Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'AndrewRadev/switch.vim'
     Plug 'terryma/vim-expand-region'
@@ -170,13 +182,14 @@ let g:solarized_termtrans=1
     Plug 'chrisbra/unicode.vim'
     "Plug 'brooth/far.vim'
     "Plug 'Chiel92/vim-autoformat'
+    Plug 'sbdchd/neoformat'
     "Plug 'w0rp/ale'
-    "Plug 'mhinz/vim-signify'
+    Plug 'mhinz/vim-signify'
     Plug 'mhinz/vim-startify'
     Plug 'mileszs/ack.vim'
     Plug 'junegunn/vim-easy-align'
-    "Plug 'junegunn/vim-emoji'
-    "Plug 'junegunn/vim-xmark', { 'do': 'make' }
+    Plug 'junegunn/vim-emoji'
+    Plug 'junegunn/vim-xmark', { 'do': 'make' }
     Plug 'maxbrunsfeld/vim-yankstack'
     Plug 'junkblocker/patchreview-vim'
     Plug 'kshenoy/vim-signature'
@@ -294,7 +307,7 @@ let g:solarized_termtrans=1
     "Plug 'jason0x43/vim-js-indent'
     Plug 'itspriddle/vim-javascript-indent'
     Plug 'jiangmiao/simple-javascript-indenter'
-    Plug 'gavocanov/vim-js-indent'
+    "Plug 'gavocanov/vim-js-indent'
     Plug 'Quramy/vim-js-pretty-template'
     Plug 'nikvdp/ejs-syntax'
     Plug 'vimlab/jscs.vim'
@@ -328,18 +341,19 @@ let g:solarized_termtrans=1
     Plug 'chase/vim-ansible-yaml'
   "}
   "{gui options
-    "Plug 'mkitt/tabline.vim'
-    "Plug 'ouzhenkun/vim-tabline'
+    Plug 'mkitt/tabline.vim'
+    Plug 'ouzhenkun/vim-tabline'
     "Plug 'ap/vim-buftabline'
-    "Plug 'junegunn/limelight.vim'
-    "Plug 'junegunn/goyo.vim'
-    "Plug 'jeetsukumaran/vim-nefertiti'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim'
+    Plug 'jeetsukumaran/vim-nefertiti'
+    Plug 'wesQ3/vim-windowswap'
   "}
   "{show function, method, class name of current cursor position
     "Plug 'jeetsukumaran/vim-gazetteer'
   "}
   "{doc and help with mapping ,?
-    "Plug 'lifepillar/vim-cheat40'
+    Plug 'lifepillar/vim-cheat40'
   "}
   call plug#end()
 "}
@@ -397,6 +411,8 @@ let g:solarized_termtrans=1
     let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
     let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
     let g:UltiSnipsEditSplit           = "vertical"
+    "let g:UltiSnipsSnippetsDir="~/.vim/my-snippets"
+    "let g:UltiSnipsSnippetDirectories=[g:UltiSnipsSnippetsDir]
 
   "scrooloose/syntastic
     set statusline+=%#warningmsg#
@@ -610,6 +626,16 @@ let g:solarized_termtrans=1
       \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
       \   nnoremap <buffer> .. :edit %:h<CR> |
       \ endif
+    " work with asyncrun
+    "https://github.com/skywind3000/asyncrun.vim/wiki/Cooperate-with-famous-plugins
+    command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+    "if exists(':Make') == 2
+      "noautocmd Make
+    "else
+      "silent noautocmd make!
+      "redraw!
+      "return 'call fugitive#cwindow()'
+    "endif
 
   "pangloss/vim-javascript
     let g:javascript_plugin_jsdoc = 1
@@ -676,7 +702,7 @@ let g:solarized_termtrans=1
           \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
     augroup END
     let g:asyncrun_last = 3
-    let g:asyncrun_encs = 'gbk'
+    "let g:asyncrun_encs = 'gbk'
     command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
     augroup async
       "autocmd QuickFixCmdPost * botright copen 8
@@ -718,17 +744,38 @@ let g:solarized_termtrans=1
     "let g:ale_lint_on_save = 1
     "let g:ale_lint_on_text_changed = 0
     "let g:ale_emit_conflict_warnings = 0
+    "" Enable completion where available.
+    "let g:ale_completion_enabled = 1
     "let g:ale_linters = {
-    "      \ 'javascript': ['eslint']
-    "      \}
-    "let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+          "\ 'javascript': ['eslint']
+          "\}
+    ""let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+    "" Put this in vimrc or a plugin file of your own.
+    "" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+    "let g:ale_fixers = {
+    "\   'javascript': ['eslint'],
+    "\}
     "let g:airline#extensions#ale#enabled = 1
     "augroup FiletypeGroup
-    "    autocmd!
-    "    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+        "autocmd!
+        "au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
     "augroup END
-    "let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-    "let g:ale_linter_aliases = {'jsx': 'css'}
+    ""let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+    "let g:ale_linters = {'javascript': ['eslint']}
+    ""let g:ale_linter_aliases = {'jsx': 'css'}
+    "function! LinterStatus() abort
+        "let l:counts = ale#statusline#Count(bufnr(''))
+
+        "let l:all_errors = l:counts.error + l:counts.style_error
+        "let l:all_non_errors = l:counts.total - l:all_errors
+
+        "return l:counts.total == 0 ? 'OK' : printf(
+        "\   '%dW %dE',
+        "\   all_non_errors,
+        "\   all_errors
+        "\)
+    "endfunction
+    "set statusline=%{LinterStatus()}
 
   "Chiel92/autoformat
     let g:autoformat_verbosemode=1
@@ -750,6 +797,89 @@ let g:solarized_termtrans=1
             autocmd FileType python nnoremap <Leader><Leader> :CtrlPPythonic<CR>
         augroup END
     endif
+
+  "neocomplete.vim
+    "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+    " Disable AutoComplPop.
+    let g:acp_enableAtStartup = 0
+    " Use neocomplete.
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplete#enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+    " Define dictionary.
+    let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+    " Define keyword.
+    if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+    endif
+    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+    " Plugin key-mappings.
+    inoremap <expr><C-g>     neocomplete#undo_completion()
+    inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+    " Recommended key-mappings.
+    " <CR>: close popup and save indent.
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function()
+      return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+      " For no inserting <CR> key.
+      "return pumvisible() ? "\<C-y>" : "\<CR>"
+    endfunction
+    " <TAB>: completion.
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    " <C-h>, <BS>: close popup and delete backword char.
+    inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+    " Close popup by <Space>.
+    "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+    " AutoComplPop like behavior.
+    "let g:neocomplete#enable_auto_select = 1
+
+    " Shell like behavior(not recommended).
+    "set completeopt+=longest
+    "let g:neocomplete#enable_auto_select = 1
+    "let g:neocomplete#disable_auto_complete = 1
+    "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+    " Enable heavy omni completion.
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+      let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+    "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+    " For perlomni.vim setting.
+    " https://github.com/c9s/perlomni.vim
+    let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+  "junegunn/vim-fnr
+    " Default options
+    "let g:fnr_flags   = 'gc'
+    "let g:fnr_hl_from = 'Todo'
+    "let g:fnr_hl_to   = 'IncSearch'
+    " custom mappings
+    "nmap <Leader>r <Plug>(FNR)
+    "xmap <Leader>r <Plug>(FNR)
+    "nmap <Leader>R <Plug>(FNR%)
+    "xmap <Leader>R <Plug>(FNR%)
 "}
 
 "{Mappings
@@ -1155,6 +1285,7 @@ let g:solarized_termtrans=1
   set title
   set showtabline=2
   set hidden
+  " this prevents ultisnips expand from working
   filetype plugin indent on
   set smarttab
   set noerrorbells novisualbell t_vb=
@@ -1172,9 +1303,9 @@ let g:solarized_termtrans=1
   set virtualedit=onemore
   set completeopt=menuone,menu,preview,longest
   if has('gui_running')
-    colorscheme molokai_dark
+    colorscheme hornet
   else
-    colorscheme Revolution "xterm16
+    colorscheme jelleybeans "xterm16
   endif
   set nofoldenable
   set foldlevel=1
