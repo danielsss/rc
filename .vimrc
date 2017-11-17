@@ -349,6 +349,9 @@ let g:solarized_termtrans=1
     Plug 'jeetsukumaran/vim-nefertiti'
     Plug 'wesQ3/vim-windowswap'
   "}
+  "{
+    Plug 'raphamorim/lucario'
+  "}
   "{show function, method, class name of current cursor position
     "Plug 'jeetsukumaran/vim-gazetteer'
   "}
@@ -369,14 +372,7 @@ let g:solarized_termtrans=1
           \ 'files',
           \ ]
     let g:startify_bookmarks = [
-          \ { 'b': '~/projects/daily.md' },
-          \ { 'c': '~/projects/bookmarks/result' },
-          \ { 'd': '~/projects/cloakroom/' },
-          \ { 'f': '~/projects/cloakroom/plugins/haystack/' },
-          \ { 'g': '~/projects/playground/' },
-          \ { 'h': '~/projects/playground/usersurvey' },
-          \ { 'l': '~/projects/mercury/nodejs' },
-          \ { 'o': '~/projects/mw-mytaobao/nodejs/' },
+          \ { 'b': '~/projects/' }
           \]
 
   "vim-easy-align
@@ -704,11 +700,11 @@ let g:solarized_termtrans=1
     let g:asyncrun_last = 3
     "let g:asyncrun_encs = 'gbk'
     command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-    augroup async
-      "autocmd QuickFixCmdPost * botright copen 8
-      autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
-      "autocmd User AsyncRunStop call asyncrun#quickfix_toggle(8, 1)
-    augroup END
+    "augroup async
+      ""autocmd QuickFixCmdPost * botright copen 8
+      "autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+      ""autocmd User AsyncRunStop call asyncrun#quickfix_toggle(8, 1)
+    "augroup END
 
   "bigfish/vim-js-context-coloring
     let g:js_context_colors_enabled=1
