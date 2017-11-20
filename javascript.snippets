@@ -101,3 +101,39 @@ xhr.onreadystatechange = function(e) {
 
 xhr.send();
 endsnippet
+
+snippet alibaba "alibaba copyright"
+/** !
+ *
+ * Copyright(c) Alibaba Group Holding Limited.
+ *
+ * Authors:
+ *   ${1:noscripter} <${2:noscripter_email}@${3:noscripter.anonymous.cybertron}>
+ */
+endsnippet
+
+snippet react "react"
+'use strict';
+
+import React from 'react';
+
+class ${1:Comp} extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      $2
+    };
+  }
+  render() {
+    return (
+      <${3:div}>
+      $0
+      </$3>
+    );
+  }
+}
+endsnippet
+
+snippet console "console format"
+  console.log('%c $1 $2', 'font-size: ${3:1.2rem}; color: ${4:red}', $0);
+endsnippet
