@@ -137,3 +137,17 @@ endsnippet
 snippet console "console format"
   console.log('%c $1 $2', 'font-size: ${3:1.2rem}; color: ${4:red}', $0);
 endsnippet
+
+# b means only on the beginning of a sentence
+# replace end tag name using UltiSnip's transformation feature
+snippet tag "insert element tag" b
+  <${1:div}>
+  $0
+  </${1/(\w).*/$1/}>
+endsnippet
+
+# insert current timestamp for todo mark
+# taking advantage of UltiSnip's interpolation feature
+snippet todo "todo reminder" b
+// TODO: ${1:desc} `!v strftime("%c")` `git config user.name`
+endsnippet
