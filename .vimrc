@@ -499,14 +499,13 @@ let g:solarized_termtrans=1
       set grepprg=ag\ --nogroup\ --nocolor
 
       " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+      let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', 'ag %s -l --nocolor -g ""']
 
       " ag is fast enough that CtrlP doesn't need to cache
       let g:ctrlp_use_caching = 0
     endif
-    if exists(':CtrplP')
+    if exists(':CtrlP')
       let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
         \ 'dir': 'node_modules\|bower_components',
         \ 'file': '\v\.(exe|so|dll)$',
         \ 'link': 'some_bad_symbolic_links',
@@ -525,6 +524,7 @@ let g:solarized_termtrans=1
     endif
     nnoremap <leader>b :CtrlPBuffer<CR>
     nnoremap <C-P> :CtrlPMixed<CR>
+
 
   "Valloric/YouCompleteMe
     let g:ycm_min_num_of_chars_for_completion = 3
