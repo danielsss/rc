@@ -25,3 +25,10 @@ set mouse=a " enable to scroll with mouse
     autocmd! BufWritePost $MYVIMRC source $MYVIMRC
   augroup END
 "}
+
+" use darkblue for server if exist
+try
+  colo darkblue
+catch /^Vim\%((\a\+)\)\=:E185/
+  echom "colorscheme unavailable"
+endtry
