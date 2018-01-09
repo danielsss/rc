@@ -1,9 +1,13 @@
+snippet shabang "shabang!"
+#!/usr/bin/env $0
+endsnippet
+
 # require async
 snippet Async "Async"
 var Async = require('async');
 endsnippet
 
-snippet use
+snippet strict
 'use strict';
 endsnippet
 
@@ -16,7 +20,6 @@ endsnippet
 
 snippet const "const statement"
 const $1 = require('$1');
-$0
 endsnippet
 
 snippet let "let statement"
@@ -51,6 +54,17 @@ endsnippet
 snippet => "arrow function"
   (${1}) => {
     ${2}
+  }
+endsnippet
+
+# constructor
+snippet constructor "constructor function"
+  constructor(props) {
+    super(props);
+    $1
+    this.state = {
+      $0
+    };
   }
 endsnippet
 
@@ -116,6 +130,7 @@ snippet react "react"
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ${1:Comp} extends React.Component {
   constructor(props) {
@@ -123,6 +138,8 @@ class ${1:Comp} extends React.Component {
     this.state = {
       $2
     };
+  }
+  static propTypes = {
   }
   render() {
     return (
@@ -132,6 +149,8 @@ class ${1:Comp} extends React.Component {
     );
   }
 }
+
+module.exports = $1;
 endsnippet
 
 snippet console "console format"
@@ -150,4 +169,18 @@ endsnippet
 # taking advantage of UltiSnip's interpolation feature
 snippet todo "todo reminder" b
 // TODO: ${1:desc} `!v strftime("%c")` `git config user.name`
+endsnippet
+
+snippet combine "combine function"
+function combine() {
+    return Array.prototype.reduce.call(arguments, function(a, b) {
+        var ret = [];
+        a.forEach(function(a) {
+            b.forEach(function(b) {
+                ret.push(a.concat([b]))
+            })
+        });
+        return ret;
+    }, [[]])
+}
 endsnippet
